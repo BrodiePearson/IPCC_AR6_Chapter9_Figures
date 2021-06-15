@@ -1,5 +1,8 @@
-%% Code to process CMIP6 data from historical and SSP experiments
-% This example is for sea surfact temperature (SST) - named tos in CMIP6 
+%% IPCC AR6 Chapter 9 Figure 9.3 (Global Mean SST timeseries)
+%
+% Code used to plot the processed CMIP6 data created by Calculate_*.m
+%
+% Written by Brodie Pearson
 
 clear all
 
@@ -104,18 +107,13 @@ GMSST_SSP585(GMSST_SSP585==0)=NaN(1);
 
 CMIP_Likely_ubound=quantile(GMSST_CMIP,0.83,2);
 CMIP_Likely_lbound=quantile(GMSST_CMIP,0.17,2);
-% CMIP_Likely_Conf_Bounds = [CMIP_Likely_ubound' flipud(CMIP_Likely_lbound)'];
 CMIP_VeryLikely_ubound=quantile(GMSST_CMIP,0.95,2);
 CMIP_VeryLikely_lbound=quantile(GMSST_CMIP,0.05,2);
-% CMIP_VeryLikely_Conf_Bounds = [CMIP_VeryLikely_ubound' flipud(CMIP_VeryLikely_lbound)'];
-% CMIP_Time_Conf_Bounds = [CMIP_time fliplr(CMIP_time)];
 
 SSP126_Likely_ubound=quantile(GMSST_SSP126,0.83,2);
 SSP126_Likely_lbound=quantile(GMSST_SSP126,0.17,2);
-% SSP126_Likely_Conf_Bounds = [SSP126_Likely_ubound' flipud(SSP126_Likely_lbound)'];
 SSP126_VeryLikely_ubound=quantile(GMSST_SSP126,0.95,2);
 SSP126_VeryLikely_lbound=quantile(GMSST_SSP126,0.05,2);
-% SSP126_VeryLikely_Conf_Bounds = [SSP126_VeryLikely_ubound' flipud(SSP126_VeryLikely_lbound)'];
 
 SSP245_Likely_ubound=quantile(GMSST_SSP245,0.83,2);
 SSP245_Likely_lbound=quantile(GMSST_SSP245,0.17,2);
@@ -206,16 +204,13 @@ HRMIP_Likely_lbound=quantile(GMSST_HRMIP,0.17,2);
 HRMIP_Likely_Conf_Bounds = [HRMIP_Likely_ubound' flipud(HRMIP_Likely_lbound)'];
 HRMIP_VeryLikely_ubound=quantile(GMSST_HRMIP,0.95,2);
 HRMIP_VeryLikely_lbound=quantile(GMSST_HRMIP,0.05,2);
-%HRMIP_VeryLikely_Conf_Bounds = [HRMIP_VeryLikely_ubound' flipud(HRMIP_VeryLikely_lbound)'];
-% 
-% HRMIP_Time_Conf_Bounds = [HRMIP_time fliplr(HRMIP_time)];
+
 
 HRSSP_Likely_ubound=quantile(GMSST_HRSSP,0.83,2);
 HRSSP_Likely_lbound=quantile(GMSST_HRSSP,0.17,2);
 HRSSP_Likely_Conf_Bounds = [HRSSP_Likely_ubound' flipud(HRSSP_Likely_lbound)'];
 HRSSP_VeryLikely_ubound=quantile(GMSST_HRSSP,0.95,2);
 HRSSP_VeryLikely_lbound=quantile(GMSST_HRSSP,0.05,2);
-%HRSSP_VeryLikely_Conf_Bounds = [HRSSP_VeryLikely_ubound' flipud(HRSSP_VeryLikely_lbound)'];
 
 HighResMIP_VeryLikely_lbound = [HRMIP_VeryLikely_lbound; HRSSP_VeryLikely_lbound];
 HighResMIP_VeryLikely_ubound = [HRMIP_VeryLikely_ubound; HRSSP_VeryLikely_ubound];
@@ -267,8 +262,6 @@ patch(SSP_Time_Conf_Bounds,SSP245_Likely_Conf_Bounds,color_SSP245, 'EdgeColor', 
 patch(SSP_Time_Conf_Bounds,SSP370_Likely_Conf_Bounds,color_SSP370, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
 patch(SSP_Time_Conf_Bounds,SSP585_Likely_Conf_Bounds,color_SSP585, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
 likely = patch(CMIP_Time_Conf_Bounds,CMIP_Likely_Conf_Bounds,color_CMIP, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
-% patch(HRMIP_Time_Conf_Bounds,HRMIP_Likely_Conf_Bounds,color_HRMIP, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
-%patch(HRSSP_Time_Conf_Bounds,HRSSP_Likely_Conf_Bounds,color_HRSSP, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
 patch(HighResMIP_Time_Conf_Bounds,HighResMIP_Likely_Conf_Bounds,color_HRSSP, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
 plot(SSP_time,GMSST_SSP126_mean,'Color', color_SSP126, 'LineWidth', width)
 plot(SSP_time,GMSST_SSP245_mean,'Color', color_SSP245, 'LineWidth', width)
@@ -276,8 +269,6 @@ plot(SSP_time,GMSST_SSP370_mean,'Color', color_SSP370, 'LineWidth', width)
 plot(SSP_time,GMSST_SSP585_mean,'Color', color_SSP585, 'LineWidth', width)
 means=plot(CMIP_time,GMSST_CMIP_mean, 'Color', color_CMIP, 'LineWidth', width)
 plot(OBS_time,GMSST_OBS_mean, 'Color', color_OBS, 'LineWidth', width)
-% plot(HRMIP_time,GMSST_HRMIP_mean, 'Color', color_HRMIP, 'LineWidth', width)
-%plot(HRSSP_time,GMSST_HRSSP_mean, 'Color', color_HRSSP, 'LineWidth', width)
 plot(HighResMIP_time(6:end-5),GMSST_HighResMIP_mean(6:end-5), 'Color', color_HRSSP, 'LineWidth', width)
 ylim(ylims)
 xlim([1850 2101])
@@ -303,22 +294,12 @@ text(CMIP_time(end/5)-20,GMSST_CMIP_mean(end/2)+0.5,txt,'FontSize',16, ...
 txt = {"HighResMIP", "(historical_{"+num2str(HRMIP_count)+"}/SSP5-8.5_{"+num2str(HRSSP_count)+"})"};
 text(HRMIP_time(end/4)+20,GMSST_HRMIP_mean(end/2)+1,txt,'FontSize',16, ...
     'Color', color_HRMIP, 'FontWeight', 'bold','HorizontalAlignment','center')
-%txt = "(historical_{"+num2str(HRMIP_count)+"}/SSP5-8.5_{" ...
-%    +num2str(HRSSP_count)+"})";
-%text(HRMIP_time(end/4)-10,GMSST_HRMIP_mean(end/2)+0.9,txt,'FontSize',16, ...
-%    'Color', color_HRMIP, 'FontWeight', 'bold')
 txt = {'Observational',  'Reanalyses'};
 text(OBS_time(end/3),GMSST_OBS_mean(end/2)+0.5,txt,'FontSize',16, ...
     'Color', color_OBS, 'FontWeight', 'bold','HorizontalAlignment','center')
 txt = 'Global Mean SST (GMSST); modern history and model projections to 2100';
 text(1855,4.7,txt,'FontSize',18, ...
     'Color', 'k', 'FontWeight', 'bold')
-% txt = 'From paleo data (left panels), modern observations and models (this panel)';
-% text(1855,4.2,txt,'FontSize',18, ...
-%     'Color', 'k', 'FontWeight', 'normal')
-% txt = "^oC";
-% text(1835,2.5,txt,'FontSize',20, ...
-%     'Color', color_CMIP)
 ylabel('^o C     ')
 set(get(gca,'YLabel'),'Rotation',0)
 
@@ -368,18 +349,10 @@ text(2100+10,ylims(1)+0.15*ylength,txt,'FontSize',10, ...
 set(gca,'TickDir','in');
 xlim([1850 2101])
 plot([1850 2101], [1850 2101]*0, 'k', 'LineWidth', width/10)
-% set(gca,'Xtick',[1851 1900 1950 2000 2050 2100],'Xticklabel', ...
-%     {'1850', '', '1900','1950','2000','2050 '2300'})
 
 legend([means likely],'Mean GMSST', ...
     'CMIP6 Likely (17-83%) ranges','Box','off' ...
     ,'Position',[0.25 0.5 0.1 0.1],'FontSize',14)
-
-%dim = [.7 .6 .5 .3];
-%str = "MIP Model Counts:  "+num2str(CMIP_count)+"/"+num2str(HRMIP_count) ...
-%    +"/"+num2str(SSP126_count)+"/"+num2str(SSP245_count)+"/"+ ...
-%    num2str(SSP370_count)+"/"+num2str(SSP585_count);
-%annotation('textbox',dim,'String',str,'FitBoxToText','on');
 
 axes('Position',[.45 .5 .2 .3])
 width=width/2;
@@ -390,8 +363,6 @@ patch(SSP_Time_Conf_Bounds,SSP245_Likely_Conf_Bounds,color_SSP245, 'EdgeColor', 
 patch(SSP_Time_Conf_Bounds,SSP370_Likely_Conf_Bounds,color_SSP370, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
 patch(SSP_Time_Conf_Bounds,SSP585_Likely_Conf_Bounds,color_SSP585, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
 likely = patch(CMIP_Time_Conf_Bounds,CMIP_Likely_Conf_Bounds,color_CMIP, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
-% patch(HRMIP_Time_Conf_Bounds,HRMIP_Likely_Conf_Bounds,color_HRMIP, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
-% patch(HRSSP_Time_Conf_Bounds,HRSSP_Likely_Conf_Bounds,color_HRSSP, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
 patch(HighResMIP_Time_Conf_Bounds,HighResMIP_Likely_Conf_Bounds,color_HRSSP, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
 plot(SSP_time,GMSST_SSP126_mean,'Color', color_SSP126, 'LineWidth', width)
 plot(SSP_time,GMSST_SSP245_mean,'Color', color_SSP245, 'LineWidth', width)
@@ -399,8 +370,6 @@ plot(SSP_time,GMSST_SSP370_mean,'Color', color_SSP370, 'LineWidth', width)
 plot(SSP_time,GMSST_SSP585_mean,'Color', color_SSP585, 'LineWidth', width)
 means=plot(CMIP_time,GMSST_CMIP_mean, 'Color', color_CMIP, 'LineWidth', width)
 plot(OBS_time,GMSST_OBS_mean, 'Color', color_OBS, 'LineWidth', width)
-% plot(HRMIP_time,GMSST_HRMIP_mean, 'Color', color_HRMIP, 'LineWidth', width)
-% plot(HRSSP_time,GMSST_HRSSP_mean, 'Color', color_HRSSP, 'LineWidth', width)
 plot(HighResMIP_time,GMSST_HighResMIP_mean, 'Color', color_HRSSP, 'LineWidth', width)
 xlim([2000 2020])
 plot([2000 2020], [2000 2020]*0, 'k', 'LineWidth', width/10)
@@ -414,7 +383,6 @@ print(gcf,'../PNGs/Modern_GMSST.png','-dpng','-r1000', '-painters');
 %% Plot extended SSP timeseries
 
 figure('Position', [10 10 200 400])
-% subplot(100,1,1:67)
 
 txt = "SSP5-8.5_{"+num2str(SSP585_Extended_count)+"}";
 text(SSP_Extended_time(end/4),GMSST_SSP585_Extended_mean(end/2)+2,txt,'FontSize',12, ...
@@ -433,17 +401,6 @@ plot(SSP_Extended_time,GMSST_SSP585_Extended_mean,'Color', color_SSP585, 'LineWi
 xlim([2100 2300])
 plot([2100 2300], [2100 2300]*0, 'k', 'LineWidth', width/10)
 ylim([0 15])
-% set(gca,'Xtick',[2100],'Xticklabel',[])
-% set(gca,'FontSize',15)
-% subplot(100,1,70:100)
-% box on
-% patch(SSP_Extended_Time_Conf_Bounds,SSP126_Extended_Conf_Bounds,color_SSP126, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
-% hold on
-% patch(SSP_Extended_Time_Conf_Bounds,SSP585_Extended_Conf_Bounds,color_SSP585, 'EdgeColor', 'none', 'FaceAlpha', 0.2)
-% plot(SSP_Extended_time,GMSST_SSP126_Extended_mean,'Color', color_SSP126, 'LineWidth', width)
-% plot(SSP_Extended_time,GMSST_SSP585_Extended_mean,'Color', color_SSP585, 'LineWidth', width)
-% xlim([2100 2300])
-% ylim([-.5 5])
 set(gca,'Xtick',[2100 2200 2300],'Xticklabel',{'2100', '', '2300'})
 set(gca,'Ytick',[0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15], ...
     'Yticklabel',{'0','','','','','5','','','','','10','','','','','15'})
@@ -468,7 +425,6 @@ print(gcf,'../PNGs/Extended_GMSST.png','-dpng','-r1000', '-painters');
 offset=0.1;
 
 figure('Position', [10 10 200 400])
-% subplot(100,1,1:57)
 plot([.5,.5]-offset, [1 1]*MPWP_obs_mean, '.', 'MarkerSize',25, 'LineWidth', width/2,'MarkerEdgeColor', color_OBS,'Color', color_OBS) % Paleo-data ranges taken from Bopp et al., 2018 datasets
 hold on
 plot([.5,.5]-offset, MPWP_obs_bounds, '-', 'LineWidth', width/2,'MarkerEdgeColor', color_OBS,'Color', color_OBS) % 5.5Myr-400kyr BP
@@ -484,17 +440,6 @@ plot([2,2]+offset, LIG_model_bounds, '-', 'LineWidth', width/2,'MarkerEdgeColor'
 plot([3.5,3.5]+offset, [1 1]*LGM_model_mean, '.', 'MarkerSize',25, 'LineWidth', width/2,'MarkerEdgeColor', color_CMIP,'Color', color_CMIP) 
 plot([3.5,3.5]+offset, LGM_model_bounds, '-', 'LineWidth', width/2,'MarkerEdgeColor', color_OBS,'Color', color_CMIP) % 22kyr BP- Present - New data from Alan (Slack Nov 2020)
 
-% 
-% 
-% plot([2,2], [SST_LIG_mn, SST_LIG_mn], '.','MarkerEdgeColor', color_CMIP,'Color', color_CMIP, 'MarkerSize',35, 'LineWidth', width/2) % PMIP
-% %plot([2,2], [SST_LIG_mn+SST_LIG_std, SST_LIG_mn - SST_LIG_std] ...
-% %    , '-','MarkerEdgeColor', color_CMIP, 'MarkerSize',35,'Color', color_CMIP, 'LineWidth', width/2) % PMIP
-% plot([3.5,3.5], [SST_mHOL_mn, SST_mHOL_mn], '.','MarkerEdgeColor', color_CMIP, 'MarkerSize',35,'Color', color_CMIP, 'LineWidth', width/2) % PMIP
-% %plot([3.5,3.5], [SST_mHOL_mn+SST_mHOL_std, SST_mHOL_mn - SST_mHOL_std] ...
-% %    , '-','MarkerEdgeColor', color_CMIP, 'MarkerSize',35,'Color', color_CMIP, 'LineWidth', width/2) % PMIP
-% plot([.5,.5], [SST_mPLI_mn, SST_mPLI_mn], '.','MarkerEdgeColor', color_CMIP, 'MarkerSize',35,'Color', color_CMIP, 'LineWidth', width/2) % PMIP
-% %plot([.5,.5], [SST_mPLI_mn+SST_mPLI_std, SST_mPLI_mn - SST_mPLI_std] ...
-% %    ,'MarkerEdgeColor', color_CMIP, 'MarkerSize',35,'Color', color_CMIP, 'LineWidth', width/2) % PMIP
 xlim([0 4])
 plot([0 5], [0 5]*0, 'k', 'LineWidth', width/10)
 ylim([-5 5])
@@ -530,7 +475,7 @@ print(gcf,'../PNGs/Paleo_GMSST.png','-dpng','-r1000', '-painters');
 
 %% Save timeseries data in an Excel file
 
-savefile = 'GMSST_Anomaly_Timeseries.xls';
+savefile = './Processed_Data/GMSST_Anomaly_Timeseries.xls';
 
 Time_yr = CMIP_time';
 Mean_degC = GMSST_CMIP_mean;

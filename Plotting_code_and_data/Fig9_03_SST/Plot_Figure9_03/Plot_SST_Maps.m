@@ -1,5 +1,8 @@
-%% Code to process CMIP6 data from historical and SSP experiments
-% This example is for sea surfact temperature (SST) - named tos in CMIP6 
+%% IPCC AR6 Chapter 9 Figure 9.3 (SST change maps)
+%
+% Code used to plot the processed CMIP6 data created by Calculate_*.m
+%
+% Written by Brodie Pearson
 
 clear all
 
@@ -8,9 +11,9 @@ hist_change_end_year = 2014;
 SSP_change_end_year = 2100;
 HRSSP_change_end_year = 2050;
 
-addpath ../../Matlab_Functions/
+addpath ../../../Functions/
 
-savefile = 'SST_Maps';
+savefile = './Processed_Data/SST_Maps';
 load(savefile)
 
 fontsize = 15;
@@ -50,8 +53,6 @@ multimodel_change_HRMIP = nanmean(SST_change_HRMIP,3);
 multimodel_change_SSP585 = nanmean(SST_change_SSP585,3);
 multimodel_change_HRSSP = nanmean(SST_change_HRSSP,3);
 
-% lim_max = nanmax(abs([multimodel_change_HRMIP(:); SST_change_OBS(:); ...
-%     multimodel_change_CMIP(:); multimodel_change_SSP585(:); multimodel_change_HRSSP(:)]));
 lim_max = 0.8;
 
 color_bar1 = IPCC_Get_Colorbar('temperature_nd', 21, false);
@@ -100,8 +101,6 @@ hatch(abs(hatch)>0.6) = 1; % 80% of models agree on sign
 hatch(abs(hatch)<0.6) = 3;
 hatch(isnan(hatch)) = 2;
 hatching_mask = hatch(1:end-1,:); hatching_mask(hatching_mask~=1)=0; 
-% hatch(185,85:90)=1; hatch(195,90:140)=1; hatch(315,90:120)=1; hatch(1,20:60)=1;
-% hatch(240,90:120)=1;
 hold on
 [c1, h1]=contourm(latitude,longitude,hatch',[3 3],'Fill','off','LineColor','none'); %
 
@@ -125,7 +124,7 @@ hatch(hatch==3)=0;
 stipplem(lat_temp,lon_temp,~logical(hatch),'color','k','markersize',2, ...
     'marker','x');
 
-print(gcf,'../PNGs/CMIP_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/CMIP_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
 
 close(1)
 
@@ -155,7 +154,6 @@ hatch(abs(hatch)>0.6) = 1; % 80% of models agree on sign
 hatch(abs(hatch)<0.6) = 3;
 hatch(isnan(hatch)) = 2;
 hatching_mask = hatch(1:end-1,:); hatching_mask(hatching_mask~=1)=0; 
-% hatch(185,85:90)=1; hatch(195,90:140)=1; hatch(315,90:120)=1; hatch(1,20:60)=1;
 hatch(240,:)=1;
 hold on
 [c1, h1]=contourm(latitude,longitude,hatch',[3 3],'Fill','off','LineColor','none'); %
@@ -180,7 +178,7 @@ hatch(hatch==3)=0;
 stipplem(lat_temp,lon_temp,~logical(hatch),'color','k','markersize',2, ...
     'marker','x');
 
-print(gcf,'../PNGs/HRMIP_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/HRMIP_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
 close(1)
 
 ncfilename = '../Plotted_Data/Fig9-3i_data.nc';
@@ -210,7 +208,6 @@ hatch(abs(hatch)>0.6) = 1; % 80% of models agree on sign
 hatch(abs(hatch)<0.6) = 3;
 hatch(isnan(hatch)) = 2;
 hatching_mask = hatch(1:end-1,:); hatching_mask(hatching_mask~=1)=0; 
-% hatch(185,85:90)=1; hatch(195,90:140)=1; hatch(315,90:120)=1; hatch(1,20:60)=1;
 hatch(240,:)=1;
 hold on
 [c1, h1]=contourm(latitude,longitude,hatch',[3 3],'Fill','off','LineColor','none'); %
@@ -236,7 +233,7 @@ hatch(hatch==3)=0;
 stipplem(lat_temp,lon_temp,~logical(hatch),'color','k','markersize',2, ...
     'marker','x');
 
-print(gcf,'../PNGs/SSP585_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/SSP585_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
 close(1)
 
 areas=NaN(size(lon.*lat'));
@@ -280,7 +277,6 @@ hatch(abs(hatch)>0.6) = 1; % 80% of models agree on sign
 hatch(abs(hatch)<0.6) = 3;
 hatch(isnan(hatch)) = 2;
 hatching_mask = hatch(1:end-1,:); hatching_mask(hatching_mask~=1)=0; 
-% hatch(185,85:90)=1; hatch(195,90:140)=1; hatch(315,90:120)=1; hatch(1,20:60)=1;
 hatch(240,:)=1;
 hold on
 [c1, h1]=contourm(latitude,longitude,hatch',[3 3],'Fill','off','LineColor','none'); %
@@ -307,7 +303,7 @@ hatch(hatch==3)=0;
 stipplem(lat_temp,lon_temp,~logical(hatch),'color','k','markersize',2, ...
     'marker','x');
 
-print(gcf,'../PNGs/HRSSP_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/HRSSP_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
 close(1)
 
 ncfilename = '../Plotted_Data/Fig9-3j_data.nc';
@@ -325,7 +321,6 @@ IPCC_Write_NetCDF_Map(ncfilename, var_name, var_units, multimodel_change_HRSSP',
 
 color_bar = IPCC_Get_Colorbar('chem_d', 21, true);
 
-% lim_max = nanmax(abs([multimodel_CMIP_bias(:); multimodel_HRMIP_bias(:)]));
 lim_max = 3;
 lim_min = -lim_max;
 lims = [lim_min lim_max];
@@ -349,7 +344,6 @@ hatch(abs(hatch)>0.6) = 1; % 80% of models agree on sign
 hatch(abs(hatch)<0.6) = 3;
 hatch(isnan(hatch)) = 2;
 hatching_mask = hatch(1:end-1,:); hatching_mask(hatching_mask~=1)=0; 
-% hatch(185,85:90)=1; hatch(195,90:140)=1; hatch(315,90:120)=1; hatch(1,20:60)=1;
 hatch(235,:)=1; hatch(180,1:91)=1; hatch(162,1:50)=1;
 hatch(210,:)=1; hatch(55,90:110)=1;
 hatch(340,:)=1;
@@ -378,7 +372,7 @@ hatch(hatch==3)=0;
 stipplem(lat_temp,lon_temp,~logical(hatch),'color','k','markersize',2, ...
     'marker','x');
 
-print(gcf,'../PNGs/CMIP_SST_bias_Hatch_check.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/CMIP_SST_bias_Hatch_check.png','-dpng','-r100', '-painters');
 close(1)
 
 ncfilename = '../Plotted_Data/Fig9-3e_data.nc';
@@ -407,8 +401,6 @@ hatch(abs(hatch)>0.6) = 1; % 80% of models agree on sign
 hatch(abs(hatch)<0.6) = 3;
 hatch(isnan(hatch)) = 2;
 hatching_mask = hatch(1:end-1,:); hatching_mask(hatching_mask~=1)=0; 
-% hatch(185,85:90)=1; hatch(195,90:140)=1; hatch(315,90:120)=1; hatch(1,20:60)=1;
-% hatch(235,:)=1;
 hatch(1,:)=1; hatch(end,:)=1;
 hatch(210,:)=1; hatch(310,:)=1; hatch(320,:)=1; hatch(145,120:end)=1;
 hold on
@@ -438,7 +430,7 @@ hatch(hatch==3)=0;
 stipplem(lat_temp,lon_temp,~logical(hatch),'color','k','markersize',2, ...
     'marker','x');
 
-print(gcf,'../PNGs/HighResMIP_SST_bias_Hatch_check.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/HighResMIP_SST_bias_Hatch_check.png','-dpng','-r100', '-painters');
 close(1)
 
 ncfilename = '../Plotted_Data/Fig9-3h_data.nc';
@@ -470,7 +462,7 @@ for ii=1:size(SST_change_CMIP,3)
     colorbar
     caxis(lims)
 end
-print(gcf,'../PNGs/CMIP_TOS_Change_Maps.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/CMIP_TOS_Change_Maps.png','-dpng','-r100', '-painters');
 close(1)
 figure('Position', [10 10 1200 1200])
 for ii=1:size(SST_change_HRMIP,3)
@@ -481,7 +473,7 @@ for ii=1:size(SST_change_HRMIP,3)
     colorbar
     caxis(lims)
 end
-print(gcf,'../PNGs/HRMIP_TOS_Change_Maps.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/HRMIP_TOS_Change_Maps.png','-dpng','-r100', '-painters');
 close(1)
 figure('Position', [10 10 1200 1200])
 for ii=1:size(SST_change_SSP585,3)
@@ -492,7 +484,7 @@ for ii=1:size(SST_change_SSP585,3)
     colorbar
     caxis(lims)
 end
-print(gcf,'../PNGs/SSP585_TOS_Change_Maps.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/SSP585_TOS_Change_Maps.png','-dpng','-r100', '-painters');
 close(1)
 figure('Position', [10 10 1200 1200])
 for ii=1:size(SST_change_HRSSP,3)
@@ -503,7 +495,7 @@ for ii=1:size(SST_change_HRSSP,3)
     colorbar
     caxis(lims)
 end
-print(gcf,'../PNGs/HRSSP_TOS_Change_Maps.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/HRSSP_TOS_Change_Maps.png','-dpng','-r100', '-painters');
 close(1)
 
 %%
@@ -538,10 +530,6 @@ hatch(abs(hatch)>0.6) = 1; % 80% of models agree on sign
 hatch(abs(hatch)<0.6) = 3;
 hatch(isnan(hatch)) = 2;
 hatching_mask = hatch(1:end-1,:); hatching_mask(hatching_mask~=1)=0; 
-% hatch(185,85:90)=1; hatch(195,90:140)=1; hatch(315,90:120)=1; hatch(1,20:60)=1;
-% hatch(235,:)=1;
-% hatch(210,:)=1;
-% hatch(210,:)=1;
 hold on
 [c1, h1]=contourm(latitude,longitude,hatch',[3 3],'Fill','off','LineColor','none'); %
 
@@ -565,7 +553,7 @@ hatch(hatch==3)=0;
 stipplem(lat_temp,lon_temp,~logical(hatch),'color','k','markersize',2, ...
     'marker','x');
 
-print(gcf,'../PNGs/CMIP_2050_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
+print(gcf,'../PNGs/Test_Maps/CMIP_2050_SST_change_Hatch_check.png','-dpng','-r100', '-painters');
 close(1)
 
 ncfilename = '../Plotted_Data/Fig9-3g_data.nc';

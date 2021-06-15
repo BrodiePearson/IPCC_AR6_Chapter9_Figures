@@ -1,11 +1,15 @@
-%% Code to process CMIP6 data from historical and SSP experiments
-% This example is for sea surfact temperature (SST) - named tos in CMIP6 
+%% IPCC AR6 Chapter 9 Figure 9.3 (SST change maps)
+%
+% Code used to process CMIP6 data from historical and SSP experiments
+% This processed data is then used to create the plot using the Plot_*.m
+% code
+%
+% Written by Brodie Pearson
 
 clear all
 
-addpath ../../Matlab_Functions/
+addpath ../../../Functions/
 
-%data_path = '/Volumes/Seagate_IPCC/IPCC/tos/Gridded_1degree/';
 data_path = '/Volumes/PromiseDisk/AR6_Data/tos/';
 
 var_name = {'tos'};
@@ -35,7 +39,6 @@ SST_OBS = SST_OBS - 273.15;
     hist_change_start_year, hist_change_end_year, averaging_window_width);
 SST_change_CMIP = squeeze(SST_change_CMIP);
 
-%CMIP_model_names = IPCC_Which_Models(data_path,{'historical'},'CMIP6_','_');
 IPCC_Get_CMIP6_Metadata(data_path, {'historical'}, ...
     '../Plotted_Data/CMIP6_metadata/Fig9-3e_md.csv', 'e',false)
 IPCC_Get_CMIP6_Metadata(data_path, {'historical'}, ...
@@ -47,7 +50,6 @@ IPCC_Get_CMIP6_Metadata(data_path, {'historical'}, ...
     hist_change_start_year, hist_change_end_year, averaging_window_width);
 SST_change_HRMIP = squeeze(SST_change_HRMIP);
 
-%HRMIP_model_names = IPCC_Which_Models(data_path,{'hist-1950'},'CMIP6_','_');
 IPCC_Get_CMIP6_Metadata(data_path, {'hist-1950'}, ...
     '../Plotted_Data/CMIP6_metadata/Fig9-3h_md.csv', 'h',false)
 IPCC_Get_CMIP6_Metadata(data_path, {'hist-1950'}, ...
@@ -155,7 +157,7 @@ SST_bias_HRMIP = SST_HRMIP - SST_OBS;
 
 %% Save data
 
-savefile = 'SST_Maps';
+savefile = './Processed_Data/SST_Maps';
 
 save(savefile, 'SST_change_CMIP', 'SST_change_HRMIP', ...
     'SST_change_SSP585', 'SST_change_SSP126', 'SST_change_HRSSP', ...
@@ -167,32 +169,4 @@ save(savefile, 'SST_change_CMIP', 'SST_change_HRMIP', ...
     'SST_change_SSP585_2050', 'SST_change_HRSSP_HR', ...
     'SST_change_HRSSP_LR', ...
     'averaging_window_width');
-% 
-% %%
-% 
-% model_names = IPCC_Which_Models(data_path, 'historical', 'CMIP6_', '_');
-% % Load historical simulation for early time period
-% ACCESS_dummy = IPCC_CMIP6_Load({'historical'}, 'tos', model_names(1), data_path);
-% 
-% %start of 2005 to end of 2014
-% ACCESS_early = nanmean(ACCESS_dummy(:,:,1861:1980),3);
-% 
-% ACCESS_dummy = IPCC_CMIP6_Load({'ssp585'}, 'tos', model_names(1), data_path);
-% 
-% %start of 2091 to end of 2100
-% ACCESS_late = nanmean(ACCESS_dummy(:,:,913:1032),3); 
-% 
-% ACCESS_change = 10*(ACCESS_late - ...
-%     ACCESS_early)/(2100 - ...
-%     2005 + 0.5*10);
-% 
-% load('SST_Maps_Newest', 'SST_change_SSP585');
-% 
-% figure
-% subplot(3,1,1)
-% imagesc(fliplr(SST_change_SSP585(:,:,:,1))')
-% subplot(3,1,2)
-% imagesc(fliplr(ACCESS_change)')
-% subplot(3,1,3)
-% imagesc(fliplr(SST_change_SSP585(:,:,:,1))' - fliplr(ACCESS_change)')
 

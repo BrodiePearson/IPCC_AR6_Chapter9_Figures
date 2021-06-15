@@ -1,5 +1,10 @@
-%% Code to process CMIP6 data from historical and SSP experiments
-% This example is for sea surface temperature (SST) - named tos in CMIP6 
+%% IPCC AR6 Chapter 9 Figure 9.3 (Global Mean SST timeseries)
+%
+% Code used to process CMIP6 data from historical and SSP experiments
+% This processed data is then used to create the plot using the Plot_*.m
+% code
+%
+% Written by Brodie Pearson
 
 clear all
 
