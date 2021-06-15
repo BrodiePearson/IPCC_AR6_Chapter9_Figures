@@ -2,7 +2,7 @@
 %
 % Code used to process CMIP6 data from historical and SSP experiments
 % This processed data is then used to create the plot using the Plot_*.m
-% code
+% code. MUST HAVE CMIP6 MODEL DATA (modify data_path to direct to the data)
 %
 % Written by Brodie Pearson
 
