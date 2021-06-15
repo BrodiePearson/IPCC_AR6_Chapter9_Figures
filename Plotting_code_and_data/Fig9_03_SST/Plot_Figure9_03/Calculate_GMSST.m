@@ -3,9 +3,8 @@
 
 clear all
 
-addpath ../../Matlab_Functions/
+addpath ../../../Functions/
 
-%data_path = '/Volumes/Seagate_IPCC/IPCC/tos/Gridded_1degree/';
 data_path = '/Volumes/PromiseDisk/AR6_Data/tos/';
 
 var_name = {'tos'};
@@ -189,7 +188,7 @@ HRMIP_time = HRMIP_start_yr + (0:(1/12):(size(GMSST_HRMIP,1)-1)/12);
 HRSSP_time = SSP_start_yr + (0:(1/12):(size(GMSST_HRSSP,1)-1)/12);
 SSP_Extended_time = SSP_Extended_start_yr + (0:(1/12):(size(GMSST_SSP126_Extended,1)-1)/12);
 
-filename = 'GMSST_Anomalies.mat';
+filename = './Processed_Data/GMSST_Anomalies.mat';
 
 save(filename, 'GMSST_CMIP','GMSST_SSP126', ...
     'GMSST_SSP245', 'GMSST_SSP370', ...

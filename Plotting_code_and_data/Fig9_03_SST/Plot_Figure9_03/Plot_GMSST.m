@@ -3,7 +3,7 @@
 
 clear all
 
-addpath ../../Matlab_Functions/
+addpath ../../../Functions/
 fontsize=15;
 width = 3;
 
@@ -16,23 +16,6 @@ color_SSP245 = IPCC_Get_SSPColors('ssp245');
 color_SSP370 = IPCC_Get_SSPColors('ssp370');
 color_SSP585 = IPCC_Get_SSPColors('ssp585');
 
-%% Load paleo data and calculate means/stds
-
-% SST_LIG = ncread('paleo_gmsst_data/avg_anomaly_lig127k.nc','tos');
-% TIME_LIG = ncread('paleo_gmsst_data/avg_anomaly_lig127k.nc','time');
-% 
-% SST_mHOL = ncread('paleo_gmsst_data/avg_anomaly_midHolocene.nc','tos');
-% TIME_mHOL = ncread('paleo_gmsst_data/avg_anomaly_midHolocene.nc','time');
-% 
-% SST_mPLI = ncread('paleo_gmsst_data/avg_anomaly_midPliocene.nc','tos');
-% TIME_mPLI = ncread('paleo_gmsst_data/avg_anomaly_midPliocene.nc','time');
-% 
-% SST_LIG_mn = nanmean(SST_LIG);
-% SST_LIG_std = nanstd(SST_LIG);
-% SST_mHOL_mn = nanmean(SST_mHOL);
-% SST_mHOL_std = nanstd(SST_mHOL);
-% SST_mPLI_mn = nanmean(SST_mPLI);
-% SST_mPLI_std = nanstd(SST_mPLI);
 
 %% Input paleo data from Alan M. (Slack) for observations and models
 % Means and 95 percent confidence intervals
@@ -73,7 +56,7 @@ MPWP_model_bounds = [1 3.5];
 
 %% Make plots
 
-filename = 'GMSST_Anomalies.mat';
+filename = './Processed_Data/GMSST_Anomalies.mat';
 load(filename);
 
 GMSST_CMIP = movmean(GMSST_CMIP,12);
@@ -81,10 +64,6 @@ GMSST_SSP126 = movmean(GMSST_SSP126,12);
 GMSST_SSP245 = movmean(GMSST_SSP245,12);
 GMSST_SSP370 = movmean(GMSST_SSP370,12);
 GMSST_SSP585 = movmean(GMSST_SSP585,12);
-%Fuse two HighResMIP simulations into one (historical and future)
-% GMSST_HRSSP = [GMSST_HRMIP; GMSST_HRSSP];
-% GMSST_HRMIP = movmean(GMSST_HRMIP,12);
-% GMSST_HRSSP = movmean(GMSST_HRSSP,12);
 GMSST_SSP126_Extended = movmean(GMSST_SSP126_Extended,12);
 GMSST_SSP585_Extended = movmean(GMSST_SSP585_Extended,12);
 
