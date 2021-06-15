@@ -1,0 +1,26 @@
+set memory/size=100
+
+define symbol exp1 = midPliocene
+define symbol exp2 = lig127k
+define symbol exp3 = midHolocene
+
+use "./output/avg_anomaly_($exp1).nc"
+use "./output/avg_anomaly_($exp2).nc"
+use "./output/avg_anomaly_($exp3).nc"
+
+set windows/size=1/aspect=1
+ppl txlsze 0.13,0.13
+define viewport/xlim=0.,1.0/ylim=0.,1.0 v1
+define axis/t=1:50/npoints=50/units=months binary_t
+
+set view v1
+go margins_set 10,8,10,8
+ppl axlsze,0.2,0.2
+plot/nolab/set_up/thick=3/vlimits=-1.0:2.0:0.5 tos[d=1,gt=binary_t@asn],tos[d=2,gt=binary_t@asn],tos[d=3,gt=binary_t@asn]
+go legend 1 "($exp1)" ur
+go legend 2 "($exp2)" ur
+go legend 3 "($exp3)" ur
+ppl plot
+go text_put 50 95 "paleo ssta" 0 0.5 0
+
+frame/file=paleo_ssta.gif
