@@ -1,0 +1,122 @@
+CMIP6.ScenarioMIP.CSIRO-ARCCSS.ACCESS-CM2.ssp126 none r1i1p1f1 Omon mlotst gn v20191108 c,g
+CMIP6.ScenarioMIP.CSIRO.ACCESS-ESM1-5.ssp126     none r1i1p1f1 Omon mlotst gn v20191115 c,g
+CMIP6.ScenarioMIP.AWI.AWI-CM-1-1-MR.ssp126       none r1i1p1f1 Omon mlotst gn v20181218 c,g
+CMIP6.ScenarioMIP.BCC.BCC-CSM2-MR.ssp126         none r1i1p1f1 Omon mlotst gn v20190319 c,g
+CMIP6.ScenarioMIP.CAMS.CAMS-CSM1-0.ssp126        none r1i1p1f1 Omon mlotst gn v20190708 c,g
+CMIP6.ScenarioMIP.CCCma.CanESM5.ssp126           none r1i1p1f1 Omon mlotst gn v20190429 c,g
+CMIP6.ScenarioMIP.NCAR.CESM2-WACCM.ssp126        none r1i1p1f1 Omon mlotst gn v20210211 c,g
+CMIP6.ScenarioMIP.CMCC.CMCC-CM2-SR5.ssp126       none r1i1p1f1 Omon mlotst gn v20200717 c,g
+CMIP6.ScenarioMIP.EC-Earth-Consortium.EC-Earth3.ssp126     none r1i1p1f1 Omon mlotst gn v20200918 c,g
+CMIP6.ScenarioMIP.EC-Earth-Consortium.EC-Earth3-Veg.ssp126 none r1i1p1f1 Omon mlotst gn v20200919 c,g
+CMIP6.ScenarioMIP.CAS.FGOALS-f3-L.ssp126         none r1i1p1f1 Omon mlotst gn v20191007 c,g
+CMIP6.ScenarioMIP.CAS.FGOALS-g3.ssp126           none r1i1p1f1 Omon mlotst gn v20191229 c,g
+CMIP6.ScenarioMIP.IPSL.IPSL-CM6A-LR.ssp126       none r1i1p1f1 Omon mlotst gn v20190903 c,g
+CMIP6.ScenarioMIP.KIOST.KIOST-ESM.ssp126         none r1i1p1f1 Omon mlotst gr1 v20200825 c,g
+CMIP6.ScenarioMIP.DKRZ.MPI-ESM1-2-HR.ssp126      none r1i1p1f1 Omon mlotst gn v20190710 c,g
+CMIP6.ScenarioMIP.MPI-M.MPI-ESM1-2-LR.ssp126     none r1i1p1f1 Omon mlotst gn v20190710 c,g
+CMIP6.ScenarioMIP.MRI.MRI-ESM2-0.ssp126          none r1i1p1f1 Omon mlotst gn v20200222 c,g
+CMIP6.ScenarioMIP.NUIST.NESM3.ssp126             none r1i1p1f1 Omon mlotst gn v20190731 c,g
+CMIP6.ScenarioMIP.NCC.NorESM2-LM.ssp126          none r1i1p1f1 Omon mlotst gn v20191108 c,g
+CMIP6.ScenarioMIP.NCC.NorESM2-MM.ssp126          none r1i1p1f1 Omon mlotst gn v20191108 c,g
+CMIP6.ScenarioMIP.CSIRO-ARCCSS.ACCESS-CM2.ssp585 none r1i1p1f1 Omon mlotst gn v20191108 d,h
+CMIP6.ScenarioMIP.CSIRO.ACCESS-ESM1-5.ssp585     none r1i1p1f1 Omon mlotst gn v20191115 d,h
+CMIP6.ScenarioMIP.AWI.AWI-CM-1-1-MR.ssp585       none r1i1p1f1 Omon mlotst gn v20181218 d,h
+CMIP6.ScenarioMIP.BCC.BCC-CSM2-MR.ssp585         none r1i1p1f1 Omon mlotst gn v20190319 d,h
+CMIP6.ScenarioMIP.CAMS.CAMS-CSM1-0.ssp585        none r1i1p1f1 Omon mlotst gn v20190708 d,h
+CMIP6.ScenarioMIP.CCCma.CanESM5.ssp585           none r1i1p1f1 Omon mlotst gn v20190429 d,h
+CMIP6.ScenarioMIP.NCAR.CESM2-WACCM.ssp585        none r1i1p1f1 Omon mlotst gn v20200702 d,h
+CMIP6.ScenarioMIP.CMCC.CMCC-CM2-SR5.ssp585       none r1i1p1f1 Omon mlotst gn v20200622 d,h
+CMIP6.ScenarioMIP.EC-Earth-Consortium.EC-Earth3.ssp585     none r1i1p1f1 Omon mlotst gn v20200918 d,h
+CMIP6.ScenarioMIP.EC-Earth-Consortium.EC-Earth3-Veg.ssp585 none r1i1p1f1 Omon mlotst gn v20200919 d,h
+CMIP6.ScenarioMIP.CAS.FGOALS-f3-L.ssp585         none r1i1p1f1 Omon mlotst gn v20191008 d,h
+CMIP6.ScenarioMIP.CAS.FGOALS-g3.ssp585           none r1i1p1f1 Omon mlotst gn v20191229 d,h
+CMIP6.ScenarioMIP.NOAA-GFDL.GFDL-ESM4.ssp585     none r1i1p1f1 Omon mlotst gn 
+v20180701 d,h
+CMIP6.ScenarioMIP.IPSL.IPSL-CM6A-LR.ssp585       none r1i1p1f1 Omon mlotst gn 
+v20190903 d,h
+CMIP6.ScenarioMIP.KIOST.KIOST-ESM.ssp585         none r1i1p1f1 Omon mlotst gr1
+v20200825 d,h
+CMIP6.ScenarioMIP.DKRZ.MPI-ESM1-2-HR.ssp585      none r1i1p1f1 Omon mlotst gn 
+v20190710 d,h
+CMIP6.ScenarioMIP.MPI-M.MPI-ESM1-2-LR.ssp585     none r1i1p1f1 Omon mlotst gn 
+v20190710 d,h
+CMIP6.ScenarioMIP.MRI.MRI-ESM2-0.ssp585          none r1i1p1f1 Omon mlotst gn 
+v20200120 d,h
+CMIP6.ScenarioMIP.NUIST.NESM3.ssp585             none r1i1p1f1 Omon mlotst gn 
+v20190731 d,h
+CMIP6.ScenarioMIP.NCC.NorESM2-LM.ssp585          none r1i1p1f1 Omon mlotst gn 
+v20191108 d,h
+CMIP6.ScenarioMIP.NCC.NorESM2-MM.ssp585          none r1i1p1f1 Omon mlotst gn 
+v20191108 d,h
+CMIP6.CMIP.CSIRO-ARCCSS.ACCESS-CM2.historical    none r1i1p1f1 Omon mlotst gn v20191108 b,c,d,f,g,h
+CMIP6.CMIP.CSIRO.ACCESS-ESM1-5.historical         none r1i1p1f1 Omon mlotst gn 
+v20191115 b,c,d,f,g,h
+CMIP6.CMIP.AWI.AWI-CM-1-1-MR.historical           none r1i1p1f1 Omon mlotst gn 
+v20181218 b,c,d,f,g,h
+CMIP6.CMIP.AWI.AWI-ESM-1-1-LR.historical          none r1i1p1f1 Omon mlotst gn 
+v20200212 b,c,d,f,g,h
+CMIP6.CMIP.BCC.BCC-CSM2-MR.historical             none r1i1p1f1 Omon mlotst gn 
+v20181126 b,c,d,f,g,h
+CMIP6.CMIP.BCC.BCC-ESM1.historical               none r1i1p1f1 Omon mlotst gn 
+v20181129 b,c,d,f,g,h
+CMIP6.CMIP.CAMS.CAMS-CSM1-0.historical            none r1i1p1f1 Omon mlotst gn 
+v20190708 b,c,d,f,g,h
+CMIP6.CMIP.CCCma.CanESM5.historical              none r1i1p1f1 Omon mlotst gn 
+v20190429 b,c,d,f,g,h
+CMIP6.CMIP.CAS.CAS-ESM2-0.historical             none r1i1p1f1 Omon mlotst gn 
+v20201228 b,c,d,f,g,h
+CMIP6.CMIP.NCAR.CESM2-FV2.historical              none r1i1p1f1 Omon mlotst gn 
+v20191120 b,c,d,f,g,h
+CMIP6.CMIP.NCAR.CESM2.historical                 none r1i1p1f1 Omon mlotst gn 
+v20190308 b,c,d,f,g,h
+CMIP6.CMIP.NCAR.CESM2-WACCM-FV2.historical       none r1i1p1f1 Omon mlotst gn v20191120 b,c,d,f,g,h
+CMIP6.CMIP.NCAR.CESM2-WACCM.historical           none r1i1p1f1 Omon mlotst gn 
+v20190808 b,c,d,f,g,h
+CMIP6.CMIP.CMCC.CMCC-CM2-HR4.historical          none r1i1p1f1 Omon mlotst gn 
+v20200904 b,c,d,f,g,h
+CMIP6.CMIP.CMCC.CMCC-CM2-SR5.historical          none r1i1p1f1 Omon mlotst gn 
+v20200616 b,c,d,f,g,h
+CMIP6.CMIP.E3SM-Project.E3SM-1-0.historical      none r1i1p1f1 Omon mlotst gr
+v20190826 b,c,d,f,g,h
+CMIP6.CMIP.E3SM-Project.E3SM-1-1-ECA.historical  none r1i1p1f1 Omon mlotst gr
+v20200127 b,c,d,f,g,h
+CMIP6.CMIP.E3SM-Project.E3SM-1-1.historical      none r1i1p1f1 Omon mlotst gr
+v20191204 b,c,d,f,g,h
+CMIP6.CMIP.EC-Earth-Consortium.EC-Earth3.historical        none r1i1p1f1 Omon
+mlotst gn v20200918 b,c,d,f,g,h
+CMIP6.CMIP.EC-Earth-Consortium.EC-Earth3-Veg-LR.historical none r1i1p1f1 Omon
+mlotst gn v20200919 b,c,d,f,g,h
+CMIP6.CMIP.EC-Earth-Consortium.EC-Earth3-Veg.historical    none r1i1p1f1 Omon
+mlotst gn v20200919 b,c,d,f,g,h
+CMIP6.CMIP.CAS.FGOALS-f3-L.historical            none r1i1p1f1 Omon mlotst gn 
+v20191007 b,c,d,f,g,h
+CMIP6.CMIP.CAS.FGOALS-g3.historical              none r1i1p1f1 Omon mlotst gn 
+v20191106 b,c,d,f,g,h
+CMIP6.CMIP.NOAA-GFDL.GFDL-ESM4.historical        none r1i1p1f1 Omon mlotst gn 
+v20190726 b,c,d,f,g,h
+CMIP6.CMIP.NASA-GISS.GISS-E2-1-G.historical      none r1i1p1f1 Omon mlotst gn 
+v20180827 b,c,d,f,g,h
+CMIP6.CMIP.IPSL.IPSL-CM6A-LR.historical          none r1i1p1f1 Omon mlotst gn 
+v20180803 b,c,d,f,g,h
+CMIP6.CMIP.KIOST.KIOST-ESM.historical            none r1i1p1f1 Omon mlotst gr1
+v20200825 b,c,d,f,g,h
+CMIP6.CMIP.MPI-M.MPI-ESM-1-2-HAM.historical      none r1i1p1f1 Omon mlotst gn
+v20190627 b,c,d,f,g,h
+CMIP6.CMIP.MPI-M.MPI-ESM1-2-HR.historical        none r1i1p1f1 Omon mlotst gn
+v20190710 b,c,d,f,g,h
+CMIP6.CMIP.MPI-M.MPI-ESM1-2-LR.historical        none r1i1p1f1 Omon mlotst gn
+v20190710 b,c,d,f,g,h
+CMIP6.CMIP.MRI.MRI-ESM2-0.historical             none r1i1p1f1 Omon mlotst gn
+v20191205 b,c,d,f,g,h
+CMIP6.CMIP.NUIST.NESM3.historical                none r1i1p1f1 Omon mlotst gn
+v20190703 b,c,d,f,g,h
+CMIP6.CMIP.NCC.NorCPM1.historical                none r1i1p1f1 Omon mlotst gn
+v20200724 b,c,d,f,g,h
+CMIP6.CMIP.NCC.NorESM2-LM.historical             none r1i1p1f1 Omon mlotst gn
+v20190815 b,c,d,f,g,h
+CMIP6.CMIP.NCC.NorESM2-MM.historical             none r1i1p1f1 Omon mlotst gn
+v20191108 b,c,d,f,g,h
+
+
+
+                
