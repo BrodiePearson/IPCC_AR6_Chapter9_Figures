@@ -1,0 +1,3 @@
+CMIP6.OMIP.NCAR.CESM2.omip2             none r1i1p1f1 Omon zos gn v20190802 i
+CMIP6.OMIP.CAS.FGOALS-f3-L.omip2        none r1i1p1f1 Omon zos gn v20191104 i
+
