@@ -1,4 +1,4 @@
-# IPCC_AR6_Chapter9_Figures
+# IPCC AR6 Chapter 9 Figures
 Repository with the code and data for all figures from Chapter 9 of the Sizth Assesment Report from the Intergovernmental Panel on Climate Change (IPCC AR6)
 
 ## How to use this repository
