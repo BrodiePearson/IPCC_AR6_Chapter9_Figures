@@ -4,12 +4,13 @@ Repository with the code and data for all figures from Chapter 9 of the Sizth As
 ## How to use this repository
 The code to plot each figure from Chapter 9 of IPCC AR6 is contained in the `Plotting_code_and_data` directory. 
 Each figure has its own folder, named after its number in the report and a brief descriptor of the figure.
+If this code substantially aids your work, it can be cited using [this Zenodo reference]() [LINK TO BE ADDED]
 
 All of the individual figure directories contain a png and pdf image of the final figure used in the IPCC AR6. 
 In addition, many of these directories have a 
 1. `Plot_Figure` folder that contains the code used to create the figure, 
 2. `Plotted_Data` folder that contains the final plotted data in the NetCDF format required by the IPCC TSU, 
-3. `PNGs` folder where plotting code will output PNG files of each subpanel. 
+3. `PNGs` folder where plotting code will output image files of each subpanel (not alwayds `.png`, could be `.pdf`, `.eps` etc.) 
 The structure within each figure folder changes slightly between figures, due to the various authors that contributed to plotting 
 code for specific figures in this chapter.
 
@@ -22,36 +23,36 @@ and the supplementary material from the IPCC TSU. Where neccessary, the director
 
 * Figure 9.1 - Visual Plan of chapter 9 and connections with other chapters (not included here)
 * [**Figure 9.2**]() - 
-* [**Figure 9.3**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_03_SST/Fig9_03_SST.pdf) - Sea surface temperature timeseries and maps
-* [**Figure 9.4**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_04_fluxes/Fig9_04_fluxes.pdf) - Surface fluxes of freshwater, heat, and momentum (wind stress)
-* [**Figure 9.5**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_05_MLD/Fig9_05_MLD.pdf) - Mixed Layer Depths
-* [**Figure 9.6**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_06_OHC/Fig9_06_OHC.pdf) - Ocean Heat Content timeseries and maps
-* [**Figure 9.7**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_07_zonal_temp_transects/Fig9_07_zonal_temp_transects.pdf) - Zonal transects of ocean temperature
+* [**Figure 9.3**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_03_SST/Fig9_03_SST.pdf) - Sea surface temperature timeseries and maps (**Matlab**)
+* [**Figure 9.4**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_04_fluxes/Fig9_04_fluxes.pdf) - Surface fluxes of freshwater, heat, and momentum (**Matlab**)
+* [**Figure 9.5**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_05_MLD/Fig9_05_MLD.pdf) - Mixed Layer Depths (**Matlab**)
+* [**Figure 9.6**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_06_OHC/Fig9_06_OHC.pdf) - Ocean Heat Content timeseries and maps (**Matlab**)
+* [**Figure 9.7**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_07_zonal_temp_transects/Fig9_07_zonal_temp_transects.pdf) - Zonal transects of ocean temperature (**Matlab**)
 * [**Figure 9.8**]() -
-* [**Figure 9.9**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_09_OHCvsSST/Fig9_09_OHCvsSST.pdf) - Paleo-, modern- and future-changes in ocean heat content and surface temperatures
+* [**Figure 9.9**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_09_OHCvsSST/Fig9_09_OHCvsSST.pdf) - Paleo-, modern- and future-changes in ocean heat content and surface temperatures (**Matlab**)
 * [**Figure 9.10**]() - 
-* [**Figure 9.11**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_11_BSF/Fig9_11_BSF.pdf) - Barotropic streamfunction, surface currents, and transports
-* [**Figure 9.12**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_12_OceanSLR/Fig9_12_OceanSLR.pdf) - Maps of ocean sea level rise and the standard deviation of sea surface height
-* [**Figure 9.13**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_13_Arctic_SI/Fig9_13_Arctic_SI.pdf) - Arctic sea-ice historical records and CMIP6 projections
-* [**Figure 9.14**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_14_SI_warming/Fig9_14_SI_warming.pdf) - Sea-ice area as a function of temperature, CO2 emissions and time
-* [**Figure 9.15**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_15_Antarctic_SI/Fig9_15_Antarctic_SI.pdf) - Antarctic sea-ice historical records and CMIP6 projections
+* [**Figure 9.11**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_11_BSF/Fig9_11_BSF.pdf) - Barotropic streamfunction, surface currents, and transports (**Matlab**)
+* [**Figure 9.12**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_12_OceanSLR/Fig9_12_OceanSLR.pdf) - Maps of ocean sea level rise and the standard deviation of sea surface height (**Matlab**)
+* [**Figure 9.13**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_13_Arctic_SI/Fig9_13_Arctic_SI.pdf) - Arctic sea-ice historical records and CMIP6 projections (**Python**)
+* [**Figure 9.14**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_14_SI_warming/Fig9_14_SI_warming.pdf) - Sea-ice area as a function of temperature, CO2 emissions and time (**Python**)
+* [**Figure 9.15**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_15_Antarctic_SI/Fig9_15_Antarctic_SI.pdf) - Antarctic sea-ice historical records and CMIP6 projections (**Python**)
 * [**Figure 9.16**]() -
-* [**Figure 9.17**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_17_GIS_synth/Fig9_17_GIS_synth.pdf) - Greenland Ice Sheet: synthesis of paleo-, modern- and future-changes
-* [**Figure 9.18**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_18_AIS_synth/Fig9_18_AIS_synth.pdf) - Antarctic Ice Sheet: synthesis of paleo-, modern- and future-changes
-* [**Figure 9.19**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_19_AIS_basal/Fig9_19_AIS_basal.pdf) - Antarctic basal melt rates
-* [**Figure 9.20**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_20_Glacier_Rate/Fig9_20_Glacier_Rate.png) - Glacier mass change rates
-* [**Figure 9.21**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_21_glaciers_changes/Fig9_21_glaciers_change.pnghttps://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_11_BSF/Fig9_11_BSF.pdf) - Glacier mass relative to 2015
-* [**Figure 9.22**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_22_permafrost/Fig9_22_permafrost.pdf) - Permafrost area and changes
+* [**Figure 9.17**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_17_GIS_synth/Fig9_17_GIS_synth.pdf) - Greenland Ice Sheet: synthesis of paleo-, modern- and future-changes (**Matlab**)
+* [**Figure 9.18**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_18_AIS_synth/Fig9_18_AIS_synth.pdf) - Antarctic Ice Sheet: synthesis of paleo-, modern- and future-changes (**Matlab**)
+* [**Figure 9.19**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_19_AIS_basal/Fig9_19_AIS_basal.pdf) - Antarctic basal melt rates (**Python**)
+* [**Figure 9.20**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_20_Glacier_Rate/Fig9_20_Glacier_Rate.png) - Glacier mass change rates (**Python**)
+* [**Figure 9.21**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_21_glaciers_changes/Fig9_21_glaciers_change.pnghttps://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_11_BSF/Fig9_11_BSF.pdf) - Glacier mass relative to 2015 (**Python**)
+* [**Figure 9.22**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_22_permafrost/Fig9_22_permafrost.pdf) - Permafrost area and changes (**Python**)
 * [**Figure 9.23**]() -
 * [**Figure 9.24**]() -
-* [**Figure 9.25**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_25_SLR_PDFs/Fig9_25_SLR_PDFs.pdf) - PDFs of projected Sea Level Rise at 2050 and 2100 under different SSPs
-* [**Figure 9.26**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_26_SL_regional/Fig9_26_SL_regional.pdf) - Projected sea level change contributions under SSP1-2.6 and SSP5-8.5
-* [**Figure 9.27**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_27_SL_scenarios/Fig9_27_SL_scenarios.pdf) - Projected global mean sea level rise under different SSP scenarios
-* [**Figure 9.28**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_28_RSL_scenarios/Fig9_28_RSL_scenarios.pdf) - Regional sea level change at 2100 for different SSP scnearios
-* [**Figure 9.29**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_29_SL_time/Fig9_29_SL_time.pdf) - Projected timing of sea-level rise milestones
-* [**Figure 9.30**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_30_GMSL_Commitment/Fig9_30_GMSL_Commitment.pdf) - 2,000- and 10,000-year sea-level commitments as a function of peak global surface air temperature anomaly
+* [**Figure 9.25**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_25_SLR_PDFs/Fig9_25_SLR_PDFs.pdf) - PDFs of projected Sea Level Rise at 2050 and 2100 under different SSPs (**Matlab**)
+* [**Figure 9.26**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_26_SL_regional/Fig9_26_SL_regional.pdf) - Projected sea level change contributions under SSP1-2.6 and SSP5-8.5 (**Matlab**)
+* [**Figure 9.27**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_27_SL_scenarios/Fig9_27_SL_scenarios.pdf) - Projected global mean sea level rise under different SSP scenarios (**Matlab**)
+* [**Figure 9.28**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_28_RSL_scenarios/Fig9_28_RSL_scenarios.pdf) - Regional sea level change at 2100 for different SSP scnearios (**Matlab**)
+* [**Figure 9.29**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_29_SL_time/Fig9_29_SL_time.pdf) - Projected timing of sea-level rise milestones (**R**)
+* [**Figure 9.30**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_30_GMSL_Commitment/Fig9_30_GMSL_Commitment.pdf) - 2,000- and 10,000-year sea-level commitments as a function of peak global surface air temperature anomaly (**Matlab**)
 * [**Figure 9.31**]() -
-* [**Figure 9.32**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_32_ESL_proj/Fig9_32_ESL_proj.pdf) - Median amplification factor of extreme still water level by 2050 and 2100
+* [**Figure 9.32**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_32_ESL_proj/Fig9_32_ESL_proj.pdf) - Median amplification factor of extreme still water level by 2050 and 2100 (**Matlab**)
 
 ## List of Additional Figures related to chapter 9 (and the coding language used to plot them)
 
