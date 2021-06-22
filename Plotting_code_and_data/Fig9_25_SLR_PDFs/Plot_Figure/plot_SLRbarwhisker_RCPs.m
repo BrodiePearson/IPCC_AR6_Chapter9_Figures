@@ -1,10 +1,9 @@
-%% IPCC AR6 Chapter 9: Figure 9.6 Timeseries (Ocean Heat Content)
+%% IPCC AR6 Chapter 9: Figure 9.25 (Sea level rise PDFs)
 %
-% Code used to plot pre-processed ocean heat content data. 
+% Code used to plot pre-processed sea level rise PDFs 
 %
-% Plotting code written by Brodie Pearson
-% CMIP processed data provided by Yongqiang Yu & Lijuan Hua 
-% Paleo processed data provided by Alan Mix
+% Plotting code written by Brodie Pearson & Bob Kopp
+% Processed data provided by Bob Kopp
 % Other datasets cited in report/caption
 
 clear all
