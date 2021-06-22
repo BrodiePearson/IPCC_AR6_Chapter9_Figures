@@ -6,9 +6,10 @@ The code to plot each figure from Chapter 9 of IPCC AR6 is contained in the `Plo
 Each figure has its own folder, named after its number in the report and a brief descriptor of the figure.
 
 All of the individual figure directories contain a png and pdf image of the final figure used in the IPCC AR6. 
-In addition, many of these directories have a `Plot_Figure` folder that contains the code used to create the figure, 
-a `Plotted_Data` folder that contains the final plotted data in the NetCDF format required by the IPCC TSU, and a `PNGs` 
-folder where plotting code will output PNG files of each subpanel. 
+In addition, many of these directories have a 
+1. `Plot_Figure` folder that contains the code used to create the figure, 
+2. `Plotted_Data` folder that contains the final plotted data in the NetCDF format required by the IPCC TSU, 
+3. `PNGs` folder where plotting code will output PNG files of each subpanel. 
 The structure within each figure folder changes slightly between figures, due to the various authors that contributed to plotting 
 code for specific figures in this chapter.
 
@@ -31,9 +32,9 @@ and the supplementary material from the IPCC TSU. Where neccessary, the director
 * [**Figure 9.10**]() - 
 * [**Figure 9.11**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_11_BSF/Fig9_11_BSF.pdf) - Barotropic streamfunction, surface currents, and transports
 * [**Figure 9.12**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_12_OceanSLR/Fig9_12_OceanSLR.pdf) - Maps of ocean sea level rise and the standard deviation of sea surface height
-* [**Figure 9.13**]() - 
-* [**Figure 9.14**]() -
-* [**Figure 9.15**]() -
+* [**Figure 9.13**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_13_Arctic_SI/Fig9_13_Arctic_SI.pdf) - Arctic sea-ice historical records and CMIP6 projections
+* [**Figure 9.14**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_14_SI_warming/Fig9_14_SI_warming.pdf) - Sea-ice area as a function of temperature, CO2 emissions and time
+* [**Figure 9.15**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_15_Antarctic_SI/Fig9_15_Antarctic_SI.pdf) - Antarctic sea-ice historical records and CMIP6 projections
 * [**Figure 9.16**]() -
 * [**Figure 9.17**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_17_GIS_synth/Fig9_17_GIS_synth.pdf) - Greenland Ice Sheet: synthesis of paleo-, modern- and future-changes
 * [**Figure 9.18**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_18_AIS_synth/Fig9_18_AIS_synth.pdf) - Antarctic Ice Sheet: synthesis of paleo-, modern- and future-changes
