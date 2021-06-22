@@ -64,10 +64,11 @@ and the supplementary material from the IPCC TSU. Where neccessary, the director
 * [**Technical Summary 4**]() -
 
 ## Functions for IPCC processing/analysis
-
+### Matlab Functions
 Many of the figures in Chapter 9 use Matlab functions created by Brodie Pearson and Baylor Fox-Kemper. These functions are found in the `Functions` directory,
 and Matlab code in this repository is set up to find these functions automatically.
 
+### ESMValTool recipes
 Some of the code uses ESMValTool to perform certain pre-processing operations on CMIP ensembles and observational/reanalysis data. 
 These operations include: re-gridding onto matching grids, extraction of specific time periods or regions, averaging operations.
 The recipes for performing these operations are provided in the `Recipes_for_ESMValTool` directory. 
