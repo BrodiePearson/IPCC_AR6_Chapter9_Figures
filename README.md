@@ -20,7 +20,7 @@ and the supplementary material from the IPCC TSU. Where neccessary, the director
 ## List of Figures in chapter 9 (with brief decription and the coding language used to plot them)
 
 * Figure 9.1 - Visual Plan of chapter 9 and connections with other chapters (not included here)
-* [**Figure 9.2**]() - Overview of regions and processes included in Chapter 9
+* [**Figure 9.2**]() - 
 * [**Figure 9.3**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_03_SST/Fig9_03_SST.pdf) - Sea surface temperature timeseries and maps
 * [**Figure 9.4**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_04_fluxes/Fig9_04_fluxes.pdf) - Surface fluxes of freshwater, heat, and momentum (wind stress)
 * [**Figure 9.5**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_05_MLD/Fig9_05_MLD.pdf) - Mixed Layer Depths
@@ -54,7 +54,7 @@ and the supplementary material from the IPCC TSU. Where neccessary, the director
 
 ## List of Additional Figures related to chapter 9 (and the coding language used to plot them)
 
-* [**Cross-chapter box Figure 9.2.1**]() - Marine Heat Waves
+* [**Cross-chapter box Figure 9.2.1**]() - 
 * [**Cross-chapter box Figure 9.1.1**]() - 
 * [**FAQ 9.1**]() -
 * [**FAQ 9.2**]() -
