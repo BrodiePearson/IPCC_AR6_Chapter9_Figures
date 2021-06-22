@@ -1,0 +1,445 @@
+Received: from DM6PR14MB3824.namprd14.prod.outlook.com (2603:10b6:5:208::22)
+ by BL0PR14MB3907.namprd14.prod.outlook.com with HTTPS; Sun, 31 Jan 2021
+ 07:27:12 +0000
+Received: from MN2PR03CA0001.namprd03.prod.outlook.com (2603:10b6:208:23a::6)
+ by DM6PR14MB3824.namprd14.prod.outlook.com (2603:10b6:5:208::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3805.19; Sun, 31 Jan
+ 2021 07:27:09 +0000
+Received: from BL2NAM02FT015.eop-nam02.prod.protection.outlook.com
+ (2603:10b6:208:23a:cafe::9d) by MN2PR03CA0001.outlook.office365.com
+ (2603:10b6:208:23a::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3805.16 via Frontend
+ Transport; Sun, 31 Jan 2021 07:27:09 +0000
+Authentication-Results: spf=softfail (sender IP is 128.6.47.11)
+ smtp.mailfrom=gmail.com; connect.rutgers.edu; dkim=pass (signature was
+ verified) header.d=gmail.com;connect.rutgers.edu; dmarc=pass action=none
+ header.from=gmail.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 128.6.47.11 as permitted sender)
+Received: from em-fwdru1-prod-asb.ei.rutgers.edu (128.6.47.11) by
+ BL2NAM02FT015.mail.protection.outlook.com (10.152.77.167) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3784.12 via Frontend Transport; Sun, 31 Jan 2021 07:27:09 +0000
+Received: from em-fwdru1-prod-asb.ei.rutgers.edu (localhost [127.0.0.1])
+	by em-fwdru1-prod-asb.ei.rutgers.edu (Postfix) with ESMTP id 684E11C0034
+	for <rk509@connect.rutgers.edu>; Sun, 31 Jan 2021 02:27:09 -0500 (EST)
+Received: from em-mxru2-prod-asb.ei.rutgers.edu (mx2-out.rutgers.edu [128.6.47.10])
+	by em-fwdru1-prod-asb.ei.rutgers.edu (Postfix) with ESMTP id 65C011C001D
+	for <robert.kopp@rutgers.edu>; Sun, 31 Jan 2021 02:27:09 -0500 (EST)
+Received: from localhost (localhost [127.0.0.1])
+	by em-mxru2-prod-asb.ei.rutgers.edu (Postfix) with ESMTP id 6166E26021F
+	for <robert.kopp@rutgers.edu>; Sun, 31 Jan 2021 02:27:09 -0500 (EST)
+X-Virus-Scanned: Virus Scanned by OIT-EM
+X-Spam-Flag: NO
+X-Spam-Score: 1.315
+X-Spam-Level: *
+X-Spam-Status: No, score=1.315 tagged_above=-50 required=5
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	FREEMAIL_FROM=0.001, HTML_MESSAGE=1.414, HTML_OBFUSCATE_05_10=0.001,
+	RCVD_IN_MSPIKE_H2=-0.001, SPF_HELO_NONE=0.001, SPF_PASS=-0.001]
+	autolearn=disabled
+Authentication-Results-Original: mx2.rutgers.edu (amavisd-new);	dkim=pass
+ (2048-bit key) header.d=gmail.com
+Received: from em-mxru2-prod-asb.ei.rutgers.edu ([127.0.0.1])
+	by localhost (mx2.rutgers.edu [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Aqj0Zg-uoPsl for <robert.kopp@rutgers.edu>;
+	Sun, 31 Jan 2021 02:27:06 -0500 (EST)
+Received: from mail-il1-f174.google.com (mail-il1-f174.google.com [209.85.166.174])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by em-mxru2-prod-asb.ei.rutgers.edu (Postfix) with ESMTPS id 92579260224
+	for <robert.kopp@rutgers.edu>; Sun, 31 Jan 2021 02:27:06 -0500 (EST)
+Received: by mail-il1-f174.google.com with SMTP id m20so5078787ilj.13
+        for <robert.kopp@rutgers.edu>; Sat, 30 Jan 2021 23:27:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=exP715aqzynUnsvGiRZWMxMwZflfGpGaTj9OgeWprsI=;
+        b=DTO3vySIdvo1dbbC5rNVtnURTzkNRVa07NyMSYIKhBL9wcvHjdOa46CmKxzsA3qtFF
+         zCdIp547BAlm4y+lg0AzjXDZUprcHz2RoyWyb9HGPlYWseM1E3SPF5c2KwTnXpiBYcYO
+         fMumntndhHMLzrbOxDOQ3aD3jBtIEKG65/Pn2BTYwPm+aeq95YkFIB9LR6ebwq3eY3Yp
+         LVAy2ChSV40r9v3YW5Obemui7L3InwTCm/lq2Q3BWBnz9mvYPXVkv6iLAlZ0kyXW9xNZ
+         LGjFeXoxWVuCUilonklPh3LKdeO4FHHUaeaVgb/qAWYsP0mqj5BOvbtc6q14Zd83xnn1
+         4drw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=exP715aqzynUnsvGiRZWMxMwZflfGpGaTj9OgeWprsI=;
+        b=bIKBKR7oaSVFyn557PX0OqeXT4HhwFSNoRwdxS0QqUnNalxtYcPtuVP7zcbi9R1uD8
+         3Jk5hOvldQo0a2u9mNL2vGXKF0GZ5rRYzBgcRv6R72wAtUEUljQyijESsXwdD1ZpL0Gj
+         0GVmSW6RMp8HzzRSdmTQDZziFvbtvaY1UcOZqotqhnyXI5RMbNEl/EBy7AvboNi4xMgZ
+         DJgCMrRj3ulUvVTwv1m5IycFNXRXPDhDvFskuakjspTzrNS2OPr2w4SIa9TRaldECZLf
+         YdgVv/BaRWYhGk+EQteJaEdZ5vD6sq6LlhwmCnpbnargY+jPEzXL5YQwnEXVeAr0IhYS
+         7jiw==
+X-Gm-Message-State: AOAM530On+M/5wpXsRm+2VSDQqHkZ5swqmgbEDiOP9muAREgCmRBypkY
+	2uXekLmiGRlcG0VCBTVQSIMggM7pr3dUpYkOH/w=
+X-Google-Smtp-Source: ABdhPJyuoq0i+MocmVYOrAZsyTQLJ3VoPEbGrLFUmS2M1ZvCk/IgkFRzCeqDNY4CgImaPSvUWmtgpzGdnmL31RAGLDI=
+X-Received: by 2002:a05:6e02:1bca:: with SMTP id x10mr8527974ilv.71.1612078025687;
+ Sat, 30 Jan 2021 23:27:05 -0800 (PST)
+MIME-Version: 1.0
+From: =?UTF-8?Q?F=C3=A1bio_Dias?= <fabeobd@gmail.com>
+Date: Sun, 31 Jan 2021 09:26:54 +0200
+Message-ID: <CAAMpNX6Kd0kSgVMtXxsPLXj1cpMrchmyXKV7_kDVCBpMJKBkZA@mail.gmail.com>
+Subject: GMSL ensemble timeseries 20th + altimeter era
+To: "Domingues Catia.M - GMAIL" <domingues.catia.m@gmail.com>, Matt Palmer <lospalmeros@gmail.com>, 
+	Robert Kopp <robert.kopp@rutgers.edu>, Sergey Gulev <gul@sail.msk.ru>, 
+	Peter Thorne <Peter.Thorne@mu.ie>
+Return-Path: fabeobd@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 31 Jan 2021 07:27:09.6358
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 3db45443-4b64-4e5f-8a8a-08d8c5b99ec6
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Organization-MessageDirectionality: Originating
+X-MS-Exchange-SkipListedInternetSender:
+ ip=[209.85.166.174];domain=mail-il1-f174.google.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ BL2NAM02FT015.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-OriginatorOrg: connect.rutgers.edu
+X-MS-Office365-Filtering-Correlation-Id: 3db45443-4b64-4e5f-8a8a-08d8c5b99ec6
+X-MS-TrafficTypeDiagnostic: DM6PR14MB3824:
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:128.6.47.11;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:em-fwdru1-prod-asb.ei.rutgers.edu;PTR:emfwd-out.rutgers.edu;CAT:NONE;SFS:(4636009)(84050400001)(110136005)(336012)(42186006)(21480400003)(36906005)(8676002)(356005)(86362001)(73392003)(7636003)(5660300002)(33964004)(26005)(55446002)(83380400001)(76482006)(34756004)(8936002)(1096003)(82310400003)(6666004)(82202003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jan 2021 07:27:09.5938
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3db45443-4b64-4e5f-8a8a-08d8c5b99ec6
+X-MS-Exchange-CrossTenant-Id: b92d2b23-4d35-4470-93ff-69aca6632ffe
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=b92d2b23-4d35-4470-93ff-69aca6632ffe;Ip=[128.6.47.11];Helo=[em-fwdru1-prod-asb.ei.rutgers.edu]
+X-MS-Exchange-CrossTenant-AuthSource:
+ BL2NAM02FT015.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR14MB3824
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.9466611
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.3805.024
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(20160514016)(750128)(520011016)(944506458)(944626604);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?rW/DZVxUk7Yule9ks3hTdFznHRxqgEplGae+NwpgiOGLb/o6YfOUdxnvMsRt?=
+ =?us-ascii?Q?TAuhfNevVubeQmbRF5Z9gdfnlEB+6diy/XaJDpgKRGKZVs4mFZmGQyEpaNBt?=
+ =?us-ascii?Q?XdxjjUq5+R9SwUQqEeT2uVac7TL0kLmeW9guXybc9GndPSNawFhowACC9xfg?=
+ =?us-ascii?Q?CrKvNl+MJReqQhTt6ob9PF+/huxaMgOxw3wNLuq+xVCaKdPVD490wgKs3Nr1?=
+ =?us-ascii?Q?PvzsR0g/2TrXotNKb3F6HftQ2Qa0GKKnWoC1MVOMDjMZqH8OTshg7S23MSS3?=
+ =?us-ascii?Q?+/7htunAIx1eBD8K+vgfpeErOLWgz0sBS0fFIoVf79fl4vYrXT+AkUo2kkY/?=
+ =?us-ascii?Q?x/OANUj43Q/uAJlr19EiE1me6Xy+lXLmKMPvPXapLgJdsapPzX1wbNM/jmJ4?=
+ =?us-ascii?Q?U4sk42s9BdDZ8K0+ZxjLAJfVLwRhUf+7ZwsgW/4ES/aTS2U0pLBUbMJza782?=
+ =?us-ascii?Q?0Sb81Gj5RpM01ekuA2qF/hCIH/u5ngJd1VuN82SUMdBFH9qmIyGkfmkLUQeT?=
+ =?us-ascii?Q?XQgMjmQ/BszcHxQtT+Re3iRUX1J7QIbvwLUY2o7KdQIgJrKSW3yWxjToEB24?=
+ =?us-ascii?Q?HEONPnEb1QFz8+VlCQdcY2/bpQ6Dw8WlN4OniGNY12Mxop2+p3BXZNJdKZpU?=
+ =?us-ascii?Q?DRF4PO74or8dfPKBnMhRUZPqP/SAhxYGZSyaagFqcUtg0k4z3MABlHJOvqS0?=
+ =?us-ascii?Q?04t7OkkToJJAzgtiA85Wbr44SYq2zi+/Edf0VNoLiA7sev/piLWgsDF3yvql?=
+ =?us-ascii?Q?eT5MEeKVwu3WyGZGLAjIvp6hFAF+BiZv056iqlRO31yN0ymoiha+cFh3cw31?=
+ =?us-ascii?Q?gGG0RUuhxugWGgu1O9dQMGC8mT6oH9Mlpqi1eOJPB2sv+W2CqwqdiLAMJexa?=
+ =?us-ascii?Q?0ANWtdFBVfytcxX5ZP13Qbr+V0eJ1wVC8NFAt2rKCXU5DJUA8FiguFwkKAYk?=
+ =?us-ascii?Q?eAQ8l0QNbb+eJdlwiUhDWMKAbakJGvfBJsW+xYkSyQcxOjv77HTL9o6k7iZ2?=
+ =?us-ascii?Q?6LZx1wRzTq/tELB10tCdZvtWBCHtB4rZ67lgMRn+Z9EPr+Y6RwrgNXHwUQKq?=
+ =?us-ascii?Q?UCpz1U1BGHIEBvAhluX0QQBCw2XDG4Gpq8050KRYiGF1QWljTeURPhdYAeuf?=
+ =?us-ascii?Q?coBoRG8G3CsQyLETkDbOzZ/T6dTzGmu1tdeDOY5QAZsIhhB2qwyIP2a7wJzr?=
+ =?us-ascii?Q?flDaThYxv1BL37hmQXlqSWEaGSSXTORT+axe6oTs5c9+Bb30QjKN/WPLaYzv?=
+ =?us-ascii?Q?az3atIwyqQlm1PUXogHlAgPcHQeXUpLOYm7q1IjGgPsnFYns/64VbHN1QeZf?=
+ =?us-ascii?Q?IEo0+F5azTiv0DUugsRTil3xAHBsFLmWpVROLST/XbCGJGjxM20kbSzCLaZa?=
+ =?us-ascii?Q?HurTISHZ5wOSlE01lSGJqcsQMWzYt0npezPkv+QT1NmwOxVap+kxXtSQcgUW?=
+ =?us-ascii?Q?0Gu8PMSt1EWI3bl1Z/4hpVydOgnfr9aE2jnC8gZV9AztT3aiJsRR3s5b3nAj?=
+ =?us-ascii?Q?nsoTq1/g1n/XwJVz4JflP6kE4mgGQk7ZGjjgVtpBuyN+l18VtsbWVJacHNEe?=
+ =?us-ascii?Q?0X/c2LMz8D/mGgyNno4tvR7KOCKejHvImhak8XgM2E+pFPP6INyQ0mT62+S4?=
+ =?us-ascii?Q?IdoXmwA4dqJ8yUSfy+6v7qI=3D?=
+Content-type: multipart/mixed;
+	boundary="B_3695062110_1288371507"
+
+> This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+--B_3695062110_1288371507
+Content-type: multipart/alternative;
+	boundary="B_3695062110_2168777287"
+
+
+--B_3695062110_2168777287
+Content-type: text/plain;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+Dear all,
+
+Follow attached the GMSL ensemble-mean and uncertainties from TG reconstruc=
+tion + altimeters:
+
+GMSL timeseries: created an ensemble/central timeseries for 20th century an=
+d altim eras + uncertainty
+20th century estimate was created by merging TG recons + altim since 1993
+All altim data  ( with GIA and TPA corrections were applied if not by same =
+originators as in WCRP budget paper and uncertainty following Ablain. We hav=
+e more available altim datasets but have not used all)
+Also Fabio=E2=80=99s values agree with Matt=E2=80=99s based on Thomas F2020
+Matt provided the central estimates for the TG reconstruction. For the alti=
+meter products, I used AVISO, ESA, CU, CSIRO, NOAA and NASA from AR6 and app=
+lied GIA and/or TPA corrections when required. The uncertainties for the alt=
+imeter era were estimated following Ablain et al (2019) error variance-covar=
+iance matrix.
+
+I'm including attached the .mat with the central estimates and the uncertai=
+nties for the period of 1901-2018. Also attached is the script that I used t=
+o calculate those.
+
+Best regards,
+Fabio
+
+--=20
+F=C3=A1bio Boeira Dias - fabeobd@gmail.com / fabio.boeiradias@helsinki.fi
+Oceanographer, BSc, MSc, PhD
+Institute for atmospheric and Earth system research (INAR)
+University of Helsinki
+Finland
+
+
+
+--B_3695062110_2168777287
+Content-type: text/html;
+	charset="UTF-8"
+Content-transfer-encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"></head><=
+body><div dir=3D"ltr"><div dir=3D"ltr">Dear all,<div><br></div><div>Follow attac=
+hed the GMSL ensemble-mean and uncertainties&nbsp;from TG reconstruction&nbs=
+p;+ altimeters:</div><div><br></div><div><ol start=3D"1" type=3D"1" style=3D"margi=
+n-bottom:0cm;margin-top:0cm"><li style=3D"margin-left:0cm">GMSL timeseries: cr=
+eated an ensemble/central timeseries for 20<sup>th</sup>&nbsp;century and al=
+tim eras + uncertainty<u></u><u></u></li></ol><ul type=3D"disc" style=3D"margin-=
+bottom:0cm;margin-top:0cm"><li style=3D"margin-left:15px">20<sup>th</sup>&nbsp=
+;century estimate was created by merging TG recons + altim since 1993<u></u>=
+<u></u></li><li style=3D"margin-left:15px">All altim data &nbsp;( with GIA and=
+ TPA corrections were applied if not by same originators as in WCRP budget p=
+aper and uncertainty following Ablain. We have more available altim datasets=
+ but have not used all)<u></u><u></u></li><li style=3D"margin-left:15px">Also =
+Fabio=E2=80=99s values agree with Matt=E2=80=99s based on Thomas F2020</li></ul><div><sp=
+an style=3D"font-size:14.666666984558105px"><br></span></div><div>Matt provide=
+d the central estimates for the TG reconstruction. For the altimeter product=
+s, I used AVISO, ESA, CU, CSIRO, NOAA and NASA from AR6 and applied GIA and/=
+or TPA corrections when required. The uncertainties for the altimeter era we=
+re estimated following Ablain et al (2019) error variance-covariance matrix.=
+</div><div><br></div><div>I'm including attached the .mat with the central e=
+stimates and the uncertainties for the period of 1901-2018. Also attached is=
+ the script that I used to calculate those.</div><div><br></div><div>Best re=
+gards,</div><div>Fabio</div><div><br></div>-- <br><div dir=3D"ltr"><div dir=3D"l=
+tr"><span style=3D"color:rgb(0,0,0);font-family:Helvetica;font-size:12px">F=C3=A1b=
+io Boeira Dias - <a href=3D"mailto:fabeobd@gmail.com" target=3D"_blank">fabeobd@=
+gmail.com</a>&nbsp;/&nbsp;<a href=3D"mailto:fabio.boeiradias@helsinki.fi" targ=
+et=3D"_blank">fabio.boeiradias@helsinki.fi</a></span></div><div dir=3D"ltr"><spa=
+n style=3D"color:rgb(0,0,0);font-family:Helvetica;font-size:12px">Oceanographe=
+r, BSc, MSc, PhD</span><br style=3D"color:rgb(0,0,0);font-family:Helvetica;fon=
+t-size:12px"><span style=3D"color:rgb(0,0,0);font-family:Helvetica;font-size:1=
+2px">Institute for atmospheric and Earth system research (INAR)</span><div><=
+span style=3D"color:rgb(0,0,0);font-family:Helvetica;font-size:12px">Universit=
+y of Helsinki</span></div><div>Finland<br style=3D"color:rgb(0,0,0);font-famil=
+y:Helvetica;font-size:12px"><br style=3D"color:rgb(0,0,0);font-family:Helvetic=
+a;font-size:12px"></div></div></div></div></div></div></body></html>
+
+--B_3695062110_2168777287--
+
+
+--B_3695062110_1288371507
+Content-type: application/octet-stream; name="gmsl_altimeter+TG_ensemble_28012021.mat";
+ x-mac-creator="4F50494D"
+Content-ID: <f_kkkr31dc0>
+Content-disposition: attachment;
+	filename="gmsl_altimeter+TG_ensemble_28012021.mat"
+Content-transfer-encoding: base64
+
+
+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
+--B_3695062110_1288371507
+Content-type: application/octet-stream; name="Altimeter_ensemble_mean.m";
+ x-mac-creator="4F50494D"
+Content-ID: <f_kkkr483z1>
+Content-disposition: attachment;
+	filename="Altimeter_ensemble_mean.m"
+Content-transfer-encoding: base64
+
+
+Y2xlYXIgYWxsCgolJSBGYWJpbyBCIERpYXMgLSAyNy4wMS4yMDIwCiUgU2NyaXB0IHRvCgol
+IDE6IGxvYWQgaW5kaXZpZHVhbCBhbHRpbWV0ZXIgcHJvZHVjdHMgKG1lYW4pLCBhcHBseSBH
+SUEvVFBBIGNvcnJlY3Rpb25zCiUgb24gdGhvc2UgbWlzc2luZywgY2FsY3VsYXRlIGVycm9y
+cyB1c2luZyBBYmxhaW4gZXQgYWwgKDIwMTkpIG1hdHJpeCwKJSBhbmQgY2FsY3VsYXRlIHRo
+ZSBhbHRpbWV0ZXIgZW5zZW1ibGUgbWVhbgolCiUgMjogbG9hZCBUaWRlIEdhdWdlIGVuc2Vt
+YmxlIG1lYW4gZnJvbSBNYXR0IFBhbG1lciAoZXh0cmFjdGVkIGZyb20KJSBBUjZfR01TTF9l
+bnNlbWJsZV9GR0RfY2FsY3VsYXRpb25zLnhsc3gpCiUKJSAzOiBNZXJnZSBURyArIEFsdGlt
+ZXRlciBlbnNlbWJsZXMgZm9yIHJhdGUvdHJlbmQgY2FsY3VsYXRpb25zLCBDaGFwLiAyIEFS
+NgolCiUlCgpjZCgnL1ZvbHVtZXMvTGFDaWVfMS41VGIvT25lRHJpdmUgLSBVbml2ZXJzaXR5
+IG9mIEhlbHNpbmtpLzAzX0ZHRF9kdXBsaWNhdGUvU0wvVG9fZnJvbV9GYWJpby8nKQoKJSBM
+b2FkIEFSNiBDaGFwMiBHTVNMIGRhdGFiYXNlOgpsb2FkIEZpbGVzX2Zyb21fMjEuMDEuMjAy
+MS9JUENDX0FSNl9DSDJfR01TTF8yMDIwLTA5LTI0Lm1hdAoKJSBsb2FkIGVycm9yIHZhcmlh
+bmNlLWNvdmFyaWFuY2UgbWF0cml4IGZyb20gQWJsYWluIGV0IGFsICgyMDE5KQplcnJvcl9t
+YXRyaXggPSAnRmlsZXNfZnJvbV8yMS4wMS4yMDIxLzYwODk4Lm5jJzsKCnRpbWVfZXJyb3Ig
+PSBuY3JlYWQoZXJyb3JfbWF0cml4LCd0aW1lJykuLzM2NSArIDE5NTA7ICUgeWVhcnMgZnJv
+bSAxOTUwIC0+IHRvIDE5OTMKY292YXJpYW5jZV9tYXRyaXggPSBuY3JlYWQoZXJyb3JfbWF0
+cml4LCdjb3ZhcmlhbmNlX21hdHJpeCcpOwoKJSUgUGVyaW9kID0gMTk5MzoyMDE4ClRpbWVf
+aW50ZXJ2YWxzID0gWzE5OTM7MjAxOF07ClRpbWVfaW5kZXhlcygxKSA9IGZpbmQoVGltZV9p
+bnRlcnZhbHMoMSkgPT0gZ21zbF95cl90aW1lKTsKVGltZV9pbmRleGVzKDIpID0gZmluZChU
+aW1lX2ludGVydmFscygyKSA9PSBnbXNsX3lyX3RpbWUpOwoKVGltZV9pbmRfOTggPSBmaW5k
+KDE5OTggPT0gZ21zbF95cl90aW1lKTsKCiUlIGNob29zaW5nIGFsdGltZXRlciBwcm9kdWN0
+cyB0byB1c2U6IHNhbWUgYXMgaW4gQ2F6ZW5hdmUgZXQgYWwgKDIwMTgpCiUgMTEgPSBBVklT
+TwolIDEzID0gQ1NJUk8KJSAxNCA9IENVCiUgMTUgPSBFU0EKJSAxNiA9IE5BU0EKJSAxNyA9
+IE5PQUEKCnRpbWVfYWx0aW0gPSBnbXNsX3lyX3RpbWUoVGltZV9pbmRleGVzKDEpOlRpbWVf
+aW5kZXhlcygyKSk7CgpmaWd1cmUscGxvdCh0aW1lX2FsdGltLGdtc2xfeXJfb2JzKDExLFRp
+bWVfaW5kZXhlcygxKTpUaW1lX2luZGV4ZXMoMikpLCdiJykKaG9sZCBvbgpwbG90KHRpbWVf
+YWx0aW0sZ21zbF95cl9vYnMoMTMsVGltZV9pbmRleGVzKDEpOlRpbWVfaW5kZXhlcygyKSks
+J3InKQpwbG90KHRpbWVfYWx0aW0sZ21zbF95cl9vYnMoMTQsVGltZV9pbmRleGVzKDEpOlRp
+bWVfaW5kZXhlcygyKSksJ2MnKQpwbG90KHRpbWVfYWx0aW0sZ21zbF95cl9vYnMoMTUsVGlt
+ZV9pbmRleGVzKDEpOlRpbWVfaW5kZXhlcygyKSksJ20nKQpwbG90KHRpbWVfYWx0aW0sZ21z
+bF95cl9vYnMoMTYsVGltZV9pbmRleGVzKDEpOlRpbWVfaW5kZXhlcygyKSkpCnBsb3QodGlt
+ZV9hbHRpbSxnbXNsX3lyX29icygxNyxUaW1lX2luZGV4ZXMoMSk6VGltZV9pbmRleGVzKDIp
+KSwnZycpCgolJSBhcHBseSBtaXNzaW5nIGNvcnJldGlvbiB0byBpbmRpdmlkdWFsIGVzdGlt
+YXRlczoKCiVnbXNsX3lyX29icyhbMTEgMTMgMTQgMTUgMTYgMTddCiUgR0lBOiBhcHBseSB0
+byBFU0EgYW5kIE5PQUEgLT4gZm91bmQgc29tZSB2YWx1ZXMgYXJvdW5kCiUgMC4zbW0veXIg
+aW4gUGFsdGllciAoMjAwNCwgMjAwOSkKZ21zbF95cl9vYnNfYWRqID0gZ21zbF95cl9vYnM7
+Cmdtc2xfeXJfb2JzX2FkaigxNSxUaW1lX2luZGV4ZXMoMSk6VGltZV9pbmRleGVzKDIpKSA9
+IC0wLjMzK2dtc2xfeXJfb2JzX2FkaigxNSxUaW1lX2luZGV4ZXMoMSk6VGltZV9pbmRleGVz
+KDIpKTsgJSBFU0EKZ21zbF95cl9vYnNfYWRqKDE3LFRpbWVfaW5kZXhlcygxKTpUaW1lX2lu
+ZGV4ZXMoMikpID0gLTAuMzMrZ21zbF95cl9vYnNfYWRqKDE3LFRpbWVfaW5kZXhlcygxKTpU
+aW1lX2luZGV4ZXMoMikpOyAlIE5PQUEKCiUgVFBBOiBhcHBseSB0byBBVklTTywgQ1UgYW5k
+IENTSVJPLCBqdXN0IGJldHdlZW4gMTk5My0xOTk4CiUgRGllbmcgZXQgYWwgKDIwMTcpIGZv
+dW5kIGEgdmFsdWUgc2ltaWxhciB0byBXYXRzb24gZXQgYWwgKDIwMTUpJ3MKJSBwcmVmZXJh
+YmxlIHZhbHVlIG9mIDEuNSBtbS95cgpnbXNsX3lyX29ic19hZGooMTEsVGltZV9pbmRleGVz
+KDEpOlRpbWVfaW5kXzk4KSA9IDEuNStnbXNsX3lyX29ic19hZGooMTEsVGltZV9pbmRleGVz
+KDEpOlRpbWVfaW5kXzk4KTsgJSBBVklTTwpnbXNsX3lyX29ic19hZGooMTMsVGltZV9pbmRl
+eGVzKDEpOlRpbWVfaW5kXzk4KSA9IDEuNStnbXNsX3lyX29ic19hZGooMTMsVGltZV9pbmRl
+eGVzKDEpOlRpbWVfaW5kXzk4KTsgJSBDU0lSTwpnbXNsX3lyX29ic19hZGooMTQsVGltZV9p
+bmRleGVzKDEpOlRpbWVfaW5kXzk4KSA9IDEuNStnbXNsX3lyX29ic19hZGooMTQsVGltZV9p
+bmRleGVzKDEpOlRpbWVfaW5kXzk4KTsgJSBDVQoKCnBsb3QodGltZV9hbHRpbSxnbXNsX3ly
+X29ic19hZGooMTEsVGltZV9pbmRleGVzKDEpOlRpbWVfaW5kZXhlcygyKSksJy0tYicpCnBs
+b3QodGltZV9hbHRpbSxnbXNsX3lyX29ic19hZGooMTMsVGltZV9pbmRleGVzKDEpOlRpbWVf
+aW5kZXhlcygyKSksJy0tcicpCnBsb3QodGltZV9hbHRpbSxnbXNsX3lyX29ic19hZGooMTQs
+VGltZV9pbmRleGVzKDEpOlRpbWVfaW5kZXhlcygyKSksJy0tYycpCnBsb3QodGltZV9hbHRp
+bSxnbXNsX3lyX29ic19hZGooMTUsVGltZV9pbmRleGVzKDEpOlRpbWVfaW5kZXhlcygyKSks
+Jy0tbScpCnBsb3QodGltZV9hbHRpbSxnbXNsX3lyX29ic19hZGooMTcsVGltZV9pbmRleGVz
+KDEpOlRpbWVfaW5kZXhlcygyKSksJy0tZycpCgpsZWdlbmQoJ0FWSVNPJywnQ1NJUk8nLCdD
+VScsJ0VTQScsJ05BU0EnLCdOT0FBJywnQVZJU08gY29yci4nLCdDU0lSTyBjb3JyLicsJ0NV
+IGNvcnIuJywnRVNBIGNvcnIuJywnTk9BQSBjb3JyLicpCgolJSBhbHRpbWV0ZXIgZW5zZW1i
+bGUgbWVhbgoKJSBoZXJlIHVzZSBnbXNsX3lyX29icyBmb3Igbm9uLWNvcnJlY3RlZCB0aW1l
+c2VyaWVzIE9SCiUgZ21zbF95cl9vYnNfYWRqIGZvciBjb3JyZWN0ZWQgdGltZXNlcmllcyB3
+aXRoIEdJQS9UUEEgY29ycmVjdGlvbnMgYWJvdmE6CiVhbHRpbWV0ZXJfc2wgPSBnbXNsX3ly
+X29icyhbMTEgMTMgMTQgMTUgMTYgMTddLFRpbWVfaW5kZXhlcygxKTpUaW1lX2luZGV4ZXMo
+MikpOwphbHRpbWV0ZXJfc2wgPSBnbXNsX3lyX29ic19hZGooWzExIDEzIDE0IDE1IDE2IDE3
+XSxUaW1lX2luZGV4ZXMoMSk6VGltZV9pbmRleGVzKDIpKTsKYWx0aW1ldGVyX3NsX2Vuc2Vt
+YmxlID0gbmFubWVhbihhbHRpbWV0ZXJfc2wsIDEpOwphbHRpbWV0ZXJfeXJfdGltZSA9IGdt
+c2xfeXJfdGltZShUaW1lX2luZGV4ZXMoMSkpOmdtc2xfeXJfdGltZShUaW1lX2luZGV4ZXMo
+MikpOwoKJWNhbGN1bGF0ZSBhbHRpbWV0ZXIgbWVhbiAxOTk1LTIwMTQgKGFzIE1hdHQpOgpU
+aW5kZXhlcygxKSA9IGZpbmQoMTk5NSA9PSBhbHRpbWV0ZXJfeXJfdGltZScpOwpUaW5kZXhl
+cygyKSA9IGZpbmQoMjAxNCA9PSBhbHRpbWV0ZXJfeXJfdGltZScpOwphbHRpbV9tZWFuXzE5
+OTVfMjAxNCA9IG1lYW4oYWx0aW1ldGVyX3NsX2Vuc2VtYmxlKFRpbmRleGVzKDEpOlRpbmRl
+eGVzKDIpKSk7CgphbHRpbV9zbCA9IHNxdWVlemUoYWx0aW1ldGVyX3NsKDosOikpLWFsdGlt
+X21lYW5fMTk5NV8yMDE0OwphbHRpbV9zbF9lbnNlbWJsZSA9IHNxdWVlemUoYWx0aW1ldGVy
+X3NsX2Vuc2VtYmxlKS1hbHRpbV9tZWFuXzE5OTVfMjAxNDsKCiVhbHRpbV9lcnJvcl9lbnNl
+bWJsZSA9IDMuNypvbmVzKDEsbGVuZ3RoKGFsdGltX3NsX2Vuc2VtYmxlKSk7IAoKJSAtIGVy
+cm9yIGZyb20gQWJsYWluIGV0IGFsICgyMDE5KSwgU2VjdGlvbiA1OgolICJXZSBlc3RpbWF0
+ZWQgdGhlIEdNU0wgdW5jZXJ0YWludHkgZW52ZWxvcGUgZnJvbSB0aGUgc3F1YXJlIHJvb3Qg
+b2YgdGhlCiUgZGlhZ29uYWwgdGVybXMgb2YgdGhlIGVycm9yIHZhcmlhbmNlLWNvdmFyaWFu
+Y2UgbWF0cml4IChGaWcgMykiCmFsdGltX2Vycm9yX2Vuc2VtYmxlXzEwZGF5ID0gc3FydChk
+aWFnKGNvdmFyaWFuY2VfbWF0cml4KSk7Cgp0aW1lX2Vycm9yX3lyID0gKDE5OTM6MjAxOCk7
+CmFsdGltX2Vycm9yX2Vuc2VtYmxlID0gbmFuKDEsMjYpOwolIGF2ZXJhZ2UgZXJyb3IgbWF0
+cml4IHBlciB5ZWFyOgpjb3VudD0xOwpmb3IgeWVhcnMgPSAxOTkzOjIwMTg7CiAgICBpbmRf
+eXkgPSBmaW5kKGZsb29yKHRpbWVfZXJyb3IpPT15ZWFycyk7CiAgICBhbHRpbV9lcnJvcl9l
+bnNlbWJsZSgxLGNvdW50KSA9IDEuNjQ1Km1lYW4oMTAwMCphbHRpbV9lcnJvcl9lbnNlbWJs
+ZV8xMGRheShpbmRfeXkpKTsgJSBjb252ZXJ0IGNtMiB0byBtbTIsIGFuZCAxc2lnbWEgdG8g
+OTAlIENJCiAgICBjb3VudCA9IGNvdW50KzE7CmVuZAoKJSBxdWljayBwbG90CmZpZ3VyZSxw
+bG90KGFsdGltZXRlcl95cl90aW1lLGFsdGltX3NsX2Vuc2VtYmxlLCctaycsJ2xpbmV3aWR0
+aCcsMikKaG9sZCBvbixwbG90KGFsdGltZXRlcl95cl90aW1lLGFsdGltX3NsX2Vuc2VtYmxl
+K2FsdGltX2Vycm9yX2Vuc2VtYmxlLCctLXInKQpob2xkIG9uLHBsb3QoYWx0aW1ldGVyX3ly
+X3RpbWUsYWx0aW1fc2xfZW5zZW1ibGUtYWx0aW1fZXJyb3JfZW5zZW1ibGUsJy0tcicpCmhv
+bGQgb24scGxvdChhbHRpbWV0ZXJfeXJfdGltZSxhbHRpbV9zbCkKCgolJSBzYXZlIG91ciBj
+YWxjdWxhdGUgYWx0aW1ldGVyIGVuc2VtYmxlCnNhdmUoJ2dtc2xfYWx0aW1ldGVyX2Vuc2Vt
+YmxlXzI4MDEyMDIxLm1hdCcsJ2FsdGltZXRlcl95cl90aW1lJywnYWx0aW1fc2wnLCdhbHRp
+bV9zbF9lbnNlbWJsZScsJ2FsdGltX2Vycm9yX2Vuc2VtYmxlJykKCiUlIGNvbXBhcmlzb24g
+b2YgdGhlIG5ldyBhbHRpbWV0ZXIgZW5zZW1ibGUgd2l0aCBNYXR0J3MgZmlsZSAoRnJlZGVy
+aWtzZSBldCBhbCAyMDIwKQolIEZSMjAyMF9hbHRpbSA9IGxvYWQoJ0ZpbGVzX2Zyb21fMjEu
+MDEuMjAyMS9BUjZfR01TTF9hbHRpbWV0ZXJfRkdEcHJlbGltX25vaGVhZC5jc3YnKTsKJSAK
+JSBmaWd1cmUscGxvdChGUjIwMjBfYWx0aW0oOiwxKSxGUjIwMjBfYWx0aW0oOiwyKSwnLWsn
+KQolIGhvbGQgb24scGxvdChGUjIwMjBfYWx0aW0oOiwxKSxGUjIwMjBfYWx0aW0oOiwzKSwn
+LXInKQolIGhvbGQgb24scGxvdChGUjIwMjBfYWx0aW0oOiwxKSxGUjIwMjBfYWx0aW0oOiw0
+KSwnLXInKQolIGhvbGQgb24scGxvdChhbHRpbWV0ZXJfeXJfdGltZSswLjUsYWx0aW1fc2xf
+ZW5zZW1ibGUsJy0taCcpCiUgaG9sZCBvbixwbG90KGFsdGltZXRlcl95cl90aW1lKzAuNSxh
+bHRpbV9zbF9lbnNlbWJsZSthbHRpbV9lcnJvcl9lbnNlbWJsZSwnLS1yJykKJSBob2xkIG9u
+LHBsb3QoYWx0aW1ldGVyX3lyX3RpbWUrMC41LGFsdGltX3NsX2Vuc2VtYmxlLWFsdGltX2Vy
+cm9yX2Vuc2VtYmxlLCctLXInKQolIGNsb3NlCiUlIGxvYWQgZW5zZW1ibGUgZnJvbSAxOTAw
+IG9ud2FyZCBzZW50IGZyb20gTWF0dDoKCmxvYWQgRmlsZXNfZnJvbV8yMS4wMS4yMDIxL2dt
+c2xfdGRfZW5zZW1ibGVfMjEwMTIwMjEubWF0CgpnbXNsX3RkX3RpbWVfZW5zZW1ibGUgPSBn
+bXNsX3RkX2Vuc2VtYmxlKDosMSk7Cmdtc2xfdGRfc2xfZW5zZW1ibGUgPSBnbXNsX3RkX2Vu
+c2VtYmxlKDosMik7Cmdtc2xfdGRfZXJyb3JfZW5zZW1ibGUgPSAxLjY0NSpnbXNsX3RkX2Vu
+c2VtYmxlKDosNSk7ICUgZXJyb3IgYXJlIGluIDEtc2lnbWEgZnJvbSBNYXR0J3MgdGFibGUs
+IGNvbnZlcnRpbmcgdG8gOTAlIENJCgpjbGVhciBnbXNsX3RkX2Vuc2VtYmxlCiUlIG1lcmdl
+IHRkX2Vuc2VtYmxlKDE5MDAtMTk5Mikgd2l0aCBhbHRpbWV0ZXJfc2xfZW5zZW1ibGUoMTk5
+My0yMDE4KQoKdGdfdHN0YXJ0ID0gZmluZChnbXNsX3RkX3RpbWVfZW5zZW1ibGU9PTE5MDEu
+NSk7CnRnX3RlbmQgPSBmaW5kKGdtc2xfdGRfdGltZV9lbnNlbWJsZT09MTk5Mi41KTsKClRH
+X1NMX3B0MSA9IGdtc2xfdGRfc2xfZW5zZW1ibGUodGdfdHN0YXJ0OnRnX3RlbmQpOwpUR19F
+cnJvcl9wdDEgPSBnbXNsX3RkX2Vycm9yX2Vuc2VtYmxlKHRnX3RzdGFydDp0Z190ZW5kKTsK
+VEdfdGltZV9wdDEgPSBnbXNsX3RkX3RpbWVfZW5zZW1ibGUodGdfdHN0YXJ0OnRnX3RlbmQp
+OwoKJSAtIE1lcmdlIFRHIHJlY29uc3QuIHdpdGggb3VyIGFsdGltLiBlbnNlbWJsZToKbWVy
+Z2VkX1NMX1RHX2FsdGltID0gY2F0KDEsVEdfU0xfcHQxLGFsdGltX3NsX2Vuc2VtYmxlJyk7
+Cm1lcmdlZF90aW1lX1RHX2FsdGltID0gY2F0KDEsVEdfdGltZV9wdDEsYWx0aW1ldGVyX3ly
+X3RpbWUnKTsKbWVyZ2VkX2Vycm9yX1RHX2FsdGltID0gY2F0KDEsVEdfRXJyb3JfcHQxLGFs
+dGltX2Vycm9yX2Vuc2VtYmxlJyk7CgolJSBzb21lIHBsb3RzCgpmaWd1cmUscGxvdChtZXJn
+ZWRfdGltZV9UR19hbHRpbSxtZXJnZWRfU0xfVEdfYWx0aW0sJy1rJywnbGluZXdpZHRoJywy
+KQpob2xkIG9uLHBsb3QobWVyZ2VkX3RpbWVfVEdfYWx0aW0sbWVyZ2VkX1NMX1RHX2FsdGlt
+K21lcmdlZF9lcnJvcl9UR19hbHRpbSwnLS1yJykKaG9sZCBvbixwbG90KG1lcmdlZF90aW1l
+X1RHX2FsdGltLG1lcmdlZF9TTF9UR19hbHRpbS1tZXJnZWRfZXJyb3JfVEdfYWx0aW0sJy0t
+cicpCgoKc2F2ZSgnZ21zbF9hbHRpbWV0ZXIrVEdfZW5zZW1ibGVfMjgwMTIwMjEubWF0Jywn
+bWVyZ2VkX3RpbWVfVEdfYWx0aW0nLCdtZXJnZWRfU0xfVEdfYWx0aW0nLCdtZXJnZWRfZXJy
+b3JfVEdfYWx0aW0nKQo=
+--B_3695062110_1288371507--
+
