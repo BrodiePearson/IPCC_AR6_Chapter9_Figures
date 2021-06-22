@@ -1,0 +1,51 @@
+Anomalies wrt MIROC5 historical experiment with the same GrIS albedo choice						
+DT global-mean surface air temperature anomaly (K) relative to 1980-1999						
+"DSL10k likewise after 10,000 years"						
+DSL2k global-mean sea-level rise contributed by GrIS after 2000 years (m)						
+						
+experiment	albedo	model	DT	DSL2k	DSL10k	DT_PI
+historical	High	CanESM2	-0.199	0.083	0.086	0.341
+historical	High	HadGEM2-ES	-0.316	0.06	0.025	0.224
+historical	High	MIROC5	0	0.016	0.037	0.54
+historical	High	NorESM1-M	-0.497	0.177	0.339	0.043
+historical	Low	CanESM2	-0.164	0.171	0.208	0.376
+historical	Low	HadGEM2-ES	-0.333	0.033	0.27	0.207
+historical	Low	MIROC5	0	0.067	0.233	0.54
+historical	Low	NorESM1-M	-0.512	0.327	0.464	0.028
+historical	Medium	CanESM2	-0.201	0.026	0.047	0.339
+historical	Medium	HadGEM2-ES	-0.317	0.013	0.044	0.223
+historical	Medium	MIROC5	0	0.045	0.09	0.54
+historical	Medium	NorESM1-M	-0.492	0.2	0.425	0.048
+rcp26	High	CanESM2	1.262	0.143	0.246	1.802
+rcp26	High	HadGEM2-ES	1.047	0.374	0.667	1.587
+rcp26	High	MIROC5	1.048	0.161	0.179	1.588
+rcp26	High	NorESM1-M	0.311	0.481	1.146	0.851
+rcp26	Low	CanESM2	1.263	0.204	0.443	1.803
+rcp26	Low	MIROC5	1.062	0.249	0.604	1.602
+rcp26	Low	NorESM1-M	0.31	0.617	1.442	0.85
+rcp26	Medium	CanESM2	1.251	0.121	0.271	1.791
+rcp26	Medium	HadGEM2-ES	1.098	0.372	0.819	1.638
+rcp26	Medium	MIROC5	1.085	0.142	0.348	1.625
+rcp26	Medium	NorESM1-M	0.309	0.49	1.275	0.849
+rcp45	High	CanESM2	2.126	0.473	0.768	2.666
+rcp45	High	HadGEM2-ES	2.211	0.864	1.918	2.751
+rcp45	High	MIROC5	1.864	0.394	0.801	2.404
+rcp45	Low	CanESM2	2.177	0.655	2.239	2.717
+rcp45	Low	HadGEM2-ES	2.234	1.186	3.579	2.774
+rcp45	Low	MIROC5	1.848	0.585	2.598	2.388
+rcp45	Low	NorESM1-M	1.085	1.052	3.395	1.625
+rcp45	Medium	CanESM2	2.152	0.512	1.028	2.692
+rcp45	Medium	HadGEM2-ES	2.222	1.128	2.671	2.762
+rcp45	Medium	MIROC5	1.861	0.479	1.357	2.401
+rcp45	Medium	NorESM1-M	1.107	0.884	3.213	1.647
+rcp85	High	CanESM2	4.223	1.535	5.021	4.763
+rcp85	High	MIROC5	3.527	1.293	3.483	4.067
+rcp85	High	NorESM1-M	2.643	1.759	4.364	3.183
+rcp85	Low	CanESM2	4.23	1.839	5.757	4.77
+rcp85	Low	MIROC5	3.588	1.887	5.471	4.128
+rcp85	Low	NorESM1-M	2.635	2.184	4.989	3.175
+rcp85	Medium	CanESM2	4.241	1.635	5.385	4.781
+rcp85	Medium	MIROC5	3.579	1.693	4.681	4.119
+rcp85	Medium	NorESM1-M	2.642	1.923	4.612	3.182
+abrupt4xCO2	Low	CanESM2	4.828	2.399	6.564	5.368
+abrupt4xCO2	Low	HadGEM2-ES	5.275	3.271	6.956	5.815
