@@ -38,7 +38,7 @@ and the supplementary material from the IPCC TSU. Where neccessary, the director
 * [**Figure 9.16**]() -
 * [**Figure 9.17**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_17_GIS_synth/Fig9_17_GIS_synth.pdf) - Greenland Ice Sheet: synthesis of paleo-, modern- and future-changes
 * [**Figure 9.18**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_18_AIS_synth/Fig9_18_AIS_synth.pdf) - Antarctic Ice Sheet: synthesis of paleo-, modern- and future-changes
-* [**Figure 9.19**]() - 
+* [**Figure 9.19**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_19_AIS_basal/Fig9_19_AIS_basal.pdf) - Antarctic basal melt rates
 * [**Figure 9.20**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_20_Glacier_Rate/Fig9_20_Glacier_Rate.png) - Glacier mass change rates
 * [**Figure 9.21**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_21_glaciers_changes/Fig9_21_glaciers_change.pnghttps://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_11_BSF/Fig9_11_BSF.pdf) - Glacier mass relative to 2015
 * [**Figure 9.22**]() -
