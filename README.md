@@ -19,7 +19,8 @@ As a result, some plotting code cannot be used without first downloading the req
 The metadata of these CMIP datasets and other datasets used within the chapter are provided in the Appendix of the chapter 
 and the supplementary material from the IPCC TSU. Where neccessary, the directory structure of this data can be inferred from the processing code.
 
-## List of Figures in chapter 9 (with brief description, coding language w/ link to plotting code, and primary author[s] of code)
+## List of Figures in chapter 9 
+### With brief description, coding language w/ link to plotting code, and primary author[s] of code
 
 * Figure 9.1 - Visual Plan of chapter 9 and connections with other chapters (No quantitative information; not included here)
 
