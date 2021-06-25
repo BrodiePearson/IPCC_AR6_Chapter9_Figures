@@ -94,7 +94,7 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 * [**Figure 9.24**]() - (**Python** - **Gerhard Krinner**)
 
 
-* [**Figure 9.25**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_25_SLR_PDFs/Fig9_25_SLR_PDFs.pdf) - PDFs of projected Sea Level Rise at 2050 and 2100 under different SSPs ([**Matlab**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_25_SLR_PDFs/Plot_Figure/plot_SLRbarwhisker_RCPs.m) - **Brodie Pearson** & **Bob Kopp**)
+* [**Figure 9.25**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_25_SLR_PDFs/Fig9_25_SLR_PDFs.pdf) - PDFs of projected Sea Level Rise at 2050 and 2100 under different SSPs ([**Matlab**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_25_SLR_PDFs/Plot_Figure/plot_SLRbarwhisker_RCPs.m) - **Bob Kopp** & **Brodie Pearson**)
 
 
 * [**Figure 9.26**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_26_SL_regional/Fig9_26_SL_regional.pdf) - Projected sea level change contributions under SSP1-2.6 and SSP5-8.5 ([**Matlab timeseries**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_26_SL_regional/Plot_Figure/Plot_SL_Contribution_Timeseries.m) and [**maps**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_26_SL_regional/Plot_Figure/Plot_SL_Contribution_Maps.m) - **Brodie Pearson**)
