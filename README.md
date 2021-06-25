@@ -1,23 +1,23 @@
 # IPCC AR6 Chapter 9 Figures
-Repository with the code and data for all figures from Chapter 9 of the Sizth Assesment Report from the Intergovernmental Panel on Climate Change (IPCC AR6)
+Repository with the code and data for all figures from Chapter 9 of the Sixth Assesment Report from the Intergovernmental Panel on Climate Change (IPCC AR6)
 
 ## How to use this repository
 The code to plot each figure from Chapter 9 of IPCC AR6 is contained in the `Plotting_code_and_data` directory. 
 Each figure has its own folder, named after its number in the report and a brief descriptor of the figure.
-If this code substantially aids your work, it can be cited using [this Zenodo reference]() [LINK TO BE ADDED]
+If code from this repository substantially aids your work, it can be cited using [this Zenodo reference]() [LINK TO BE ADDED]
 
 All of the individual figure directories contain a png and pdf image of the final figure used in the IPCC AR6. 
 In addition, many of these directories have a 
-1. `Plot_Figure` folder that contains the code used to create the figure, 
+1. `Plot_Figure` folder that contains the code and data used to create the figure, 
 2. `Plotted_Data` folder that contains the final plotted data in the NetCDF format required by the IPCC TSU, 
-3. `PNGs` folder where plotting code will output image files of each subpanel (not alwayds `.png`, could be `.pdf`, `.eps` etc.) 
-The structure within each figure folder changes slightly between figures, due to the various authors that contributed to plotting 
+3. `PNGs` folder where plotting code will output image files of each subpanel (not always `.png`, could be `.pdf`, `.eps` etc.) 
+The exact structure varies between figure folder due to the various authors that contributed to plotting 
 code for specific figures in this chapter.
 
 Some figures require large sets of data that cannot be uploaded to GitHub or shared easily. 
 As a result, some plotting code cannot be used without first downloading the required data (for example CMIP data from ESGF nodes).
-The metadata of these CMIP datasets and other datasets used within the chapter are provided in the Appendix of the chapter 
-and the supplementary material from the IPCC TSU. Where neccessary, the directory structure of this data can be inferred from the processing code.
+The metadata of these CMIP datasets and other datasets used within the chapter are provided in the Appendix for Chapter 9 of IPCC AR6,
+and in the supplementary material from the IPCC TSU. Where neccessary, the directory structure of this data can be inferred from the processing code.
 
 ## List of Figures in chapter 9 
 ### With brief description, coding language w/ link to plotting code, and primary author[s] of code
