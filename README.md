@@ -112,7 +112,7 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 * [**Figure 9.30**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_30_GMSL_Commitment/Fig9_30_GMSL_Commitment.pdf) - 2,000- and 10,000-year sea-level commitments as a function of peak global surface air temperature anomaly ([**Matlab**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_30_GMSL_Commitment/Plot_Figure/plot_SLR_commitments.m) - **Baylor Fox-Kemper** & **Brodie Pearson**)
 
 
-* [**Figure 9.31**]() - (**Unknown** - **Mark Hemer**)
+* [**Figure 9.31**]() - (**Unknown** - **Mark Hemer** & **Billy Sweet**)
 
 
 * [**Figure 9.32**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_32_ESL_proj/Fig9_32_ESL_proj.pdf) - Median amplification factor of extreme still water level by 2050 and 2100 ([**Matlab**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_32_ESL_proj/Plot_Figure/Plot_fig9_32_ESL.m) - **Tim Hermans** & **Brodie Pearson**)
