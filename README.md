@@ -1,18 +1,17 @@
 # IPCC AR6 Chapter 9 Figures
-Repository with the code and data for all figures from Chapter 9 of the Sixth Assesment Report from the Intergovernmental Panel on Climate Change (IPCC AR6)
+### Repository with the code and data for all figures from Chapter 9 of the Sixth Assesment Report from the Intergovernmental Panel on Climate Change (IPCC AR6)
 
 ## How to use this repository
 The code to plot each figure from Chapter 9 of IPCC AR6 is contained in the `Plotting_code_and_data` directory. 
 Each figure has its own folder, named after its number in the report and a brief descriptor of the figure.
 If code from this repository substantially aids your work, it can be cited using [this Zenodo reference]() [LINK TO BE ADDED]
 
-All of the individual figure directories contain a png and pdf image of the final figure used in the IPCC AR6. 
+All of the individual figure directories contain a `.png`, `.pdf` and/or `.eps` image of the final figure used in the IPCC AR6. 
 In addition, many of these directories have a 
 1. `Plot_Figure` folder that contains the code and data used to create the figure, 
 2. `Plotted_Data` folder that contains the final plotted data in the NetCDF format required by the IPCC TSU, 
 3. `PNGs` folder where plotting code will output image files of each subpanel (not always `.png`, could be `.pdf`, `.eps` etc.) 
-The exact structure varies between figure folder due to the various authors that contributed to plotting 
-code for specific figures in this chapter.
+The exact structure varies between figure folders due to the various authors that contributed to different figures in this chapter.
 
 Some figures require large sets of data that cannot be uploaded to GitHub or shared easily. 
 As a result, some plotting code cannot be used without first downloading the required data (for example CMIP data from ESGF nodes).
@@ -80,13 +79,15 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 ## Functions for IPCC processing/analysis
 ### Matlab Functions
 Many of the figures in Chapter 9 use Matlab functions created by Brodie Pearson and Baylor Fox-Kemper. These functions are found in the `Functions` directory,
-and Matlab code in this repository is set up to find these functions automatically.
+and the Matlab code within this repository is set up to use these functions automatically.
 
 ### ESMValTool recipes
-Some of the code uses ESMValTool to perform certain pre-processing operations on CMIP ensembles and observational/reanalysis data. 
-These operations include: re-gridding onto matching grids, extraction of specific time periods or regions, averaging operations.
-The recipes for performing these operations are provided in the `Recipes_for_ESMValTool` directory. 
-**ESMValTool was only used to pre-process this data, it was not used to plot the figures in Chapter 9.**
-The ESMValTool recipes are designed to crash after pre-processing the data, 
-and this data can be extracted from the appropriate pre-processor directory 
-(note that you may need to turn on a flag to save the pre-processed data).
+Some of the code uses [ESMValTool](https://github.com/ESMValGroup/ESMValTool) to perform certain pre-processing operations on CMIP ensembles and observational/reanalysis data. 
+These operations include: re-gridding onto matching grids, extraction of specific time periods or regions, and temporal/spatial averaging.
+**ESMValTool is a tool for processing and plotting CMIP data. In Chapter 9 ESMValTool was used to process some datasets, but it was not used to plot this data.**
+
+
+ESMValTool uses *recipes* and *diagnostics* which each perform a specific purpose. *Recipes* are used to extract and process the appropriate datasets from CMIP and other sources. *Diagnostics* are used to plot figures (or calculate diagnostics) using this extracted and processed data.
+The ESMValTool recipes in this repository are designed to crash after processing the data, although you may need to create an empty diagnostic file with the name contained at the end of the recipe, so that ESMValTool thinks it will eventually plot the processed data.
+After ESMValTool crashes, the processed data can be extracted from the appropriate pre-processor directory. 
+Note that you may need to turn on a flag (such as `save_intermediary_cubes`) to save the processed data.
