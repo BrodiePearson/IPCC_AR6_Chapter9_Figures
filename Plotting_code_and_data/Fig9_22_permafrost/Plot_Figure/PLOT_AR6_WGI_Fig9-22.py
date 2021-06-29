@@ -284,6 +284,6 @@ ax1.set_title('b) Global Permafrost Volume Change\n(top '+depth+'m)')
 
 # sauvegarder
 #############
-plt.savefig('../PNGs/AR6_WGI_Fig9-24.png',format='png')
-plt.savefig('../PNGs/AR6_WGI_Fig9-24.pdf',format='pdf')
+plt.savefig('../PNGs/AR6_WGI_Fig9-22.png',format='png')
+plt.savefig('../PNGs/AR6_WGI_Fig9-22.pdf',format='pdf')
 plt.show()
