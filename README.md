@@ -20,7 +20,7 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 
 ## List of ocean figures in Chapter 9 
 
-| Figure (w/ link) | Code (w/ link)| Primary author(s) | Brief description |
+| Figure (w/ link) | Code (w/ link)| Primary code author(s) | Brief description |
 | ------------- |:-------------:|:-----:| -----|
 | Figure 9.1    | N/A |  CLAs   | Visual Plan of chapter (No quantitative information; not included here) |
 | [**Figure 9.2**]()    | **Matlab** |  **Baylor Fox-Kemper**   |  |
@@ -38,7 +38,7 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 
 ## List of cryosphere figures in Chapter 9 
 
-| Figure (w/ link) | Code (w/ link)| Primary author(s) | Brief description |
+| Figure (w/ link) | Code (w/ link)| Primary code author(s) | Brief description |
 | ------------- |:-------------:|:-----:| -----|
 | [**Figure 9.13**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_13_Arctic_SI/Fig9_13_Arctic_SI.pdf)    | [**Python timeseries**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_13_Arctic_SI/Plot_Figure/plot_9_13_and_9_15_LEFT_Panels.py) and [**maps**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_13_Arctic_SI/Plot_Figure/plot_Fig_9_13_RIGHT_and_Fig_9_15_RIGHT.py) |  **Dirk Notz**   | Arctic sea-ice historical records and CMIP6 projections |
 | [**Figure 9.14**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_14_SI_warming/Fig9_14_SI_warming.pdf)    | [**Python**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_14_SI_warming/Plot_Figure/plot_Fig_9_14.py) |  **Jakob Doerr**   | Sea-ice area as a function of temperature, CO2 emissions and time |
@@ -55,7 +55,7 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 
 ## List of sea level figures in Chapter 9 
 
-| Figure (w/ link) | Code (w/ link)| Primary author(s) | Brief description |
+| Figure (w/ link) | Code (w/ link)| Primary code author(s) | Brief description |
 | ------------- |:-------------:|:-----:| -----|
 | [**Figure 9.25**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_25_SLR_PDFs/Fig9_25_SLR_PDFs.pdf)    | [**Matlab**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_25_SLR_PDFs/Plot_Figure/plot_SLRbarwhisker_RCPs.m) |  **Bob Kopp**   | PDFs of projected Sea Level Rise at 2050 and 2100 under different SSPs |
 | [**Figure 9.26**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_26_SL_regional/Fig9_26_SL_regional.pdf)    | [**Matlab timeseries**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_26_SL_regional/Plot_Figure/Plot_SL_Contribution_Timeseries.m) and [**maps**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_26_SL_regional/Plot_Figure/Plot_SL_Contribution_Maps.m) |  **Brodie Pearson**   | Projected sea level change contributions under SSP1-2.6 and SSP5-8.5 |
@@ -68,7 +68,7 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 
 ## List of additional figures in chapter 9
 
-| Figure (w/ link) | Code (w/ link)| Primary author(s) | Brief description |
+| Figure (w/ link) | Code (w/ link)| Primary code author(s) | Brief description |
 | ------------- |:-------------:|:-----:| -----|
 | **Box 9.2**    | Not available yet |  **Thomas Froelicher**   | Marine Heatwaves |
 | [**Cross-chapter box Figure 9.1.1**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Cross_Chapter_Box_9_1/CCBox9.1_Figure1_FGD_18x9cm.pdf)   | [**Python/Jupyter notebook**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Cross_Chapter_Box_9_1/Plot_Figure/plot_AR6_CCBox9.1_FGD.ipynb) |  **Matt Palmer**   | Global energy inverntory and global sea-level budget |
