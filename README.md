@@ -78,8 +78,9 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 
 ## Functions for IPCC processing/analysis
 ### Matlab Functions
-Many of the figures in Chapter 9 use Matlab functions created by Brodie Pearson and Baylor Fox-Kemper. These functions are found in the `Functions` directory,
-and the Matlab code within this repository is set up to use these functions automatically.
+Many of the figures in Chapter 9 use Matlab functions created by Brodie Pearson and Baylor Fox-Kemper. These functions include scripts to plot maps, manipulate CMIP datasets, and use IPCC color schemes. They are found in the [`Functions` directory](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/tree/main/Functions) in scripts prefixed in scripts with the naming convention `IPCC_*.nc`. The Matlab plotting code within this repository is set up to use these functions automatically. 
+
+The [`Functions` directory](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/tree/main/Functions) also contains some  Matlab scripts that are not distributed within Matlab's standard installation, but are available online through MathWorks.
 
 ### ESMValTool recipes
 Some of the code uses [ESMValTool](https://github.com/ESMValGroup/ESMValTool) to perform certain pre-processing operations on CMIP ensembles and observational/reanalysis data. 
