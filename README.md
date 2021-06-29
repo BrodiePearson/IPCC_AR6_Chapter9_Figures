@@ -50,8 +50,8 @@ and in the supplementary material from the IPCC TSU. Where neccessary, the direc
 | [**Figure 9.20**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_20_Glacier_Rate/Fig9_20_Glacier_Rate.png)   | [**Python**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_20_Glacier_Rate/Plot_Figure/SCRIPT/MB_figure_FGD_mar2021_commented.m) |  **Lucas Riuz**   | Glacier mass change rates |
 | [**Figure 9.21**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_21_glaciers_changes/Fig9_21_glaciers_change.pnghttps://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_11_BSF/Fig9_11_BSF.pdf)    | [**Python**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_21_glaciers_changes/Plot_Figure/SCRIPT/Relative_glacier_mass_change_figure.m) |  **Lucas Riuz**   | Glacier mass relative to 2015 |
 | [**Figure 9.22**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_22_permafrost/Fig9_22_permafrost.pdf)    | [**Python**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_22_permafrost/Plot_Figure/PLOT_AR6_WGI_Fig9-24.py) |  **Gerhard Krinner**   | Permafrost area and changes |
-| [**Figure 9.23**]()    | **Python** |  **Gerhard Krinner**   |  |
-| [**Figure 9.24**]()    | **Python** |  **Gerhard Krinner**   |  |
+| [**Figure 9.23**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_23_snow/Fig9_23_snow.pdf)    | [**Python**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_23_snow/Plot_Figure/SnowObs.py) |  **Gerhard Krinner**   | Snow cover timeseries |
+| [**Figure 9.24**](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_24_snow/Fig9_24_snow.pdf)    | **Python** |  **Gerhard Krinner**   | Northern Hemisphere snow extent and cover |
 
 ## List of sea level figures in Chapter 9 
 
