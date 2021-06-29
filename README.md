@@ -2,7 +2,7 @@
 ### Repository with the code and data for all figures from Chapter 9 of the Sixth Assesment Report from the Intergovernmental Panel on Climate Change (IPCC AR6)
 
 ## How to use this repository
-The code to plot each figure from Chapter 9 of IPCC AR6 is contained in the `Plotting_code_and_data` directory. 
+The code to plot each figure from Chapter 9 of IPCC AR6 is contained in the [`Plotting_code_and_data`](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/tree/main/Plotting_code_and_data) directory. 
 Each figure has its own folder, named after its number in the report and a brief descriptor of the figure.
 If code from this repository substantially aids your work, it can be cited using [this Zenodo reference]() [LINK TO BE ADDED]
 
@@ -86,8 +86,14 @@ Some of the code uses [ESMValTool](https://github.com/ESMValGroup/ESMValTool) to
 These operations include: re-gridding onto matching grids, extraction of specific time periods or regions, and temporal/spatial averaging.
 **ESMValTool is a tool for processing and plotting CMIP data. In Chapter 9 ESMValTool was used to process some datasets, but it was not used to plot this data.**
 
-
 ESMValTool uses *recipes* and *diagnostics* which each perform a specific purpose. *Recipes* are used to extract and process the appropriate datasets from CMIP and other sources. *Diagnostics* are used to plot figures (or calculate diagnostics) using this extracted and processed data.
-The ESMValTool recipes in this repository are designed to crash after processing the data, although you may need to create an empty diagnostic file with the name contained at the end of the recipe, so that ESMValTool thinks it will eventually plot the processed data.
+The ESMValTool recipes for Chapter 9 are contained within this directory. The recipes in this repository are designed to crash after processing the data, although you may need to create an empty diagnostic file with the name contained at the end of the recipe, so that ESMValTool thinks it will eventually plot the processed data.
 After ESMValTool crashes, the processed data can be extracted from the appropriate pre-processor directory. 
-Note that you may need to turn on a flag (such as `save_intermediary_cubes`) to save the processed data.
+Note that you may need to turn off a flag (such as switching `remove_preproc_dir` to `false`) to save the processed data.
+
+The ESMValTool recipe directory contains:
+
+- A [*config* file](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Functions/ESMValTool_Recipes/config-brodie-Jasmin.yml), which sets various configuration switches including the directories that ESMValTool looks for data sets from CMIP and other sources
+- A [`Recipes`](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/tree/main/Functions/ESMValTool_Recipes/Recipes) directory containing the ESMValTool recipes used to extract and process data for Chapter 9. 
+- A [`CMIP6_Lists`](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/tree/main/Functions/ESMValTool_Recipes/CMIP6_Lists) directory that contains terminal print outs of the list of available model datasets for a particular experiment and variable combination. Some models have multiple datasets (ensemble), in which case we used the first available dataset (which can be validated by looking at the recipes). This list contains information about the latest version release of each of these model datasets at the time the Chapter 9 figures were created.
+- A [`Create_CMIP6_lists.sh`](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Functions/ESMValTool_Recipes/Create_CMIP6_lists.sh) script that was the basis for producing the printouts in the [`CMIP6_Lists` directory](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/tree/main/Functions/ESMValTool_Recipes/CMIP6_Lists)
