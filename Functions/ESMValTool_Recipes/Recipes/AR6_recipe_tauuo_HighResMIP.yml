@@ -1,0 +1,77 @@
+# ESMValTool
+# AR6_recipe_OceanQuadMap.yml
+---
+documentation:
+  description: |
+    Recipe to extract the temperature of ocean surface (tos) - (collect from preproc after crash)
+
+  authors:
+    - demora_lee
+
+  maintainer:
+    - schl_ma
+
+  references:
+    - demora2018gmd
+
+  projects:
+    - ukesm
+
+
+#datasets:
+#  - {dataset: CNRM-CM6-1-HR, ensemble: r1i1p1f2}
+
+
+preprocessors:
+  prep_tauuo_maps: # For Global 2D fields
+    extract_time:
+#    regrid:
+#      target_grid: 1x1
+#      scheme: linear
+
+
+diagnostics:
+# --------------------------------------------------
+# Quad Maps diagnostics
+# -----------------------------------------------
+  diag_tauuo_maps:
+    description: Diagnose tauuo
+    variables:
+      tauuo: # x- wind stress
+        preprocessor: prep_tauuo_maps
+        field: TO2Ms
+        grid: gn
+        mip: Omon
+        start_year: 1985
+        end_year: 2014
+        exp: hist-1950
+        fullmip: HighResMIP
+        project: CMIP6
+        ensemble: r1i1p1f1
+#        fx_files: [ areacello, ]
+#        fx_dir: Ofx
+#        fx_var: areacello
+    additional_datasets:
+      - {dataset: CMCC-CM2-HR4}
+      - {dataset: CMCC-CM2-VHR4}
+      - {dataset: CNRM-CM6-1-HR, ensemble: r1i1p1f2}
+      - {dataset: EC-Earth3P-HR, ensemble: r1i1p2f1}
+# No future partner      - {dataset: ECMWF-IFS-HR}
+# Memory issue      - {dataset: HadGEM3-GC31-HH, ensemble: r1i1p1f1, institute: NERC}
+      - {dataset: HadGEM3-GC31-HM}
+# no partner      - {dataset: MPI-ESM1-2-HR}
+# no partner     - {dataset: MPI-ESM1-2-XR}
+      
+      # Now load future HighResMIP simulations
+      - {dataset: CMCC-CM2-HR4, exp: highres-future, start_year: 2031, end_year: 2050}
+      - {dataset: CMCC-CM2-VHR4, exp: highres-future, start_year: 2031, end_year: 2050}
+      - {dataset: CNRM-CM6-1-HR, ensemble: r1i1p1f2, exp: highres-future, start_year: 2031, end_year: 2050}
+      - {dataset: EC-Earth3P-HR, ensemble: r1i1p2f1, exp: highres-future, start_year: 2031, end_year: 2050}
+# No future partner      - {dataset: ECMWF-IFS-HR, exp: highres-future, start_year: 2031, end_year: 2050}
+      - {dataset: HadGEM3-GC31-HM, exp: highres-future, start_year: 2031, end_year: 2050}
+#      - {dataset: MPI-ESM1-2-HR, exp: highres-future, start_year: 2031, end_year: 2050}
+#      - {dataset: MPI-ESM1-2-XR, exp: highres-future, start_year: 2031, end_year: 2050}
+
+    scripts:
+      Diagnose_tos: &Diagnose_tos
+                script: /home/users/bpearson/AR6-ch9-ESMValTool-recipes/ESMValTool_Recipes/diagnostic_dummy.py

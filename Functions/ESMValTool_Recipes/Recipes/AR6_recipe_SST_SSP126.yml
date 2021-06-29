@@ -1,0 +1,89 @@
+# ESMValTool
+# AR6_recipe_OceanQuadMap.yml
+---
+documentation:
+  description: |
+    Recipe to extract the temperature of ocean surface (tos) - (collect from preproc after crash)
+
+  authors:
+    - demora_lee
+
+  maintainer:
+    - schl_ma
+
+  references:
+    - demora2018gmd
+
+  projects:
+    - ukesm
+
+
+datasets:
+  - {dataset: CNRM-CM6-1, ensemble: r1i1p1f2}
+
+
+preprocessors:
+  prep_tos_maps: # For Global 2D fields
+    extract_time:
+    regrid:
+      target_grid: 1x1
+      scheme: linear
+
+
+diagnostics:
+# --------------------------------------------------
+# Quad Maps diagnostics
+# -----------------------------------------------
+  diag_tos_maps:
+    description: Diagnose tos
+    variables:
+      tos: # Temperature ocean surface
+        preprocessor: prep_tos_maps
+        field: TO2Ms
+        grid: gn
+        mip: Omon
+        start_year: 2015
+        end_year: 2100
+        exp: ssp126
+        fullmip: ScenarioMIP
+        project: CMIP6
+        fx_files: [ areacello, ]
+        fx_dir: Ofx
+        fx_var: areacello
+    additional_datasets:
+# Bounds issue      - {dataset: AWI-CM-1-1-MR, ensemble: r1i1p1f1}
+      - {dataset: ACCESS-ESM1-5, ensemble: r1i1p1f1}
+      - {dataset: ACCESS-CM2, ensemble: r1i1p1f1, institute: CSIRO-ARCCSS}
+      - {dataset: BCC-CSM2-MR, ensemble: r1i1p1f1}
+      - {dataset: CAMS-CSM1-0, ensemble: r1i1p1f1, end_year: 2099}
+      - {dataset: CanESM5, ensemble: r1i1p1f1}
+      - {dataset: CESM2-WACCM, ensemble: r1i1p1f1}
+      - {dataset: CIESM, ensemble: r1i1p1f1}
+      - {dataset: CNRM-ESM2-1, ensemble: r2i1p1f2}
+      - {dataset: CMCC-CM2-SR5, ensemble: r1i1p1f1}
+# Temporal coverage error      - {dataset: EC-Earth3, ensemble: r1i1p1f1}
+      - {dataset: EC-Earth3-Veg, ensemble: r1i1p1f1}
+      - {dataset: FIO-ESM-2-0, ensemble: r1i1p1f1}
+# Nonetype      - {dataset: FGOALS-f3-L, ensemble: r1i1p1f1}
+# NoneType object issue      - {dataset: FGOALS-g3, ensemble: r1i1p1f1}
+#      - {dataset: GFDL-CM4, ensemble: r1i1p1f1}
+      - {dataset: GFDL-ESM4, ensemble: r1i1p1f1}
+      - {dataset: HadGEM3-GC31-LL, ensemble: r1i1p1f3}
+      - {dataset: HadGEM3-GC31-MM, ensemble: r1i1p1f3}
+      - {dataset: INM-CM4-8, ensemble: r1i1p1f1, grid: gr1}
+      - {dataset: INM-CM5-0, ensemble: r1i1p1f1, grid: gr1}
+      - {dataset: IPSL-CM6A-LR, ensemble: r1i1p1f1}
+#double coord error      - {dataset: KACE-1-0-G, ensemble: r1i1p1f1, grid: gr}
+      - {dataset: MIROC6, ensemble: r1i1p1f1}
+      - {dataset: MIROC-ES2L, ensemble: r1i1p1f2}
+      - {dataset: MPI-ESM1-2-HR, ensemble: r1i1p1f1}
+      - {dataset: MPI-ESM1-2-LR, ensemble: r1i1p1f1}
+      - {dataset: MRI-ESM2-0, ensemble: r1i1p1f1}
+#Overflow error time      - {dataset: NESM3, ensemble: r1i1p1f1}
+      - {dataset: NorESM2-LM, ensemble: r1i1p1f1}
+      - {dataset: NorESM2-MM, ensemble: r1i1p1f1}
+      - {dataset: UKESM1-0-LL, ensemble: r1i1p1f2}
+
+    scripts:
+      Diagnose_tos: &Diagnose_tos
+                script: /home/users/bpearson/AR6-ch9-ESMValTool-recipes/ESMValTool_Recipes/diagnostic_dummy.py

@@ -1,0 +1,73 @@
+# ESMValTool
+# recipe_THETAO.yml
+---
+documentation:
+  description: |
+    Recipe to extract the thetao fields averaged across a time period - (collect from preproc after crash)
+
+  authors:
+    - demora_lee
+
+  maintainer:
+    - schl_ma
+
+  references:
+    - demora2018gmd
+
+  projects:
+    - ukesm
+
+
+datasets:
+  # working datasets
+  - {dataset: CNRM-CM6-1, ensemble: r1i1p1f2}
+
+preprocessors:
+  prep_theta_transect: # SST preparation
+    custom_order: true
+    extract_time:
+      start_year: 2081
+      end_year: 2100
+    climate_statistics:
+      operator: mean
+
+diagnostics:
+# --------------------------------------------------
+# Quad Maps diagnostics
+# -----------------------------------------------
+  diag_gmsst:
+    description: Diagnose ocean temperature fields
+    variables:
+      thetao: # Temperature ocean surface
+        preprocessor: prep_theta_transect
+        grid: gn
+        mip: Omon
+        start_year: 2081
+        end_year: 2100
+        exp: ssp370
+        fullmip: ScenarioMIP
+        project: CMIP6
+    additional_datasets:
+      - {dataset: ACCESS-ESM1-5, ensemble: r1i1p1f1}
+      - {dataset: ACCESS-CM2, ensemble: r1i1p1f1, institute: CSIRO-ARCCSS}
+      - {dataset: CAMS-CSM1-0, ensemble: r1i1p1f1, end_year: 2099}
+      - {dataset: CanESM5, ensemble: r1i1p1f1}
+      - {dataset: CESM2-WACCM, ensemble: r1i1p1f1}
+      - {dataset: CNRM-ESM2-1, ensemble: r4i1p1f2}
+      - {dataset: EC-Earth3-Veg, ensemble: r1i1p1f1}
+      - {dataset: GFDL-ESM4, ensemble: r1i1p1f1}
+      - {dataset: INM-CM4-8, ensemble: r1i1p1f1, grid: gr1}
+      - {dataset: INM-CM5-0, ensemble: r1i1p1f1, grid: gr1}
+      - {dataset: IPSL-CM6A-LR, ensemble: r1i1p1f1}
+      - {dataset: MIROC-ES2L, ensemble: r1i1p1f2}
+      - {dataset: MPI-ESM1-2-HR, ensemble: r1i1p1f1}
+      - {dataset: MPI-ESM1-2-LR, ensemble: r1i1p1f1}
+      - {dataset: MRI-ESM2-0, ensemble: r1i1p1f1}
+      - {dataset: NorESM2-LM, ensemble: r1i1p1f1}
+      - {dataset: NorESM2-MM, ensemble: r1i1p1f1}
+      - {dataset: UKESM1-0-LL, ensemble: r1i1p1f2}
+
+      
+    scripts:
+      Diagnose_tos: &Diagnose_tos
+        script: /home/users/bpearson/AR6-ch9-ESMValTool-recipes/ESMValTool_Recipes/diagnostic_dummy.py

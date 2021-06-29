@@ -1,0 +1,85 @@
+# ESMValTool
+# AR6_recipe_OceanQuadMap.yml
+---
+documentation:
+  description: |
+    Recipe to extract the temperature of ocean surface (tos) - (collect from preproc after crash)
+
+  authors:
+    - demora_lee
+
+  maintainer:
+    - schl_ma
+
+  references:
+    - demora2018gmd
+
+  projects:
+    - ukesm
+
+
+#datasets:
+#  - {dataset: CNRM-CM6-1-HR, ensemble: r1i1p1f2}
+
+
+preprocessors:
+  prep_tos_maps: # For Global 2D fields
+    extract_time:
+    regrid:
+      target_grid: 1x1
+      scheme: linear
+
+
+diagnostics:
+# --------------------------------------------------
+# Quad Maps diagnostics
+# -----------------------------------------------
+  diag_tos_maps:
+    description: Diagnose tos
+    variables:
+      tos: # Temperature ocean surface
+        preprocessor: prep_tos_maps
+        field: TO2Ms
+        grid: gn
+        mip: Omon
+        start_year: 1950
+        end_year: 2014
+        exp: hist-1950
+        fullmip: HighResMIP
+        project: CMIP6
+        fx_files: [ areacello, ]
+        fx_dir: Ofx
+        fx_var: areacello
+    additional_datasets:
+# Insufficient range of years      - {dataset: AWI-CM-1-1-HR, ensemble: r1i1p1f2}
+# Crashed ESMValTool      - {dataset: CESM1-CAM5-SE-HR, ensemble: r1i1p1f1, institute: NCAR}
+##      - {dataset: CMCC-CM2-HR4, ensemble: r1i1p1f1}
+##      - {dataset: CMCC-CM2-VHR4, ensemble: r1i1p1f1}
+##      - {dataset: EC-Earth3P-HR, ensemble: r1i1p2f1}
+##      - {dataset: ECMWF-IFS-HR, ensemble: r1i1p1f1}
+# Memory issue      - {dataset: HadGEM3-GC31-HH, ensemble: r1i1p1f1, institute: NERC}
+##      - {dataset: HadGEM3-GC31-HM, ensemble: r1i1p1f1}
+##      - {dataset: INM-CM5-H, ensemble: r1i1p1f1, grid: gr1}
+##      - {dataset: MPI-ESM1-2-HR, ensemble: r1i1p1f1}
+##      - {dataset: MPI-ESM1-2-XR, ensemble: r1i1p1f1}
+      
+      # Now load future HighResMIP simulations
+##      - {dataset: CMCC-CM2-HR4, ensemble: r1i1p1f1, exp: highres-future, start_year: 2015, end_year: 2050}
+##      - {dataset: CMCC-CM2-VHR4, ensemble: r1i1p1f1, exp: highres-future, start_year: 2015, end_year: 2050}
+##      - {dataset: CNRM-CM6-1-HR, ensemble: r1i1p1f2, exp: highres-future, start_year: 2015, end_year: 2050}
+##      - {dataset: EC-Earth3P-HR, ensemble: r1i1p2f1, exp: highres-future, start_year: 2015, end_year: 2050}
+# Memory issue      - {dataset: HadGEM3-GC31-HH, ensemble: r1i1p1f1, exp: highres-future, start_year: 2015, end_year: 2050}
+##      - {dataset: HadGEM3-GC31-HM, ensemble: r1i1p1f1, exp: highres-future, start_year: 2015, end_year: 2050}
+# Crashed ESMValTool       - {dataset: CESM1-CAM5-SE-HR, ensemble: r1i1p1f1, exp: highres-future, start_year: 2015, end_year: 2050, institute: NCAR}
+      
+      # Load future HighResMIP low-resolution partner simulations
+      - {dataset: CNRM-CM6-1, ensemble: r1i1p1f2}
+      - {dataset: EC-Earth3P, ensemble: r1i1p2f1}
+      - {dataset: HadGEM3-GC31-LL, ensemble: r1i1p1f1}
+      - {dataset: CNRM-CM6-1, ensemble: r1i1p1f2, exp: highres-future, start_year: 2015, end_year: 2050}
+      - {dataset: EC-Earth3P, ensemble: r1i1p2f1, exp: highres-future, start_year: 2015, end_year: 2050}
+      - {dataset: HadGEM3-GC31-LL, ensemble: r1i1p1f1, exp: highres-future, start_year: 2015, end_year: 2050}
+
+    scripts:
+      Diagnose_tos: &Diagnose_tos
+                script: /home/users/bpearson/AR6-ch9-ESMValTool-recipes/ESMValTool_Recipes/diagnostic_dummy.py
