@@ -11,7 +11,7 @@
 main.dir <- "./"
 script.dir <- main.dir
 res.dir <- paste(main.dir, "/data", sep="")
-plot.dir <- paste(main.dir, "/figure", sep="")
+plot.dir <- paste(main.dir, "/..", sep="")
 
 # Options
 plot2dev <- FALSE
