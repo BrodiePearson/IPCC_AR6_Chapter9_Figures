@@ -10,7 +10,7 @@
 # Directories
 main.dir <- "./"
 script.dir <- main.dir
-res.dir <- paste(main.dir, "/data_210302", sep="")
+res.dir <- paste(main.dir, "/data", sep="")
 plot.dir <- paste(main.dir, "/figure", sep="")
 
 # Options
