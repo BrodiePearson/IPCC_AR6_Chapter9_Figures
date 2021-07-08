@@ -12,6 +12,7 @@ main.dir <- "./"
 script.dir <- main.dir
 res.dir <- paste(main.dir, "/data", sep="")
 plot.dir <- paste(main.dir, "/..", sep="")
+plotdata.dir <- paste(main.dir, "/Plotted_Data", sep="")
 
 # Options
 plot2dev <- FALSE
@@ -46,8 +47,6 @@ n.pboxes <- length(pbox.names)
 
 # Libraries, functions, and sourced code
 library(ncdf4)
-source("super_legend.r")
-source("put_fig_letter.r")
 
 # Colors for each workflow
 wf.reds <- c(200,53,50,128)
@@ -84,8 +83,6 @@ for(i in 1:n.scenarios){
   plot.window(ylim=range(poly.y), xlim=c(2000,2300))
   axis(1, at=plot.years[-length(plot.years)], cex.axis=1.0)
   axis(1, at=2300, label="2300+", cex.axis=1.0)
-  #axis(2, cex.axis=1.0, las=1, tck=0.0)
-  #mtext("(m since 2005)", 2, line=2.5, cex=1.0)
   mtext(scenarios.names[this.scenario], line=0.2, cex=1.0, font=2, col=scenarios.cols[i])
   poly.cols <- c("gray90", "white")
   for(k in 1:length(heights)){
@@ -107,25 +104,25 @@ for(i in 1:n.scenarios){
     
     # Loop over these workflows
     for(k in 1:length(this.pbox.workflows)){
-    
+      
       # This workflow
       this.workflow <- wf.types[this.pbox.workflows[k]]
-      workflow.file <- sprintf("%s/total_%s_workflow_%s_exceedance_year_figuredata.nc", res.dir, this.workflow, this.scenario)
+      workflow.file <- sprintf("%s/%s_%s_milestone_figuredata.nc", res.dir, this.workflow, this.scenario)
       workflow.nc <- nc_open(workflow.file)
-    
+      
       # Get the heights and quantiles
       nc.heights <- ncvar_get(workflow.nc, "heights")
       nc.qs <- ncvar_get(workflow.nc, "quantiles")
-    
+      
       # Load the exceedance year data
       dist.data <- ncvar_get(workflow.nc, "exceedance_years")  #[heights, quantiles]
-    
+      
       # Determine the height indices
-      height.ind <- which(nc.heights %in% (heights*100))
-    
+      height.ind <- which(nc.heights %in% (heights*1000))
+      
       # Get the line segment lengths
       workflow.seg.lengths[k,,] <- dist.data[height.ind,-3]
-    
+      
       # Get the median
       workflow.dist.median[k,] <- dist.data[height.ind, 3]
       
@@ -144,6 +141,10 @@ for(i in 1:n.scenarios){
     # Any value that equals 2300, set to a higher number so it renders off the plot
     seg.lengths[seg.lengths >= 2300] <- 9999
     dist.median[dist.median >= 2300] <- 9999
+    
+    # Store the plotted data
+    plotted.data[i,j,,c(1,2,4,5)] <- seg.lengths
+    plotted.data[i,j,,3] <- dist.median
     
     # Determine the y coordinate for this distribution
     this.y <- poly.y[-length(poly.y)] + j*(poly.width/(n.pboxes+1))
@@ -182,18 +183,64 @@ for(i in 1:n.scenarios){
   }
   
 }
-  
+
 # Start a new plot for the legend only
 par(mar=c(0,0,0,0))
 plot.new()
 plot.window(xlim=c(0,1), ylim=c(0,1))
-#LEGEND("center", legend=pbox.names, ncol=2, lty=1, lwd=1, pch=21, cex=1.0,
-#       line.col=dist.cols, pt.bg=dist.cols, pt.col="black", bg="white", y.intersp = 1.1, 
-#       xjust=0.0, yjust=0.5, bty="n")
 text(x=0, y=0.7, pos=4, cex=1.3, font=2,
      labels="Projected timing of sea-level rise milestones")
 text(x=0, y=0.3, pos=4, cex=1.3,
      labels="Under different forcing scenarios and workflow assumptions")
-  
+
 # Close the plot
 if(plot2dev){ dev.off() }
+
+#####################################################################################
+
+# Generate the plotted data files ---------------------------------------------------
+
+# Define the dimension variables
+height.ncdim <- ncdim_def("height", "meters", heights)
+percentile.ncdim <- ncdim_def("percentile", "", c(plot.quantiles[c(1,2)], 0.5, plot.quantiles[c(3,4)])*100)
+
+# Define the missing value flag
+mv <- 9999
+
+# Initialize list for variables
+these.vars = vector("list", n.pboxes)
+
+# Loop over the scenarios
+for(i in 1:n.scenarios){
+  
+  # Loop over the pboxes
+  for(j in 1:n.pboxes){
+    
+    # Create the variables for the netcdf file
+    these.vars[[j]] <- ncvar_def(gsub(" ", "_", pbox.names[j]), "year", list(height.ncdim, percentile.ncdim), missval = mv)
+    
+  }
+  
+  # Create the netcdf file with these variables
+  newnc <- nc_create(paste(plotdata.dir, "/Fig9-29_", scenarios[i], "_data.nc", sep=""), these.vars)
+  
+  # Loop over the pboxes again
+  for(j in 1:n.pboxes){
+    
+    # Append the data to the netcdf file
+    ncvar_put(newnc, these.vars[[j]], plotted.data[i,j,,], start=c(1,1), count=c(n.heights, n.quantiles))
+    
+  }
+  
+  # Put the additional information into the netcdf file
+  ncatt_put(newnc, 0, "title", "Projected timing of sea-level rise milestones under different forcing scenarios and workflow assumptions")
+  ncatt_put(newnc, 0, "units", "year (CE)")
+  ncatt_put(newnc, 0, "creator", "Gregory Garner (gregory.garner@rutgers.edu)")
+  ncatt_put(newnc, 0, "activity", "IPCC AR6 (Chapter 9)")
+  ncatt_put(newnc, 0, "comments", paste("Data is for the", scenarios.names[scenarios[i]], "panel of Figure 9.29 in the IPCC Working Group I contribution to the Sixth Assessment Report"))
+  ncatt_put(newnc, 0, "missing_value_note", "Missing values indicate a percentile with a value greater than or equal to the time horizon of the projections (>= year 2300)")
+  
+  # Close the netcdf file
+  nc_close(newnc)
+  
+}
