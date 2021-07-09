@@ -152,34 +152,34 @@ SROCClev2050=[
 ]-histrate*(baseyear-1996) - 5 *0.005;
 
 AR6lev=[
-    0.631 1.017 %0.65 1.07  %BFK updated to v3 of AR6
-    0.438 0.759 %0.45 0.79
-    0.326 0.614 %0.33 0.63
+    0.625 1.011 %0.631 1.017 %0.65 1.07  %GGG updated %BFK updated to v3 of AR6
+    0.435 0.759 %0.438 0.759 %0.45 0.79
+    0.324 0.615 %0.326 0.614 %0.33 0.63
 ];
 AR6lev2050=[
-    0.201 0.296 %0.20 0.31
-    0.176 0.264 %0.18 0.28
-    0.160 0.248 %0.16 0.26
+    0.198 0.293 %0.201 0.296 %0.20 0.31  %GGG updated
+    0.173 0.263 %0.176 0.264 %0.18 0.28
+    0.158 0.247 %0.160 0.248 %0.16 0.26
 ];
 
-AR6levHE2050=[0.198 0.400 %0.20 0.41
-nan*0.18 nan*0.34   %0.18 0.34  %BFK--note middle scenario not updated in v3
-0.160 0.223 %0.16 0.21
+AR6levHE2050=[0.195 0.397 %0.198 0.400 %0.20 0.41   %GGG updated
+nan*0.173 nan*0.318 %nan*0.18 nan*0.34   %0.18 0.34  %BFK--note middle scenario not updated in v3
+0.158 0.310 %0.160 0.223 %0.16 0.21
 ];
 
-AR6levHE=[0.63 1.61 %0.65 1.66 
-nan*0.45 nan*0.92 %0.45 0.92  %BFK--note middle scenario not updated in v3
-0.326 0.795 %0.33 0.47
+AR6levHE=[0.625 1.603 %0.63 1.61 %0.65 1.66  %GGG updated
+nan*0.435 nan*0.875 %nan*0.45 nan*0.92 %0.45 0.92  %BFK--note middle scenario not updated in v3
+0.324 0.791 %0.326 0.795 %0.33 0.47
 ];
 
-AR6levHE2050_95=[0.164 0.543  %0.65 1.66 
-nan*0.15 nan*0.43  %BFK--note middle scenario not updated in v3
-0.134 0.403 %0.14 0.42
+AR6levHE2050_95=[0.159 0.541 %0.164 0.543  %0.65 1.66   %GGG updated
+nan*0.138 nan*0.408 %nan*0.15 nan*0.43  %BFK--note middle scenario not updated in v3
+0.130 0.400 %0.134 0.403 %0.14 0.42
 ];
 
-AR6levHE_95=[0.54 2.28  %0.56 2.33 
-nan*0.37 nan*1.21  %BFK--note middle scenario not updated in v3
-0.264 1.09 %0.26 1.11
+AR6levHE_95=[0.530 2.274 %0.54 2.28  %0.56 2.33   %GGG updated
+nan*0.355 nan*1.169 %nan*0.37 nan*1.21  %BFK--note middle scenario not updated in v3
+0.265 1.085 %0.264 1.09 %0.26 1.11
 ];
 
 clear yrstart yrend2050 yrend2100 qlevs qvals2050 qvals2100 study studyidx conflevs;
