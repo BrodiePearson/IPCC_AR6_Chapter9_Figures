@@ -27,31 +27,31 @@ years = ncread('data/SSP126/regional_projections/glaciers-ipccar6-gmipemuglacier
 lat = double(ncread('data/SSP126/regional_projections/glaciers-ipccar6-gmipemuglaciers-ssp126_localsl_figuredata.nc','lat'));
 lon = double(ncread('data/SSP126/regional_projections/glaciers-ipccar6-gmipemuglaciers-ssp126_localsl_figuredata.nc','lon'));
 
-ssp126_glaciers = ncread('data/SSP126/regional_projections/glaciers-ipccar6-gmipemuglaciers-ssp126_localsl_figuredata.nc','localSL_quantiles');
-ssp126_Greenland = ncread('data/SSP126/regional_projections/icesheets-ipccar6-ismipemuicesheet-ssp126_GIS_localsl_figuredata.nc','localSL_quantiles');
-ssp126_landwater = ncread('data/SSP126/regional_projections/landwaterstorage-ssp-landwaterstorage-ssp126_localsl_figuredata.nc','localSL_quantiles');
-ssp126_Antarctic = ncread('data/SSP126/regional_projections/icesheets-pb1e-icesheets-ssp126_AIS_localsl_figuredata.nc','localSL_quantiles');
-ssp126_oceandynamics = ncread('data/SSP126/regional_projections/oceandynamics-tlm-oceandynamics-ssp126_localsl_figuredata.nc','localSL_quantiles');
-ssp126_landmotion = ncread('data/SSP126/regional_projections/verticallandmotion-kopp14-verticallandmotion_localsl_figuredata.nc','localSL_quantiles');
+ssp126_glaciers = ncread('data/SSP126/regional_projections/glaciers-ipccar6-gmipemuglaciers-ssp126_localsl_figuredata.nc','sea_level_change');
+ssp126_Greenland = ncread('data/SSP126/regional_projections/icesheets-ipccar6-ismipemuicesheet-ssp126_GIS_localsl_figuredata.nc','sea_level_change');
+ssp126_landwater = ncread('data/SSP126/regional_projections/landwaterstorage-ssp-landwaterstorage-ssp126_localsl_figuredata.nc','sea_level_change');
+ssp126_Antarctic = ncread('data/SSP126/regional_projections/icesheets-pb1e-icesheets-ssp126_AIS_localsl_figuredata.nc','sea_level_change');
+ssp126_oceandynamics = ncread('data/SSP126/regional_projections/oceandynamics-tlm-oceandynamics-ssp126_localsl_figuredata.nc','sea_level_change');
+ssp126_landmotion = ncread('data/SSP126/regional_projections/verticallandmotion-kopp14-verticallandmotion_localsl_figuredata.nc','sea_level_change');
 
 years_alt = ncread('data/SSP126/regional_projections/verticallandmotion-kopp14-verticallandmotion_localsl_figuredata.nc','years');
 
 %% Isolate median maps at 2100, convert units from mm to m, regrid to 1 deg
 
 % Isolate the median map at 2100
-ssp126_glaciers = double(squeeze(ssp126_glaciers(9,:,3)))/1000.0; % Units are mm; convert to meters
-ssp126_Greenland = double(squeeze(ssp126_Greenland(9,:,3)))/1000.0; 
-ssp126_Antarctic = double(squeeze(ssp126_Antarctic(9,:,3)))/1000.0; 
-ssp126_landwater = double(squeeze(ssp126_landwater(9,:,3)))/1000.0; 
-ssp126_oceandynamics = double(squeeze(ssp126_oceandynamics(9,:,3)))/1000.0; 
-ssp126_landmotion = double(squeeze(ssp126_landmotion(9,:,3)))/1000.0;
+ssp126_glaciers = double(squeeze(ssp126_glaciers(:,9,3)))/1000.0; % Units are mm; convert to meters
+ssp126_Greenland = double(squeeze(ssp126_Greenland(:,9,3)))/1000.0; 
+ssp126_Antarctic = double(squeeze(ssp126_Antarctic(:,9,3)))/1000.0; 
+ssp126_landwater = double(squeeze(ssp126_landwater(:,9,3)))/1000.0; 
+ssp126_oceandynamics = double(squeeze(ssp126_oceandynamics(:,9,3)))/1000.0; 
+ssp126_landmotion = double(squeeze(ssp126_landmotion(:,9,3)))/1000.0;
 
-ssp126_glaciers = ssp126_glaciers';
-ssp126_Greenland = ssp126_Greenland';
-ssp126_Antarctic = ssp126_Antarctic';
-ssp126_landwater = ssp126_landwater';
-ssp126_oceandynamics = ssp126_oceandynamics';
-ssp126_landmotion = ssp126_landmotion';
+% ssp126_glaciers = ssp126_glaciers';
+% ssp126_Greenland = ssp126_Greenland';
+% ssp126_Antarctic = ssp126_Antarctic';
+% ssp126_landwater = ssp126_landwater';
+% ssp126_oceandynamics = ssp126_oceandynamics';
+% ssp126_landmotion = ssp126_landmotion';
 
 % wrap around longitude bands for re-gridding averages
 ssp126_glaciers = [ssp126_glaciers; ssp126_glaciers(lon<-179)];
@@ -159,31 +159,31 @@ years = ncread('data/SSP585/regional_projections/glaciers-ipccar6-gmipemuglacier
 lat = double(ncread('data/SSP585/regional_projections/glaciers-ipccar6-gmipemuglaciers-ssp585_localsl_figuredata.nc','lat'));
 lon = double(ncread('data/SSP585/regional_projections/glaciers-ipccar6-gmipemuglaciers-ssp585_localsl_figuredata.nc','lon'));
 
-ssp585_glaciers = ncread('data/SSP585/regional_projections/glaciers-ipccar6-gmipemuglaciers-ssp585_localsl_figuredata.nc','localSL_quantiles');
-ssp585_Greenland = ncread('data/SSP585/regional_projections/icesheets-ipccar6-ismipemuicesheet-ssp585_GIS_localsl_figuredata.nc','localSL_quantiles');
-ssp585_landwater = ncread('data/SSP585/regional_projections/landwaterstorage-ssp-landwaterstorage-ssp585_localsl_figuredata.nc','localSL_quantiles');
-ssp585_Antarctic = ncread('data/SSP585/regional_projections/icesheets-pb1e-icesheets-ssp585_AIS_localsl_figuredata.nc','localSL_quantiles');
-ssp585_oceandynamics = ncread('data/SSP585/regional_projections/oceandynamics-tlm-oceandynamics-ssp585_localsl_figuredata.nc','localSL_quantiles');
-ssp585_landmotion = ncread('data/SSP585/regional_projections/verticallandmotion-kopp14-verticallandmotion_localsl_figuredata.nc','localSL_quantiles');
+ssp585_glaciers = ncread('data/SSP585/regional_projections/glaciers-ipccar6-gmipemuglaciers-ssp585_localsl_figuredata.nc','sea_level_change');
+ssp585_Greenland = ncread('data/SSP585/regional_projections/icesheets-ipccar6-ismipemuicesheet-ssp585_GIS_localsl_figuredata.nc','sea_level_change');
+ssp585_landwater = ncread('data/SSP585/regional_projections/landwaterstorage-ssp-landwaterstorage-ssp585_localsl_figuredata.nc','sea_level_change');
+ssp585_Antarctic = ncread('data/SSP585/regional_projections/icesheets-pb1e-icesheets-ssp585_AIS_localsl_figuredata.nc','sea_level_change');
+ssp585_oceandynamics = ncread('data/SSP585/regional_projections/oceandynamics-tlm-oceandynamics-ssp585_localsl_figuredata.nc','sea_level_change');
+ssp585_landmotion = ncread('data/SSP585/regional_projections/verticallandmotion-kopp14-verticallandmotion_localsl_figuredata.nc','sea_level_change');
 
 years_alt = ncread('data/SSP585/regional_projections/verticallandmotion-kopp14-verticallandmotion_localsl_figuredata.nc','years');
 
 %% Isolate median maps at 2100, convert units from mm to m, regrid to 1 deg
 
 % Isolate the median map at 2100
-ssp585_glaciers = double(squeeze(ssp585_glaciers(9,:,3)))/1000.0; % Units are mm; convert to meters
-ssp585_Greenland = double(squeeze(ssp585_Greenland(9,:,3)))/1000.0; 
-ssp585_Antarctic = double(squeeze(ssp585_Antarctic(9,:,3)))/1000.0; 
-ssp585_landwater = double(squeeze(ssp585_landwater(9,:,3)))/1000.0; 
-ssp585_oceandynamics = double(squeeze(ssp585_oceandynamics(9,:,3)))/1000.0; 
-ssp585_landmotion = double(squeeze(ssp585_landmotion(9,:,3)))/1000.0; 
+ssp585_glaciers = double(squeeze(ssp585_glaciers(:,9,3)))/1000.0; % Units are mm; convert to meters
+ssp585_Greenland = double(squeeze(ssp585_Greenland(:,9,3)))/1000.0; 
+ssp585_Antarctic = double(squeeze(ssp585_Antarctic(:,9,3)))/1000.0; 
+ssp585_landwater = double(squeeze(ssp585_landwater(:,9,3)))/1000.0; 
+ssp585_oceandynamics = double(squeeze(ssp585_oceandynamics(:,9,3)))/1000.0; 
+ssp585_landmotion = double(squeeze(ssp585_landmotion(:,9,3)))/1000.0; 
 
-ssp585_glaciers = ssp585_glaciers';
-ssp585_Greenland = ssp585_Greenland';
-ssp585_Antarctic = ssp585_Antarctic';
-ssp585_landwater = ssp585_landwater';
-ssp585_oceandynamics = ssp585_oceandynamics';
-ssp585_landmotion = ssp585_landmotion';
+% ssp585_glaciers = ssp585_glaciers';
+% ssp585_Greenland = ssp585_Greenland';
+% ssp585_Antarctic = ssp585_Antarctic';
+% ssp585_landwater = ssp585_landwater';
+% ssp585_oceandynamics = ssp585_oceandynamics';
+% ssp585_landmotion = ssp585_landmotion';
 
 % wrap around longitude bands for re-gridding averages
 ssp585_glaciers = [ssp585_glaciers; ssp585_glaciers(lon<-179)];
