@@ -50,8 +50,8 @@ end
 
 
 %% Load mean total Sea Level projections for SSPs (and 5% 95% quantiles)
-time = ncread('figuredata_210302/pbox1e_total_ssp585_globalsl_figuredata.nc','years');
-timeb = ncread('figuredata_210302/pbox1f_total_ssp585_globalsl_figuredata.nc','years');
+time = ncread('data/pbox1e_total_ssp585_globalsl_figuredata.nc','years');
+timeb = ncread('data/pbox1f_total_ssp585_globalsl_figuredata.nc','years');
 subtb=find(timeb>2120);
 timec=[time ; timeb(subtb)];
 Time_Conf_Bounds = [timec; flipud(timec); timec(1)];
@@ -81,8 +81,8 @@ scencolors=[color_SSP585 ; color_SSP370 ; color_SSP245 ; color_SSP126 ; color_SS
 
 clear SL_quant Conf_Bounds SL_quantb SL_quantc;
 for sss=1:length(scens)
-    SL_quant{sss}=single(ncread(['figuredata_210302/pbox1e_total_' scens{sss} '_globalsl_figuredata.nc'],'globalSL_quantiles'));
-    SL_quantb{sss}=single(ncread(['figuredata_210302/pbox1f_total_' scens{sss} '_globalsl_figuredata.nc'],'globalSL_quantiles'));
+    SL_quant{sss}=squeeze(single(ncread(['data/pbox1e_total_' scens{sss} '_globalsl_figuredata.nc'],'sea_level_change')));
+    SL_quantb{sss}=squeeze(single(ncread(['data/pbox1f_total_' scens{sss} '_globalsl_figuredata.nc'],'sea_level_change')));
     SL_quantc{sss}=[SL_quant{sss} ; SL_quantb{sss}(subtb,:)];
     
     Conf_Bounds{sss}=[SL_quantc{sss}(:,4) ; flipud(SL_quantc{sss}(:,2)) ; SL_quantc{sss}(1,4)]/1000;
@@ -90,8 +90,8 @@ end
 
 clear SL_quantLCas SL_quantLCbs SL_quantLCs Conf_BoundsLCsvl Conf_BoundsLCsl;
 for sss=[1 4]
-    SL_quantLCas{sss}=single(ncread(['figuredata_210302/pbox2e_total_' scens{sss} '_globalsl_figuredata.nc'],'globalSL_quantiles'));
-    SL_quantLCbs{sss}=single(ncread(['figuredata_210302/pbox2f_total_' scens{sss} '_globalsl_figuredata.nc'],'globalSL_quantiles'));
+    SL_quantLCas{sss}=squeeze(single(ncread(['data/pbox2e_total_' scens{sss} '_globalsl_figuredata.nc'],'sea_level_change')));
+    SL_quantLCbs{sss}=squeeze(single(ncread(['data/pbox2f_total_' scens{sss} '_globalsl_figuredata.nc'],'sea_level_change')));
     SL_quantLCs{sss}=[SL_quantLCas{sss} ; SL_quantLCbs{sss}(subtb,:)];
     Conf_BoundsLCsvl{sss}=[SL_quantLCs{sss}(:,5) ; flipud(SL_quantLCs{sss}(:,1)) ; SL_quantLCs{sss}(1,5)]/1000;
     Conf_BoundsLCsl{sss}=[SL_quantLCs{sss}(:,4) ; flipud(SL_quantLCs{sss}(:,2)) ; SL_quantLCs{sss}(1,5)]/1000;
