@@ -12,12 +12,13 @@ main.dir <- "./"
 script.dir <- main.dir
 res.dir <- paste(main.dir, "/data", sep="")
 plot.dir <- paste(main.dir, "/..", sep="")
-plotdata.dir <- paste(main.dir, "../Plotted_Data", sep="")
+plotdata.dir <- paste(main.dir, "/Plotted_Data", sep="")
 
 # Options
-plot2dev <- FALSE
+plot2dev <- TRUE
 plottype <- "pdf"
 plot.quantiles <- c(0.05,0.17,0.83,0.95)
+n.quantiles <- length(plot.quantiles) + 1
 
 # Scenarios
 scenarios <- c("ssp126", "ssp585")
@@ -44,6 +45,9 @@ n.wfs <- length(wf.types)
 pbox.workflows <- matrix(c(1,2,4,5,6,6,7,7), ncol=2, byrow=TRUE)
 pbox.names <- c("No acceleration", "Assessed ice sheets", "MICI", "SEJ")
 n.pboxes <- length(pbox.names)
+
+# Variable to hold the plotted data
+plotted.data <- array(NA, dim=c(n.scenarios, n.pboxes, n.heights, n.quantiles))
 
 # Libraries, functions, and sourced code
 library(ncdf4)
