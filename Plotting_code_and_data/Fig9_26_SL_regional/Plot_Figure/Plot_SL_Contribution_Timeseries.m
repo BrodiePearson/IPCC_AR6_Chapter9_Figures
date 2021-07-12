@@ -21,22 +21,22 @@ color_SSP585 = IPCC_Get_SSPColors('ssp585');
 
 %% Load SSP126 and SSP585 inputs
 
-quantiles = ncread('data/SSP126/global_projections/thermalexpansion-tlm-thermalexpansion-ssp126_globalsl_figuredata.nc','quantiles');
-years = ncread('data/SSP126/global_projections/thermalexpansion-tlm-thermalexpansion-ssp126_globalsl_figuredata.nc','years');
+quantiles = ncread('data/SSP126/global_projections/oceandynamics-tlm-oceandynamics-ssp126_globalsl_figuredata.nc','quantiles');
+years = ncread('data/SSP126/global_projections/oceandynamics-tlm-oceandynamics-ssp126_globalsl_figuredata.nc','years');
 
-ssp126_thermalexpansion = ncread('data/SSP126/global_projections/thermalexpansion-tlm-thermalexpansion-ssp126_globalsl_figuredata.nc','globalSL_quantiles');
-ssp126_Greenland = ncread('data/SSP126/global_projections/icesheets-ipccar6-ismipemuicesheet-ssp126_GIS_globalsl_figuredata.nc','globalSL_quantiles');
-ssp126_Antarctic = ncread('data/SSP126/global_projections/icesheets-pbox1e-icesheets-ssp126_AIS_globalsl_figuredata.nc','globalSL_quantiles');
-ssp126_landwater = ncread('data/SSP126/global_projections/landwaterstorage-ssp-landwaterstorage-ssp126_globalsl_figuredata.nc','globalSL_quantiles');
-ssp126_glaciers = ncread('data/SSP126/global_projections/glaciers-ipccar6-gmipemuglaciers-ssp126_globalsl_figuredata.nc','globalSL_quantiles');
-ssp126_total = ncread('data/SSP126/global_projections/pbox1e_total_ssp126_globalsl_figuredata.nc','globalSL_quantiles');
+ssp126_thermalexpansion = ncread('data/SSP126/global_projections/oceandynamics-tlm-oceandynamics-ssp126_globalsl_figuredata.nc','sea_level_change');
+ssp126_Greenland = ncread('data/SSP126/global_projections/icesheets-ipccar6-ismipemuicesheet-ssp126_GIS_globalsl_figuredata.nc','sea_level_change');
+ssp126_Antarctic = ncread('data/SSP126/global_projections/icesheets-pb1e-icesheets-ssp126_AIS_globalsl_figuredata.nc','sea_level_change');
+ssp126_landwater = ncread('data/SSP126/global_projections/landwaterstorage-ssp-landwaterstorage-ssp126_globalsl_figuredata.nc','sea_level_change');
+ssp126_glaciers = ncread('data/SSP126/global_projections/glaciers-ipccar6-gmipemuglaciers-ssp126_globalsl_figuredata.nc','sea_level_change');
+ssp126_total = ncread('data/SSP126/global_projections/total-workflow_figuredata.nc','sea_level_change');
 
-ssp585_thermalexpansion = ncread('data/SSP585/global_projections/thermalexpansion-tlm-thermalexpansion-ssp585_globalsl_figuredata.nc','globalSL_quantiles');
-ssp585_Greenland = ncread('data/SSP585/global_projections/icesheets-ipccar6-ismipemuicesheet-ssp585_GIS_globalsl_figuredata.nc','globalSL_quantiles');
-ssp585_Antarctic = ncread('data/SSP585/global_projections/icesheets-pbox1e-icesheets-ssp585_AIS_globalsl_figuredata.nc','globalSL_quantiles');
-ssp585_landwater = ncread('data/SSP585/global_projections/landwaterstorage-ssp-landwaterstorage-ssp585_globalsl_figuredata.nc','globalSL_quantiles');
-ssp585_glaciers = ncread('data/SSP585/global_projections/glaciers-ipccar6-gmipemuglaciers-ssp585_globalsl_figuredata.nc','globalSL_quantiles');
-ssp585_total = ncread('data/SSP585/global_projections/pbox1e_total_ssp585_globalsl_figuredata.nc','globalSL_quantiles');
+ssp585_thermalexpansion = ncread('data/SSP585/global_projections/oceandynamics-tlm-oceandynamics-ssp585_globalsl_figuredata.nc','sea_level_change');
+ssp585_Greenland = ncread('data/SSP585/global_projections/icesheets-ipccar6-ismipemuicesheet-ssp585_GIS_globalsl_figuredata.nc','sea_level_change');
+ssp585_Antarctic = ncread('data/SSP585/global_projections/icesheets-pb1e-icesheets-ssp585_AIS_globalsl_figuredata.nc','sea_level_change');
+ssp585_landwater = ncread('data/SSP585/global_projections/landwaterstorage-ssp-landwaterstorage-ssp585_globalsl_figuredata.nc','sea_level_change');
+ssp585_glaciers = ncread('data/SSP585/global_projections/glaciers-ipccar6-gmipemuglaciers-ssp585_globalsl_figuredata.nc','sea_level_change');
+ssp585_total = ncread('data/SSP585/global_projections/total-workflow_figuredata.nc','sea_level_change');
 
 years = years(1:9);
 
@@ -44,109 +44,109 @@ years = years(1:9);
 %% Isolate median timeseries to 2100, convert units from mm to m, regrid to 1 deg
 
 % Isolate the median map at 2100
-ssp126_glaciers_median = double(squeeze(ssp126_glaciers(1:9,3)))/1000.0; % Units are mm; convert to meters
-ssp126_Greenland_median = double(squeeze(ssp126_Greenland(1:9,3)))/1000.0; 
-ssp126_Antarctic_median = double(squeeze(ssp126_Antarctic(1:9,3)))/1000.0; 
-ssp126_landwater_median = double(squeeze(ssp126_landwater(1:9,3)))/1000.0; 
-ssp126_thermalexpansion_median = double(squeeze(ssp126_thermalexpansion(1:9,3)))/1000.0; 
-ssp126_total_median = double(squeeze(ssp126_total(1:9,3)))/1000.0;
+ssp126_glaciers_median = double(squeeze(ssp126_glaciers(1,1:9,3)))/1000.0; % Units are mm; convert to meters
+ssp126_Greenland_median = double(squeeze(ssp126_Greenland(1,1:9,3)))/1000.0; 
+ssp126_Antarctic_median = double(squeeze(ssp126_Antarctic(1,1:9,3)))/1000.0; 
+ssp126_landwater_median = double(squeeze(ssp126_landwater(1,1:9,3)))/1000.0; 
+ssp126_thermalexpansion_median = double(squeeze(ssp126_thermalexpansion(1,1:9,3)))/1000.0; 
+ssp126_total_median = double(squeeze(ssp126_total(1,1:9,3)))/1000.0;
 
-ssp585_glaciers_median = double(squeeze(ssp585_glaciers(1:9,3)))/1000.0; % Units are mm; convert to meters
-ssp585_Greenland_median = double(squeeze(ssp585_Greenland(1:9,3)))/1000.0; 
-ssp585_Antarctic_median = double(squeeze(ssp585_Antarctic(1:9,3)))/1000.0; 
-ssp585_landwater_median = double(squeeze(ssp585_landwater(1:9,3)))/1000.0; 
-ssp585_thermalexpansion_median = double(squeeze(ssp585_thermalexpansion(1:9,3)))/1000.0; 
-ssp585_total_median = double(squeeze(ssp585_total(1:9,3)))/1000.0;
+ssp585_glaciers_median = double(squeeze(ssp585_glaciers(1,1:9,3)))/1000.0; % Units are mm; convert to meters
+ssp585_Greenland_median = double(squeeze(ssp585_Greenland(1,1:9,3)))/1000.0; 
+ssp585_Antarctic_median = double(squeeze(ssp585_Antarctic(1,1:9,3)))/1000.0; 
+ssp585_landwater_median = double(squeeze(ssp585_landwater(1,1:9,3)))/1000.0; 
+ssp585_thermalexpansion_median = double(squeeze(ssp585_thermalexpansion(1,1:9,3)))/1000.0; 
+ssp585_total_median = double(squeeze(ssp585_total(1,1:9,3)))/1000.0;
 
 %% Create SSP126 confidence bounds
 
 Time_Conf_Bounds = [years' flipud(years)'];
 
-ssp126_total_lower_likely = double(squeeze(ssp126_total(1:9,2)))/1000.0; 
-ssp126_total_lower_verylikely = double(squeeze(ssp126_total(1:9,1)))/1000.0; 
-ssp126_total_upper_likely = double(squeeze(ssp126_total(1:9,4)))/1000.0; 
-ssp126_total_upper_verylikely = double(squeeze(ssp126_total(1:9,5)))/1000.0; 
+ssp126_total_lower_likely = double(squeeze(ssp126_total(1,1:9,2)))/1000.0; 
+ssp126_total_lower_verylikely = double(squeeze(ssp126_total(1,1:9,1)))/1000.0; 
+ssp126_total_upper_likely = double(squeeze(ssp126_total(1,1:9,4)))/1000.0; 
+ssp126_total_upper_verylikely = double(squeeze(ssp126_total(1,1:9,5)))/1000.0; 
 
 ssp126_total_VeryLikely_Conf_Bounds = [ssp126_total_upper_verylikely' flipud(ssp126_total_lower_verylikely)'];
 ssp126_total_Likely_Conf_Bounds = [ssp126_total_upper_likely' flipud(ssp126_total_lower_likely)'];
 
-ssp126_glaciers_lower_likely = double(squeeze(ssp126_glaciers(1:9,2)))/1000.0; 
-ssp126_glaciers_lower_verylikely = double(squeeze(ssp126_glaciers(1:9,1)))/1000.0; 
-ssp126_glaciers_upper_likely = double(squeeze(ssp126_glaciers(1:9,4)))/1000.0; 
-ssp126_glaciers_upper_verylikely = double(squeeze(ssp126_glaciers(1:9,5)))/1000.0; 
+ssp126_glaciers_lower_likely = double(squeeze(ssp126_glaciers(1,1:9,2)))/1000.0; 
+ssp126_glaciers_lower_verylikely = double(squeeze(ssp126_glaciers(1,1:9,1)))/1000.0; 
+ssp126_glaciers_upper_likely = double(squeeze(ssp126_glaciers(1,1:9,4)))/1000.0; 
+ssp126_glaciers_upper_verylikely = double(squeeze(ssp126_glaciers(1,1:9,5)))/1000.0; 
 ssp126_glaciers_VeryLikely_Conf_Bounds = [ssp126_glaciers_upper_verylikely' flipud(ssp126_glaciers_lower_verylikely)'];
 ssp126_glaciers_Likely_Conf_Bounds = [ssp126_glaciers_upper_likely' flipud(ssp126_glaciers_lower_likely)'];
 
-ssp126_Antarctic_lower_likely = double(squeeze(ssp126_Antarctic(1:9,2)))/1000.0; 
-ssp126_Antarctic_lower_verylikely = double(squeeze(ssp126_Antarctic(1:9,1)))/1000.0; 
-ssp126_Antarctic_upper_likely = double(squeeze(ssp126_Antarctic(1:9,4)))/1000.0; 
-ssp126_Antarctic_upper_verylikely = double(squeeze(ssp126_Antarctic(1:9,5)))/1000.0; 
+ssp126_Antarctic_lower_likely = double(squeeze(ssp126_Antarctic(1,1:9,2)))/1000.0; 
+ssp126_Antarctic_lower_verylikely = double(squeeze(ssp126_Antarctic(1,1:9,1)))/1000.0; 
+ssp126_Antarctic_upper_likely = double(squeeze(ssp126_Antarctic(1,1:9,4)))/1000.0; 
+ssp126_Antarctic_upper_verylikely = double(squeeze(ssp126_Antarctic(1,1:9,5)))/1000.0; 
 ssp126_Antarctic_VeryLikely_Conf_Bounds = [ssp126_Antarctic_upper_verylikely' flipud(ssp126_Antarctic_lower_verylikely)'];
 ssp126_Antarctic_Likely_Conf_Bounds = [ssp126_Antarctic_upper_likely' flipud(ssp126_Antarctic_lower_likely)'];
 
-ssp126_Greenland_lower_likely = double(squeeze(ssp126_Greenland(1:9,2)))/1000.0; 
-ssp126_Greenland_lower_verylikely = double(squeeze(ssp126_Greenland(1:9,1)))/1000.0; 
-ssp126_Greenland_upper_likely = double(squeeze(ssp126_Greenland(1:9,4)))/1000.0; 
-ssp126_Greenland_upper_verylikely = double(squeeze(ssp126_Greenland(1:9,5)))/1000.0; 
+ssp126_Greenland_lower_likely = double(squeeze(ssp126_Greenland(1,1:9,2)))/1000.0; 
+ssp126_Greenland_lower_verylikely = double(squeeze(ssp126_Greenland(1,1:9,1)))/1000.0; 
+ssp126_Greenland_upper_likely = double(squeeze(ssp126_Greenland(1,1:9,4)))/1000.0; 
+ssp126_Greenland_upper_verylikely = double(squeeze(ssp126_Greenland(1,1:9,5)))/1000.0; 
 ssp126_Greenland_VeryLikely_Conf_Bounds = [ssp126_Greenland_upper_verylikely' flipud(ssp126_Greenland_lower_verylikely)'];
 ssp126_Greenland_Likely_Conf_Bounds = [ssp126_Greenland_upper_likely' flipud(ssp126_Greenland_lower_likely)'];
 
-ssp126_thermalexpansion_lower_likely = double(squeeze(ssp126_thermalexpansion(1:9,2)))/1000.0; 
-ssp126_thermalexpansion_lower_verylikely = double(squeeze(ssp126_thermalexpansion(1:9,1)))/1000.0; 
-ssp126_thermalexpansion_upper_likely = double(squeeze(ssp126_thermalexpansion(1:9,4)))/1000.0; 
-ssp126_thermalexpansion_upper_verylikely = double(squeeze(ssp126_thermalexpansion(1:9,5)))/1000.0; 
+ssp126_thermalexpansion_lower_likely = double(squeeze(ssp126_thermalexpansion(1,1:9,2)))/1000.0; 
+ssp126_thermalexpansion_lower_verylikely = double(squeeze(ssp126_thermalexpansion(1,1:9,1)))/1000.0; 
+ssp126_thermalexpansion_upper_likely = double(squeeze(ssp126_thermalexpansion(1,1:9,4)))/1000.0; 
+ssp126_thermalexpansion_upper_verylikely = double(squeeze(ssp126_thermalexpansion(1,1:9,5)))/1000.0; 
 ssp126_thermalexpansion_VeryLikely_Conf_Bounds = [ssp126_thermalexpansion_upper_verylikely' flipud(ssp126_thermalexpansion_lower_verylikely)'];
 ssp126_thermalexpansion_Likely_Conf_Bounds = [ssp126_thermalexpansion_upper_likely' flipud(ssp126_thermalexpansion_lower_likely)'];
 
-ssp126_landwater_lower_likely = double(squeeze(ssp126_landwater(1:9,2)))/1000.0; 
-ssp126_landwater_lower_verylikely = double(squeeze(ssp126_landwater(1:9,1)))/1000.0; 
-ssp126_landwater_upper_likely = double(squeeze(ssp126_landwater(1:9,4)))/1000.0; 
-ssp126_landwater_upper_verylikely = double(squeeze(ssp126_landwater(1:9,5)))/1000.0; 
+ssp126_landwater_lower_likely = double(squeeze(ssp126_landwater(1,1:9,2)))/1000.0; 
+ssp126_landwater_lower_verylikely = double(squeeze(ssp126_landwater(1,1:9,1)))/1000.0; 
+ssp126_landwater_upper_likely = double(squeeze(ssp126_landwater(1,1:9,4)))/1000.0; 
+ssp126_landwater_upper_verylikely = double(squeeze(ssp126_landwater(1,1:9,5)))/1000.0; 
 ssp126_landwater_VeryLikely_Conf_Bounds = [ssp126_landwater_upper_verylikely' flipud(ssp126_landwater_lower_verylikely)'];
 ssp126_landwater_Likely_Conf_Bounds = [ssp126_landwater_upper_likely' flipud(ssp126_landwater_lower_likely)'];
 
 %% Create SSP585 confidence bounds
 
-ssp585_total_lower_likely = double(squeeze(ssp585_total(1:9,2)))/1000.0; 
-ssp585_total_lower_verylikely = double(squeeze(ssp585_total(1:9,1)))/1000.0; 
-ssp585_total_upper_likely = double(squeeze(ssp585_total(1:9,4)))/1000.0; 
-ssp585_total_upper_verylikely = double(squeeze(ssp585_total(1:9,5)))/1000.0; 
+ssp585_total_lower_likely = double(squeeze(ssp585_total(1,1:9,2)))/1000.0; 
+ssp585_total_lower_verylikely = double(squeeze(ssp585_total(1,1:9,1)))/1000.0; 
+ssp585_total_upper_likely = double(squeeze(ssp585_total(1,1:9,4)))/1000.0; 
+ssp585_total_upper_verylikely = double(squeeze(ssp585_total(1,1:9,5)))/1000.0; 
 
 ssp585_total_VeryLikely_Conf_Bounds = [ssp585_total_upper_verylikely' flipud(ssp585_total_lower_verylikely)'];
 ssp585_total_Likely_Conf_Bounds = [ssp585_total_upper_likely' flipud(ssp585_total_lower_likely)'];
 
-ssp585_glaciers_lower_likely = double(squeeze(ssp585_glaciers(1:9,2)))/1000.0; 
-ssp585_glaciers_lower_verylikely = double(squeeze(ssp585_glaciers(1:9,1)))/1000.0; 
-ssp585_glaciers_upper_likely = double(squeeze(ssp585_glaciers(1:9,4)))/1000.0; 
-ssp585_glaciers_upper_verylikely = double(squeeze(ssp585_glaciers(1:9,5)))/1000.0; 
+ssp585_glaciers_lower_likely = double(squeeze(ssp585_glaciers(1,1:9,2)))/1000.0; 
+ssp585_glaciers_lower_verylikely = double(squeeze(ssp585_glaciers(1,1:9,1)))/1000.0; 
+ssp585_glaciers_upper_likely = double(squeeze(ssp585_glaciers(1,1:9,4)))/1000.0; 
+ssp585_glaciers_upper_verylikely = double(squeeze(ssp585_glaciers(1,1:9,5)))/1000.0; 
 ssp585_glaciers_VeryLikely_Conf_Bounds = [ssp585_glaciers_upper_verylikely' flipud(ssp585_glaciers_lower_verylikely)'];
 ssp585_glaciers_Likely_Conf_Bounds = [ssp585_glaciers_upper_likely' flipud(ssp585_glaciers_lower_likely)'];
 
-ssp585_Antarctic_lower_likely = double(squeeze(ssp585_Antarctic(1:9,2)))/1000.0; 
-ssp585_Antarctic_lower_verylikely = double(squeeze(ssp585_Antarctic(1:9,1)))/1000.0; 
-ssp585_Antarctic_upper_likely = double(squeeze(ssp585_Antarctic(1:9,4)))/1000.0; 
-ssp585_Antarctic_upper_verylikely = double(squeeze(ssp585_Antarctic(1:9,5)))/1000.0; 
+ssp585_Antarctic_lower_likely = double(squeeze(ssp585_Antarctic(1,1:9,2)))/1000.0; 
+ssp585_Antarctic_lower_verylikely = double(squeeze(ssp585_Antarctic(1,1:9,1)))/1000.0; 
+ssp585_Antarctic_upper_likely = double(squeeze(ssp585_Antarctic(1,1:9,4)))/1000.0; 
+ssp585_Antarctic_upper_verylikely = double(squeeze(ssp585_Antarctic(1,1:9,5)))/1000.0; 
 ssp585_Antarctic_VeryLikely_Conf_Bounds = [ssp585_Antarctic_upper_verylikely' flipud(ssp585_Antarctic_lower_verylikely)'];
 ssp585_Antarctic_Likely_Conf_Bounds = [ssp585_Antarctic_upper_likely' flipud(ssp585_Antarctic_lower_likely)'];
 
-ssp585_Greenland_lower_likely = double(squeeze(ssp585_Greenland(1:9,2)))/1000.0; 
-ssp585_Greenland_lower_verylikely = double(squeeze(ssp585_Greenland(1:9,1)))/1000.0; 
-ssp585_Greenland_upper_likely = double(squeeze(ssp585_Greenland(1:9,4)))/1000.0; 
-ssp585_Greenland_upper_verylikely = double(squeeze(ssp585_Greenland(1:9,5)))/1000.0; 
+ssp585_Greenland_lower_likely = double(squeeze(ssp585_Greenland(1,1:9,2)))/1000.0; 
+ssp585_Greenland_lower_verylikely = double(squeeze(ssp585_Greenland(1,1:9,1)))/1000.0; 
+ssp585_Greenland_upper_likely = double(squeeze(ssp585_Greenland(1,1:9,4)))/1000.0; 
+ssp585_Greenland_upper_verylikely = double(squeeze(ssp585_Greenland(1,1:9,5)))/1000.0; 
 ssp585_Greenland_VeryLikely_Conf_Bounds = [ssp585_Greenland_upper_verylikely' flipud(ssp585_Greenland_lower_verylikely)'];
 ssp585_Greenland_Likely_Conf_Bounds = [ssp585_Greenland_upper_likely' flipud(ssp585_Greenland_lower_likely)'];
 
-ssp585_thermalexpansion_lower_likely = double(squeeze(ssp585_thermalexpansion(1:9,2)))/1000.0; 
-ssp585_thermalexpansion_lower_verylikely = double(squeeze(ssp585_thermalexpansion(1:9,1)))/1000.0; 
-ssp585_thermalexpansion_upper_likely = double(squeeze(ssp585_thermalexpansion(1:9,4)))/1000.0; 
-ssp585_thermalexpansion_upper_verylikely = double(squeeze(ssp585_thermalexpansion(1:9,5)))/1000.0; 
+ssp585_thermalexpansion_lower_likely = double(squeeze(ssp585_thermalexpansion(1,1:9,2)))/1000.0; 
+ssp585_thermalexpansion_lower_verylikely = double(squeeze(ssp585_thermalexpansion(1,1:9,1)))/1000.0; 
+ssp585_thermalexpansion_upper_likely = double(squeeze(ssp585_thermalexpansion(1,1:9,4)))/1000.0; 
+ssp585_thermalexpansion_upper_verylikely = double(squeeze(ssp585_thermalexpansion(1,1:9,5)))/1000.0; 
 ssp585_thermalexpansion_VeryLikely_Conf_Bounds = [ssp585_thermalexpansion_upper_verylikely' flipud(ssp585_thermalexpansion_lower_verylikely)'];
 ssp585_thermalexpansion_Likely_Conf_Bounds = [ssp585_thermalexpansion_upper_likely' flipud(ssp585_thermalexpansion_lower_likely)'];
 
-ssp585_landwater_lower_likely = double(squeeze(ssp585_landwater(1:9,2)))/1000.0; 
-ssp585_landwater_lower_verylikely = double(squeeze(ssp585_landwater(1:9,1)))/1000.0; 
-ssp585_landwater_upper_likely = double(squeeze(ssp585_landwater(1:9,4)))/1000.0; 
-ssp585_landwater_upper_verylikely = double(squeeze(ssp585_landwater(1:9,5)))/1000.0; 
+ssp585_landwater_lower_likely = double(squeeze(ssp585_landwater(1,1:9,2)))/1000.0; 
+ssp585_landwater_lower_verylikely = double(squeeze(ssp585_landwater(1,1:9,1)))/1000.0; 
+ssp585_landwater_upper_likely = double(squeeze(ssp585_landwater(1,1:9,4)))/1000.0; 
+ssp585_landwater_upper_verylikely = double(squeeze(ssp585_landwater(1,1:9,5)))/1000.0; 
 ssp585_landwater_VeryLikely_Conf_Bounds = [ssp585_landwater_upper_verylikely' flipud(ssp585_landwater_lower_verylikely)'];
 ssp585_landwater_Likely_Conf_Bounds = [ssp585_landwater_upper_likely' flipud(ssp585_landwater_lower_likely)'];
 
