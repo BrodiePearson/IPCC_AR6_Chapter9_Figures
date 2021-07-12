@@ -23,28 +23,28 @@ color_bar_range = IPCC_Get_Colorbar('wind_nd', 21, false);
 
 %% Load inputs
 
-quantiles = ncread('data/pb_1e/ssp126/total-workflow_localsl_figuredata.nc','quantiles');
-years = ncread('data/pb_1e/ssp126/total-workflow_localsl_figuredata.nc','years');
-lat = double(ncread('data/pb_1e/ssp126/total-workflow_localsl_figuredata.nc','lat'));
-lon = double(ncread('data/pb_1e/ssp126/total-workflow_localsl_figuredata.nc','lon'));
+quantiles = ncread('data/pb_1e/ssp126/total-workflow_figuredata.nc','quantiles');
+years = ncread('data/pb_1e/ssp126/total-workflow_figuredata.nc','years');
+lat = double(ncread('data/pb_1e/ssp126/total-workflow_figuredata.nc','lat'));
+lon = double(ncread('data/pb_1e/ssp126/total-workflow_figuredata.nc','lon'));
 
-ssp119_SL_quantiles = ncread('data/pb_1e/ssp119/total-workflow_localsl_figuredata.nc','localSL_quantiles');
-ssp126_SL_quantiles = ncread('data/pb_1e/ssp126/total-workflow_localsl_figuredata.nc','localSL_quantiles');
-ssp245_SL_quantiles = ncread('data/pb_1e/ssp245/total-workflow_localsl_figuredata.nc','localSL_quantiles');
-ssp370_SL_quantiles = ncread('data/pb_1e/ssp370/total-workflow_localsl_figuredata.nc','localSL_quantiles');
-ssp585_SL_quantiles = ncread('data/pb_1e/ssp585/total-workflow_localsl_figuredata.nc','localSL_quantiles');
+ssp119_SL_quantiles = ncread('data/pb_1e/ssp119/total-workflow_figuredata.nc','sea_level_change');
+ssp126_SL_quantiles = ncread('data/pb_1e/ssp126/total-workflow_figuredata.nc','sea_level_change');
+ssp245_SL_quantiles = ncread('data/pb_1e/ssp245/total-workflow_figuredata.nc','sea_level_change');
+ssp370_SL_quantiles = ncread('data/pb_1e/ssp370/total-workflow_figuredata.nc','sea_level_change');
+ssp585_SL_quantiles = ncread('data/pb_1e/ssp585/total-workflow_figuredata.nc','sea_level_change');
 
 %% Isolate median maps at 2100, convert units from mm to m, regrid to 1 deg
 
 % Isolate the median map at 2100
-ssp119_SL_median = double(squeeze(ssp119_SL_quantiles(9,:,3)))'/1000.0; % Units are mm; convert to meters
-ssp126_SL_median = double(squeeze(ssp126_SL_quantiles(9,:,3)))'/1000.0; % Units are mm; convert to meters
-ssp245_SL_median = double(squeeze(ssp245_SL_quantiles(9,:,3)))'/1000.0; % Units are mm; convert to meters
-ssp370_SL_median = double(squeeze(ssp370_SL_quantiles(9,:,3)))'/1000.0; % Units are mm; convert to meters
-ssp585_SL_median = double(squeeze(ssp585_SL_quantiles(9,:,3)))'/1000.0; % Units are mm; convert to meters
+ssp119_SL_median = double(squeeze(ssp119_SL_quantiles(:,9,3)))/1000.0; % Units are mm; convert to meters
+ssp126_SL_median = double(squeeze(ssp126_SL_quantiles(:,9,3)))/1000.0; % Units are mm; convert to meters
+ssp245_SL_median = double(squeeze(ssp245_SL_quantiles(:,9,3)))/1000.0; % Units are mm; convert to meters
+ssp370_SL_median = double(squeeze(ssp370_SL_quantiles(:,9,3)))/1000.0; % Units are mm; convert to meters
+ssp585_SL_median = double(squeeze(ssp585_SL_quantiles(:,9,3)))/1000.0; % Units are mm; convert to meters
 
-ssp370_SL_likely_range = (double(squeeze(ssp370_SL_quantiles(9,:,4))) ...
-    - double(squeeze(ssp370_SL_quantiles(9,:,2))))'/1000.0;
+ssp370_SL_likely_range = (double(squeeze(ssp370_SL_quantiles(:,9,4))) ...
+    - double(squeeze(ssp370_SL_quantiles(:,9,2))))/1000.0;
 
 % wrap around longitude bands for re-gridding averages
 ssp119_SL_median = [ssp119_SL_median; ssp119_SL_median(lon<-179)];
