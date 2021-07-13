@@ -16,9 +16,8 @@ The exact structure varies between figure folders due to the various authors tha
 **Most of the plotting codes can plot the IPCC AR6 figures using the data already in this repository.**
 However, a few figures require large sets of data that cannot be uploaded to GitHub or shared easily, such as CMIP datasets. 
 As a result, some plotting code cannot be used without first collecting the required data. There are two routes if you wish to replot these data-intensive figures:
-1. Use the summary `Plotted_Data` already provided to reproduce the figures. [An example code is provided here](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_03_SST/Plot_Figure/Example_plotting_from_metadata.m), which modifies the original plotting code of Figure 9.3 to replot several sub-panel maps. 
-2. Download and collate the required datasets (for example from ESGF nodes), and use the original calculation and plotting codes for these particular figures. The metadata of CMIP datasets and other datasets used within the figures are provided in the Appendix for Chapter 9 of IPCC AR6,
-and in the supplementary material from the IPCC TSU. The directory structure of this data can be inferred from the code in the repository.
+1. **Modify existing code to use `Plotted_Data` instead.** [An example code is provided here](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/blob/main/Plotting_code_and_data/Fig9_03_SST/Plot_Figure/Example_plotting_from_metadata.m), which modifies the original plotting code of Figure 9.3 to replot several sub-panel maps. 
+2. **Download data (no coding required).** Download and collate the required datasets (for example from ESGF nodes), and use the original calculation and plotting codes for these particular figures. The metadata of CMIP datasets and other datasets used within the figures are provided in the Appendix for Chapter 9 of IPCC AR6, and in the supplementary material from the IPCC TSU. The directory structure of this data can be inferred from the code in the repository.
 
 ## List of ocean figures in Chapter 9 
 
