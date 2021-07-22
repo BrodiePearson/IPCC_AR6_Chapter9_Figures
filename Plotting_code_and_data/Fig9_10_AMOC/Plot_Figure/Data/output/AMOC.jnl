@@ -1,0 +1,69 @@
+cancel data/all
+set memory/size=100
+define symbol model1 = CESM2  
+define symbol model2 = FGOALS-f3-L 
+define symbol model3 = FGOALS-g3
+define symbol model4 = GISS-E2-1-G
+define symbol model5 = INM-CM4-8
+
+define symbol exp1 = lig127k
+define symbol exp2 = midHolocene
+define symbol exp3 = piControl
+
+use "./($model1)/($exp1).nc"
+let amoc=(msftmz[i=1,k=@max,y=26.27]+msftmz[i=1,k=@max,y=26.76])/2
+save/file="./($model1)/($exp1)_amoc.nc" amoc
+cancel data/all
+use "./($model1)/($exp2).nc"
+let amoc=(msftmz[i=1,k=@max,y=26.27]+msftmz[i=1,k=@max,y=26.76])/2
+save/file="./($model1)/($exp2)_amoc.nc" amoc
+cancel data/all
+use "./($model1)/($exp3).nc"
+let amoc=(msftmz[i=1,k=@max,y=26.27]+msftmz[i=1,k=@max,y=26.76])/2
+save/file="./($model1)/($exp3)_amoc.nc" amoc
+
+cancel data/all
+use "./($model2)/($exp1).nc"
+let amoc=msftmz[i=2,k=@max,y=26.5]
+save/file="./($model2)/($exp1)_amoc.nc" amoc
+cancel data/all
+use "./($model2)/($exp2).nc"
+let amoc=msftmz[i=2,k=@max,y=26.5]
+save/file="./($model2)/($exp2)_amoc.nc" amoc
+cancel data/all
+use "./($model2)/($exp3).nc"
+let amoc=msftmz[i=2,k=@max,y=26.5]
+save/file="./($model2)/($exp3)_amoc.nc" amoc
+
+cancel data/all
+use "./($model3)/($exp1).nc"
+let amoc=msftmz[i=2,k=@max,y=26.5]
+save/file="./($model3)/($exp1)_amoc.nc" amoc
+cancel data/all
+use "./($model3)/($exp2).nc"
+let amoc=msftmz[i=2,k=@max,y=26.5]
+save/file="./($model3)/($exp2)_amoc.nc" amoc
+cancel data/all
+use "./($model3)/($exp3).nc"
+let amoc=msftmz[i=2,k=@max,y=26.5]
+save/file="./($model3)/($exp3)_amoc.nc" amoc
+
+cancel data/all
+use "./($model4)/($exp1).nc"
+let amoc=(msftmz[i=1,k=@max,y=26]+msftmz[i=1,k=@max,y=27])/2
+save/file="./($model4)/($exp1)_amoc.nc" amoc
+cancel data/all
+use "./($model4)/($exp2).nc"
+let amoc=(msftmz[i=1,k=@max,y=26]+msftmz[i=1,k=@max,y=27])/2
+save/file="./($model4)/($exp2)_amoc.nc" amoc
+
+cancel data/all
+use "./($model5)/($exp2).nc"
+let amoc=(msftmz[i=1,k=@max,y=26]+msftmz[i=1,k=@max,y=27])/2
+save/file="./($model5)/($exp2)_amoc.nc" amoc
+cancel data/all
+use "./($model5)/($exp3).nc"
+let amoc=(msftmz[i=1,k=@max,y=26]+msftmz[i=1,k=@max,y=27])/2
+save/file="./($model5)/($exp3)_amoc.nc" amoc
+
+

@@ -1,0 +1,16 @@
+CMIP6.PMIP.MPI-M.MPI-ESM1-2-LR.lgm               none r1i1p1f1 Omon msftmz gn v20190710 a
+CMIP6.PMIP.CAS.FGOALS-g3.lig127k                 none r1i1p1f1 Omon msftmz gn 
+v20191025 a
+CMIP6.PMIP.NCAR.CESM2.lig127k                    none r1i1p1f1 Omon msftmz gn 
+v20190923 a
+CMIP6.PMIP.CSIRO.ACCESS-ESM1-5.lig127k           none r1i1p1f1 Omon msftmz gn 
+v20200730 a
+CMIP6.CMIP.NCAR.CESM2.piControl                  none r1i1p1f1 Omon msftmz gn 
+v20190917 a
+CMIP6.CMIP.CAS.FGOALS-g3.piControl               none r1i1p1f1 Omon msftmz gn 
+v20191125 a
+CMIP6.CMIP.MPI-M.MPI-ESM1-2-LR.piControl         none r1i1p1f1 Omon msftmz gn 
+v20190710 a
+CMIP6.CMIP.CSIRO.ACCESS-ESM1-5.piControl         none r1i1p1f1 Omon msftmz gn 
+v20191214 a
+

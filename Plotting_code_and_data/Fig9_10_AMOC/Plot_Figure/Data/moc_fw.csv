@@ -1,0 +1,40 @@
+Paper,doi,Model,Model notes,Hosing strength (sv),Hosing time (years),Fresh water (1E6 Gtonnes),AMOC fractional change 200 years after hosing ends,Is AMOC noticeably recovering 200 years after hosing ends?,AMOC recovers?
+"Yin and Stouffer, 2007",10.1175/JCLI4256.1,R30,,1,100,3.1536,-0.91,N,N
+,,CM2.1,,1,100,3.1536,-0.14,,Y
+"Liu and Liu, 2013",10.1175/jcli-d-11-00681.1,CCSM3,,1,100,3.1536,-0.6,Y,Y
+,,CCSM3,with modifications ,1,100,3.1536,-0.62,N,N
+"Haskins et al, 2019",10.1007/s00382-018-4570-z,FAMOUS,,0.2,200,1.26144,0.11,,Y
+,,FAMOUS,,0.5,200,3.1536,0.11,,Y
+"Jackson and Wood, 2018",10.1029/2018GL078104,HadGEM3-GC2,,0.1,20,0.063072,recovers before 200 years,,Y
+,,HadGEM3-GC2,,0.1,50,0.15768,recovers before 200 years,,Y
+,,HadGEM3-GC2,,0.1,100,0.31536,recovers before 200 years,,Y
+,,HadGEM3-GC2,,0.2,20,0.126144,recovers before 200 years,,Y
+,,HadGEM3-GC2,,0.2,30,0.189216,recovers before 200 years,,Y
+,,HadGEM3-GC2,,0.3,20,0.189216,recovers before 200 years,,Y
+,,HadGEM3-GC2,,0.5,20,0.31536,-0.6,N,N
+"De Vries and Weber, 2005",10.1029/2004GL021450,ECBILT/CLIO,with modifications ,0.4,100,1.26144,-0.33,Y,Y
+,,ECBILT/CLIO,with modifications ,0.4,100,1.26144,-0.42,Y,Y
+,,ECBILT/CLIO,with modifications ,0.4,100,1.26144,-0.82,Y,Y
+,,ECBILT/CLIO,with modifications ,0.4,100,1.26144,-0.83,Y,Y
+,,ECBILT/CLIO,with modifications ,"0.4,0.1","100.0, 900.0",4.09968,-0.98,N,N
+Jackson 2013,10.1002/grl.50289,HadCM3,,1,150,4.7304,0.2,,
+,,HadCM3,with modifications ,1,150,4.7304,-0.85,Y,Y
+"Stouffer et al, 2007",10.1175/JCLI3689.1,CCC_CGCM2,,0.1,100,0.31536,-0.3,,Y
+,,CLIMBER_2,,0.1,100,0.31536,-0.04,,Y
+,,CLIMBER_3a,,0.1,100,0.31536,-0.03,,Y
+,,ECBILT_CLIO,,0.1,100,0.31536,-0.3,,Y
+,,ECHAM5/MPI-OM,,0.1,100,0.31536,0.04,,Y
+,,GFDL_CM2.1,,0.1,100,0.31536,-0.15,,Y
+,,GFDL_R30,,0.1,100,0.31536,-0.03,,Y
+,,HadCM3,,0.1,100,0.31536,0.04,,Y
+,,MIROC3.2,,0.1,100,0.31536,0,,Y
+,,MIT_Uwash,,0.1,100,0.31536,s,,Y
+,,MRI_CGCM2.3,,0.1,100,0.31536,-0.03,,Y
+,,NCAR_CCSM2.0,,0.1,100,0.31536,0,,Y
+,,Utoronto,,0.1,100,0.31536,0,,Y
+,,Uvic,,0.1,100,0.31536,-0.06,,Y
+,,GFDL_CM2.1,,1,100,3.1536,0,,Y
+,,GFDL_R30,,1,100,3.1536,-0.88,,N
+,,MIT_Uwash,,1,100,3.1536,0.5,,Y
+,,Utoronto,,1,100,3.1536,0.19,,Y
+,,Uvic,,1,100,3.1536,-0.97,,N
