@@ -38,11 +38,11 @@ color_SSP585 = IPCC_Get_SSPColors('ssp585'); % dark red
 
 %% Load in Alan's Excel file of data (contains future OHC/SST and several paleo records
 
-[~,sheet_name]=xlsfinfo("./Processed_Data/9.2.2_ACM_Fig_9.9_OHC_Paleo_Data_update_2020_12_06.xlsx");
+[~,sheet_name]=xlsfinfo("./Data/9.2.2_ACM_Fig_9.9_OHC_Paleo_Data_update_2020_12_06.xlsx");
 
 for k=1:numel(sheet_name)
   data{k}=xlsread( ...
-      './Processed_Data/9.2.2_ACM_Fig_9.9_OHC_Paleo_Data_update_2020_12_06.xlsx', ...
+      './Data/9.2.2_ACM_Fig_9.9_OHC_Paleo_Data_update_2020_12_06.xlsx', ...
       sheet_name{k});
 end
 

@@ -10,39 +10,39 @@ addpath ../../../Functions/
 
 fontsize = 25;
 
-savefile = './Processed_Data/Temperature_Transects.mat';
+savefile = './Data/Temperature_Transects.mat';
 load(savefile)
 
 data_path = '/Volumes/PromiseDisk/AR6_Data/thetao_with_chapter_4/';
 
 IPCC_Get_CMIP6_Metadata(data_path, {'ssp585'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4d_md.csv', 'd', true)
+    '../Data/CMIP6_metadata/Fig9-4d_md.csv', 'd', true)
 IPCC_Get_CMIP6_Metadata(data_path, {'ssp585'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4h_md.csv', 'h', true)
+    '../Data/CMIP6_metadata/Fig9-4h_md.csv', 'h', true)
 IPCC_Get_CMIP6_Metadata(data_path, {'ssp585'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4l_md.csv', 'l', true)
+    '../Data/CMIP6_metadata/Fig9-4l_md.csv', 'l', true)
 IPCC_Get_CMIP6_Metadata(data_path, {'ssp585'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4p_md.csv', 'p', true)
+    '../Data/CMIP6_metadata/Fig9-4p_md.csv', 'p', true)
 
 IPCC_Get_CMIP6_Metadata(data_path, {'ssp126'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4c_md.csv', 'c', true)
+    '../Data/CMIP6_metadata/Fig9-4c_md.csv', 'c', true)
 IPCC_Get_CMIP6_Metadata(data_path, {'ssp126'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4g_md.csv', 'g', true)
+    '../Data/CMIP6_metadata/Fig9-4g_md.csv', 'g', true)
 IPCC_Get_CMIP6_Metadata(data_path, {'ssp126'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4k_md.csv', 'k', true)
+    '../Data/CMIP6_metadata/Fig9-4k_md.csv', 'k', true)
 IPCC_Get_CMIP6_Metadata(data_path, {'ssp126'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4o_md.csv', 'o', true)
+    '../Data/CMIP6_metadata/Fig9-4o_md.csv', 'o', true)
 
 data_path='/Volumes/PromiseDisk/AR6_Data/thetao/'
 
 IPCC_Get_CMIP6_Metadata(data_path, {'historical'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4b_md.csv', 'b', false)
+    '../Data/CMIP6_metadata/Fig9-4b_md.csv', 'b', false)
 IPCC_Get_CMIP6_Metadata(data_path, {'historical'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4f_md.csv', 'f', false)
+    '../Data/CMIP6_metadata/Fig9-4f_md.csv', 'f', false)
 IPCC_Get_CMIP6_Metadata(data_path, {'historical'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4j_md.csv', 'j', false)
+    '../Data/CMIP6_metadata/Fig9-4j_md.csv', 'j', false)
 IPCC_Get_CMIP6_Metadata(data_path, {'historical'}, ...
-    '../Plotted_Data/CMIP6_metadata/Fig9-4n_md.csv', 'n', false)
+    '../Data/CMIP6_metadata/Fig9-4n_md.csv', 'n', false)
 
 %% Define colorbars and calculate rates of change
 
@@ -95,7 +95,7 @@ for ii=1:5
             char(start_year_historicalvsobs)+"-"+ ...
             char(end_year_historicalvsobs)+")"}, 'fontsize', 25);
         
-        ncfilename = '../Plotted_Data/Fig9-7a_data.nc';
+        ncfilename = '../Data/Fig9-7a_data.nc';
         var_name = 'thetao';
         var_units = 'degrees Celsius';
         title = "Zonally-averaged Potential Temperature in the Global Ocean "+...
@@ -123,7 +123,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp,'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7b_data.nc';
+        ncfilename = '../Data/Fig9-7b_data.nc';
         var_name = 'thetao_Bias';
         var_units = 'degrees Celsius';
         title = "Zonally-averaged Potential Temperature Bias in the Global Ocean "+...
@@ -151,7 +151,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp(1),'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7c_data.nc';
+        ncfilename = '../Data/Fig9-7c_data.nc';
         var_name = 'thetao_ChangeRate';
         var_units = 'degrees Celsius per decade';
         title = "Zonally-averaged Potential Temperature Rate of Change in the Global Ocean "+...
@@ -195,7 +195,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp(1),'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7d_data.nc';
+        ncfilename = '../Data/Fig9-7d_data.nc';
         var_name = 'thetao_ChangeRate';
         var_units = 'degrees Celsius per decade';
         title = "Zonally-averaged Potential Temperature Rate of Change in the Global Ocean "+...
@@ -264,7 +264,7 @@ for ii=1:5
             char(start_year_historicalvsobs)+"-"+ ...
             char(end_year_historicalvsobs)+")"}, 'fontsize', 25);
         
-        ncfilename = '../Plotted_Data/Fig9-7e_data.nc';
+        ncfilename = '../Data/Fig9-7e_data.nc';
         var_name = 'thetao';
         var_units = 'degrees Celsius';
         title = "Zonally-averaged Potential Temperature in the Pacific Ocean "+...
@@ -292,7 +292,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp,'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7f_data.nc';
+        ncfilename = '../Data/Fig9-7f_data.nc';
         var_name = 'thetao_Bias';
         var_units = 'degrees Celsius';
         title = "Zonally-averaged Potential Temperature Bias in the Pacific Ocean "+...
@@ -320,7 +320,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp(1),'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7g_data.nc';
+        ncfilename = '../Data/Fig9-7g_data.nc';
         var_name = 'thetao_ChangeRate';
         var_units = 'degrees Celsius per decade';
         title = "Zonally-averaged Potential Temperature Rate of Change in the Pacific Ocean "+...
@@ -364,7 +364,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp(1),'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7h_data.nc';
+        ncfilename = '../Data/Fig9-7h_data.nc';
         var_name = 'thetao_ChangeRate';
         var_units = 'degrees Celsius per decade';
         title = "Zonally-averaged Potential Temperature Rate of Change in the Pacific Ocean "+...
@@ -426,7 +426,7 @@ for ii=1:5
             char(start_year_historicalvsobs)+"-"+ ...
             char(end_year_historicalvsobs)+")"}, 'fontsize', 25);
         
-        ncfilename = '../Plotted_Data/Fig9-7i_data.nc';
+        ncfilename = '../Data/Fig9-7i_data.nc';
         var_name = 'thetao';
         var_units = 'degrees Celsius';
         title = "Zonally-averaged Potential Temperature in the Atlantic Ocean "+...
@@ -455,7 +455,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp,'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7j_data.nc';
+        ncfilename = '../Data/Fig9-7j_data.nc';
         var_name = 'thetao_Bias';
         var_units = 'degrees Celsius';
         title = "Zonally-averaged Potential Temperature Bias in the Atlantic Ocean "+...
@@ -483,7 +483,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp(1),'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7k_data.nc';
+        ncfilename = '../Data/Fig9-7k_data.nc';
         var_name = 'thetao_ChangeRate';
         var_units = 'degrees Celsius per decade';
         title = "Zonally-averaged Potential Temperature Rate of Change in the Atlantic Ocean "+...
@@ -527,7 +527,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp(1),'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7l_data.nc';
+        ncfilename = '../Data/Fig9-7l_data.nc';
         var_name = 'thetao_ChangeRate';
         var_units = 'degrees Celsius per decade';
         title = "Zonally-averaged Potential Temperature Rate of Change in the Atlantic Ocean "+...
@@ -589,7 +589,7 @@ for ii=1:5
             char(start_year_historicalvsobs)+"-"+ ...
             char(end_year_historicalvsobs)+")"}, 'fontsize', 25);
         
-        ncfilename = '../Plotted_Data/Fig9-7m_data.nc';
+        ncfilename = '../Data/Fig9-7m_data.nc';
         var_name = 'thetao';
         var_units = 'degrees Celsius';
         title = "Zonally-averaged Potential Temperature in the Indian Ocean "+...
@@ -617,7 +617,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp,'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7n_data.nc';
+        ncfilename = '../Data/Fig9-7n_data.nc';
         var_name = 'thetao_Bias';
         var_units = 'degrees Celsius';
         title = "Zonally-averaged Potential Temperature Bias in the Indian Ocean "+...
@@ -645,7 +645,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp(1),'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7o_data.nc';
+        ncfilename = '../Data/Fig9-7o_data.nc';
         var_name = 'thetao_ChangeRate';
         var_units = 'degrees Celsius per decade';
         title = "Zonally-averaged Potential Temperature Rate of Change in the Indian Ocean "+...
@@ -689,7 +689,7 @@ for ii=1:5
         hp = findobj(gca,'Tag','HatchingRegion');
         hh = hatchfill2(hp(1),'single','HatchAngle',45,'LineWidth',1,'Fill','off');
         
-        ncfilename = '../Plotted_Data/Fig9-7p_data.nc';
+        ncfilename = '../Data/Fig9-7p_data.nc';
         var_name = 'thetao_ChangeRate';
         var_units = 'degrees Celsius per decade';
         title = "Zonally-averaged Potential Temperature Rate of Change in the Indian Ocean "+...

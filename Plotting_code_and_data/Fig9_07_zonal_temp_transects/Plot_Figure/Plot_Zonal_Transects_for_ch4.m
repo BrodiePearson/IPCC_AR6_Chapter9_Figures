@@ -10,7 +10,7 @@ addpath ../../../Functions/
 
 fontsize = 25;
 
-savefile = './Processed_Data/Temperature_Transects_Full_Depth.mat';
+savefile = './Data/Temperature_Transects_Full_Depth.mat';
 load(savefile)
 
 %% Define colorbars and calculate rates of change
