@@ -16,11 +16,11 @@ plt.rcParams.update({'hatch.color': 'lightgrey'})
 # -------------------------------------------------------------------------------------------------
 # construct the colormaps used for the IPCC
 # divergent colormap
-rgbarray1 = np.genfromtxt('data/cryo_div.txt')
+rgbarray1 = np.genfromtxt('../Plotted_Data/cryo_div.txt')
 cmap_div = matplotlib.colors.LinearSegmentedColormap.from_list("", np.flip(rgbarray1,0))
 #cmap_div = matplotlib.colors.LinearSegmentedColormap.from_list("", rgbarray1)
 # sequential colormap
-rgbarray2 = np.genfromtxt('data/cryo_seq.txt')
+rgbarray2 = np.genfromtxt('../Plotted_Data/cryo_seq.txt')
 cmap_seq = matplotlib.colors.LinearSegmentedColormap.from_list("", rgbarray2)
 # model colormap
 c1 = [0/255,51/255,0/255] 
@@ -37,7 +37,7 @@ m['NH'] = Basemap(resolution='l',projection='npstere',lon_0=0,boundinglat=55., r
 m['SH'] = Basemap(resolution='l',projection='spstere',lon_0=180,boundinglat=-55., round=True) 
 
 # load data
-conc,lat,lon,conc_future,lat_future,lon_future,n_models = np.load('data/mapplot_data.npz',allow_pickle=True)['a']
+conc,lat,lon,conc_future,lat_future,lon_future,n_models = np.load('../Plotted_Data/mapplot_data.npz',allow_pickle=True)['a']
 
 lateyear1 = '2010'
 lateyear2 = '2019'
@@ -47,9 +47,9 @@ futureyear1 = '2045'
 futureyear2 = '2054'
 
 # Read in the NSIDC data to cover the pole hole with ice
-file = Dataset('data/NSIDC_polehole_big.nc')
+file = Dataset('../Plotted_Data/NSIDC_polehole_big.nc')
 poleholeearly = file.variables['goddard_nt_seaice_conc_monthly'][0,:,:].copy().astype(float)
-file = Dataset('data/NSIDC_polehole_small.nc')
+file = Dataset('../Plotted_Data/NSIDC_polehole_small.nc')
 poleholelate = file.variables['goddard_nt_seaice_conc_monthly'][0,:,:].copy().astype(float)
 
 lons,lats = np.meshgrid(lon['NH'],lat['NH'])
