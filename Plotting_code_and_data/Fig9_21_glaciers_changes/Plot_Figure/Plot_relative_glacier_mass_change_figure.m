@@ -1,3 +1,11 @@
+%% IPCC AR6 Chapter 9: Figure 9.21 (Glacier mass change)
+%
+% Code used to plot pre-processed glacier mass change. 
+% Note that the path to data must be cutomized below (folder_path)
+%
+% Plotting code written by Lucas Ruiz
+% Processed data provided by Lucas Ruiz
+
 clear all
 clc
 format long g
@@ -7,13 +15,19 @@ format long g
 % Figure 9.22: Glacier mass relative to 2015 as a function of time between
 % 1902 and 2100.
 %
-% Relative glacier mass  to 2015 (t1) for the all glaciers of world
-% (Global), all glaciers expect those peripheral to ice sheets (Expect
-% Regions 5 and 19) and for each of the  19 regions of RGI.
+% Global(all) =  All glaciers of world.
+%
+% Global(excep 5&19) = All glaciers except those peripheral to ice sheets
+% (RGI regions 5 and 19).
+%
+% RGI regions like in the SROCC, where High Mountain Asia (HMA) is the sum of 
+% RGI regions 13, 14 and 15).
 %
 % Explanation:
 
 % % 20th century glacier mass is presented relative to mass  for year 2000. 
+
+% the Idea is to combine different ways of order the tregions
 
 % Uncertainties in all cases is transformed to CI (90%). 
 % We use 90% CI = 1.645.*std
@@ -38,17 +52,22 @@ format long g
 % Lucas Ruiz
  
  %% Figure filename
- % Define the name of  *.eps and *.pdf file
- figure_filename= 'Glacier_change_fig_FGD';
- 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Define the name of  *.eps and *.pdf file 
+ figure_filename= 'Glacier_change_fig_FGD_testing_25_2';
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%% Figure mode
+% use 1 for figure 
+figure_mode =1; 
  %% Reference year 2015
  t1 = 2015;
  
   %% Regions names and numbers
   % Names and numbers (used in the titles of each plot)
-  regionnames = { 'Global' 'Global' 'Alaska' 'West Canada and U.S.' 'Arctic Canada (N)' 'Arctic Canada (S)' 'Greenland periphery' 'Iceland' 'Svalbard' 'Scandinavia' 'Russian Arctic' 'North Asia' 'Central Europe' 'Caucasus' 'High Mountain Asia' 'Low Latitudes' 'Southern Andes' 'New Zealand' 'Antarctic periphery.'};
+  regionnames = { 'Global' 'Global' 'Alaska' 'West Canada and U.S.' 'Arctic Canada (N)' 'Arctic Canada (S)' 'Greenland periphery' 'Iceland' 'Svalbard' 'Scandinavia' 'Russian Arctic' 'North Asia' 'Central Europe' 'Caucasus' 'High Mountain Asia' 'Low Latitudes' 'Southern Andes' 'New Zealand' 'Antarctic periphery'};
   
-  regions_numbers = { 'all' 'excep 5&19' '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13-15' '16' '17' '18' '19'}; 
+  regions_numbers = { 'all' 'except 5&19' '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13-15' '16' '17' '18' '19'}; 
   
  %% Define Regions variable
  
@@ -64,51 +83,53 @@ HMA = [13 14 15]; %
 %Select what to use for Global with peripheral glaciers (20).
 GLOBAL =(1:1:19);
 
-%select what to use for Global without  peripheral glaciers (21). 
-GLOBAL_2 = [1,2,3,4,6,7,8,9,10,13,14,15,16,17,18];
+%select what to use for Global without peripheral glaciers (21). 
+GLOBAL_2 = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18];
 
  %% Data input
  % Please include each correct path
- folder_path ='c:\Users\lcsru\OneDrive\Documents\IPCC-AR6\09-FGD\';
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % Just include the path where the figure folder is located (Must be changed)
+% folder_path ='Add/Your/Path/Here';
+ folder_path ='./';
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
  % Farinotti et al. (2019) glacier volume for each region 
- Farinotti_2019_file = [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\Farinotti2019.mat'];
+ Farinotti_2019_file = [folder_path,'INPUT_DATA/Farinotti2019.mat'];
 
  % Folder with the Zemp et al. (2019) time series of mass balance changes for each region
  % (supplementary materials)
- folder_ZEMP_SM = [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\Zemp_etal_results_regions\'];
+ folder_ZEMP_SM = [folder_path,'INPUT_DATA/Zemp_etal_results_regions/'];
  
  % Zemp et al. (2019) time series of global mass balance changes  (supplementary materials)
- global_file_ZEMP_SM = [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\Zemp_etal_results_global.csv'];
- 
- % xls file Annex table  AR6 Chapter 9
- file_Table_9_4= 'c:\Users\lcsru\OneDrive\Documents\IPCC-AR6\07-SOD\Table 9_4_TBD.xlsx';
-  
+ global_file_ZEMP_SM = [folder_path,'INPUT_DATA/Zemp_etal_results_global.csv'];
+   
 % Marzeion et al. (2020) supplementary materials file
-GlacierMIP_file =  [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\suppl_GlacierMIP_results.nc'];
+GlacierMIP_file =  [folder_path,'INPUT_DATA/suppl_GlacierMIP_results.nc'];
  
 %  Marzeion et al. (2015) 20th century regional glacier mass data
- Marzeion2015_file =  [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\data_marzeion_etal_update_2015_regional.txt'];
- Marzeion2015_file_error =  [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\error_marzeion_etal_update_2015_regional.txt'];
+ Marzeion2015_file =  [folder_path,'INPUT_DATA/data_marzeion_etal_update_2015_regional.txt'];
+ Marzeion2015_file_error =  [folder_path,'INPUT_DATA/error_marzeion_etal_update_2015_regional.txt'];
 
 %  Marzeion et al. (2015) 20th century global glacier mass data
-Marzeion2015_global_file =   [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\data_marzeion_etal_update_2015.txt'];
+Marzeion2015_global_file =   [folder_path,'INPUT_DATA/data_marzeion_etal_update_2015.txt'];
  
 % Leclerq et al. (2011) updated in Marzeion et al. (2015) 20th century global
- Leclerq2015_global_file =  [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\data_leclercq_etal_update_2015.txt'];
+ Leclerq2015_global_file =  [folder_path,'INPUT_DATA/data_leclercq_etal_update_2015.txt'];
   
  % Bamber et al (2018) supplementary material.
- bamber_file = [folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\Bamber-etal_2018.TAB'];
+ bamber_file = [folder_path,'INPUT_DATA/Bamber-etal_2018.TAB'];
 
  
- %% Set figure format and colors for each line
+%% Set figure format and colors for each line
  
 % Define the color of each shaded area and line
 % following IPCC Colorscheme
 
 % load colorscheme file
-
-
-load([folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\colorscheme.mat.mat'])
+load([folder_path,'INPUT_DATA/colorscheme.mat'])
 
 % Shaded areas colors
 shade_rgb =  colorscheme_RGB. shade_0_RGB;
@@ -148,6 +169,7 @@ RCP45_shading = colorscheme_RGB.RCP45_shade_RGB; % RCP 4.5 uncertainty
 RCP85_line = colorscheme_RGB.RCP85_line_RGB; % RCP 2.6
 RCP85_shading = colorscheme_RGB.RCP85_shade_RGB; % RCP 8.5 uncertainty
 
+%delete variables created to upload colorscheme
 clear colorscheme_RGB line_RGB shade_rgb
 
 % Define the extent and position of  the figure and the different subplots
@@ -159,7 +181,7 @@ h_fig = 250;
 
 % Margins and separation of subplots 
 bot_line =15; % bottom space [mm]
-sep_v =9; % vertical separation between subplots [mm]
+sep_v =10; % vertical separation between subplots [mm]
 sep_h = 5; % horizontal separation between subplots [mm]
 left_line =15; % left margin [mm]
 
@@ -187,6 +209,7 @@ height = h.*ones(20,1);
 % Position vector [left, bottom,width,height]./normalized
 position_plots = [left./w_fig,bottom./h_fig,width./w_fig,height./h_fig]; 
 
+%delete variables created to generate the position vector
 clear width height left bottom
 
 %% Read volume/mass for each region for year 2000
@@ -365,7 +388,7 @@ uncert_leclerq_global = interp1(dataL_15_global(:,1),dataL_15_global(:,3),datesM
 
 % Read the file and extract data
 fid_bamber = fopen(bamber_file);
-bamber_time_series_raw = textscan(fid_bamber,'%f %f %f %f %f %f %f %f %f %f %f','Delimiter','\t','HeaderLines',21);
+bamber_time_series_raw = textscan(fid_bamber,'%f %f %f %f %f %f %f %f %f %f %f','Delimiter','/t','HeaderLines',21);
 fclose(fid_bamber);
 
 % Global glacier mass balance time series  (without RGI 5 and 19)
@@ -541,31 +564,33 @@ clear file_order
 
 % 1962 -2015 Zemp et al., (2019) global (all regions) glacier mass time series relative
 % to 2015 (t1), accounting that Farinotti et al., (2019) glacier volume is for 2000.
- total_mass_change_global_zemp19 =  sum(glacier_mass_zemp19,1)./sum(region_vol_far_km);
+ total_mass_change_global_zemp19 =  sum(glacier_mass_zemp19,1)./(sum(region_vol_far_km)-sum(mass_change_after_2000_zemp19)) ;
 
  % Uncertainty as 90% CI 
- total_mass_change_global_zemp19_uncert =sum(glacier_mass_zemp19_uncert,1)./sum(region_vol_far_km);
+ total_mass_change_global_zemp19_uncert =sum(glacier_mass_zemp19_uncert,1)./(sum(region_vol_far_km)-sum(mass_change_after_2000_zemp19)) ;
 
 % 1962 -2015 Zemp et al., (2019) global without peripheral glacier mass time series relative
 % to 2015 (t1), accounting that Farinotti et al., (2019) glacier volume is for 2000.
-sel_z=regions_short;
+sel_z = regions_short;
 sel_z = find(regions_short ~=5 ) ;
 sel_z(end) = [];
-total_mass_change_global_exp_zemp19 =  sum(glacier_mass_zemp19(sel_z,:),1)./sum(region_vol_far_km(GLOBAL_2,1));
+total_mass_change_global_exp_zemp19 =  sum(glacier_mass_zemp19(sel_z,:),1)./(sum(region_vol_far_km(GLOBAL_2,1))-sum(mass_change_after_2000_zemp19(sel_z))) ;
 
 % Uncertainty as 90% CI 
-total_mass_change_global_exp_zemp19_uncert =sum(glacier_mass_zemp19_uncert(sel_z,:),1)./sum(region_vol_far_km(GLOBAL_2,1));
-
-clear sel_z 
+total_mass_change_global_exp_zemp19_uncert =sum(glacier_mass_zemp19_uncert(sel_z,:),1)./(sum(region_vol_far_km(GLOBAL_2,1))-sum(mass_change_after_2000_zemp19(sel_z)));
 
 
-%To simplify the plotting process we add the global and global without peropheral glacier to the regional time series
+
+% Historical glacier mass change
+ histo_mass_change_zemp19= [sum(total_mass_change_zemp19);sum(total_mass_change_zemp19(sel_z,1)); total_mass_change_zemp19];
+
+ %To simplify the plotting process we add the global and global without peropheral glacier to the regional time series
 glacier_mass_zemp19_rel = [total_mass_change_global_zemp19; total_mass_change_global_exp_zemp19; glacier_mass_zemp19_rel];
 glacier_mass_zemp19_rel_uncert = [total_mass_change_global_zemp19_uncert ;total_mass_change_global_exp_zemp19_uncert; glacier_mass_zemp19_rel_uncert];
  
  % Delete variable that are not used any more
+ clear sel_z 
  clear total_mass_change_global_exp_zemp19 zemp_global_2_err total_mass_change_global_zemp19 zemp_global_1_err 
-
  
  %% Read and Process Supplementary material of  Marzeion et al., (2020)
 
@@ -642,7 +667,7 @@ time = ncread(GlacierMIP_file,'Time');
          m = regions_short(j);
            for k =1:1:size(RCP26_all,3);
                if m<13;
-                      vol_26_rel(j,:,k) = RCP26_all(j,:,k)./(RCP26_all(m,yt1,k));
+                      vol_26_rel(j,:,k) = RCP26_all(m,:,k)./(RCP26_all(m,yt1,k));
                       vol_26_initial(j,k) =RCP26_all(m,yt1,k);
                elseif m==13; % HMA
                       vol_26_rel(j,:,k) = nansum(RCP26_all(HMA,:,k),1)./nansum(RCP26_all(HMA,yt1,k),1);
@@ -698,7 +723,7 @@ time = ncread(GlacierMIP_file,'Time');
      % Median mass change relative to 2015 (t1) (all models)
      % RCP 2.6 
          median_RCP26(j,:) =nanmedian(vol_26_rel(j,:,:),3);
-         median_RCP26_intial_mass(j,1) =  nanmedian(vol_26_initial(j,:),2); 
+         median_RCP26_initial_mass(j,1) =  nanmedian(vol_26_initial(j,:),2); 
      % RCP 4.5
           median_RCP45(j,:) =nanmedian(vol_45_rel(j,:,:),3);
           median_RCP45_initial_mass(j,1) =  nanmedian(vol_45_initial(j,:),2);
@@ -707,7 +732,7 @@ time = ncread(GlacierMIP_file,'Time');
           median_RCP85_initial_mass(j,1) =  nanmedian(vol_85_initial(j,:),2);
      
     % Uncertainty in  mass change relative to 2015 (t1) (all models) 90% CI
-    % RCP 2.6 
+    % RCP 2.6  1.645 for 90% or 1.96 for 95%
     CI_RCP26(j,:) = 1.645.*nanstd(vol_26_rel(j,:,:),1,3);
     % RCP 4.5
    CI_RCP45(j,:) = 1.645.*nanstd(vol_45_rel(j,:,:),1,3);
@@ -718,40 +743,56 @@ time = ncread(GlacierMIP_file,'Time');
  
  % Create the global time series for each RCPs
  for j =1:1:length(regions_short);
- global_RCP26(j,:) = median_RCP26(j,:).*median_RCP26_intial_mass(j,1);
+ global_RCP26(j,:) = median_RCP26(j,:).*median_RCP26_initial_mass(j,1);
  global_RCP45(j,:) = median_RCP45(j,:).*median_RCP45_initial_mass(j,1);
  global_RCP85(j,:) = median_RCP85(j,:).*median_RCP85_initial_mass(j,1);
- global_RCP26_err(j,:) =  CI_RCP26(j,:).*median_RCP26_intial_mass(j,1);
+ global_RCP26_err(j,:) =  CI_RCP26(j,:).*median_RCP26_initial_mass(j,1);
  global_RCP45_err(j,:) = CI_RCP45(j,:).*median_RCP45_initial_mass(j,1);
  global_RCP85_err(j,:) =  CI_RCP85(j,:).*median_RCP85_initial_mass(j,1);
  end
  
  % All Regions relative to 2015 (t1)
- RCP26_global_1 = sum(global_RCP26,1)./sum(median_RCP26_intial_mass);
+ RCP26_global_1 = sum(global_RCP26,1)./sum(median_RCP26_initial_mass);
  RCP45_global_1 = sum(global_RCP45,1)./sum(median_RCP45_initial_mass);
- RCP85_global_1 = sum(global_RCP85,1)./sum(median_RCP45_initial_mass);
+ RCP85_global_1 = sum(global_RCP85,1)./sum(median_RCP85_initial_mass);
  
- RCP26_global_1_err = sqrt(sum(global_RCP26_err.^2,1))./sum(median_RCP26_intial_mass);
- RCP45_global_1_err = sqrt(sum(global_RCP45_err.^2,1))./sum(median_RCP45_initial_mass);
- RCP85_global_1_err = sqrt(sum(global_RCP85_err.^2,1))./sum(median_RCP45_initial_mass);
- 
+
+ % Just using the regional uncertainty
+ %  RCP26_global_1_err = sqrt(sum(global_RCP26_err.^2,1))./sum(median_RCP26_initial_mass);
+%  RCP45_global_1_err = sqrt(sum(global_RCP45_err.^2,1))./sum(median_RCP45_initial_mass);
+%  RCP85_global_1_err = sqrt(sum(global_RCP85_err.^2,1))./sum(median_RCP85_initial_mass);
+
+
+
+% global uncertanty as Marzeion et al 2020
+%  RCP26_global_1_err = sqrt(sum((global_RCP26_err).^2,1) + sum(cov(global_RCP26_err)))
+ RCP26_global_1_err = (sqrt(sum((global_RCP26_err).^2,1) + (sum(cov(global_RCP26_err,1)))))./sum(median_RCP26_initial_mass);
+ RCP45_global_1_err = (sqrt(sum((global_RCP45_err).^2,1) + (sum(cov(global_RCP45_err,1)))))./sum(median_RCP45_initial_mass);
+ RCP85_global_1_err = (sqrt(sum((global_RCP85_err).^2,1) + (sum(cov(global_RCP85_err,1)))))./sum(median_RCP85_initial_mass);
+
  
  % Global except RGI 5 and 19 regions relative to 2015 (t1)
  %first select the regions
- sel=regions_short;
+sel = regions_short;
 sel = find(regions_short ~=5 ) ;
 sel(end) = [];
  
- RCP26_global_2 = sum(global_RCP26(sel,:),1)./sum(median_RCP26_intial_mass(sel,:));
+ RCP26_global_2 = sum(global_RCP26(sel,:),1)./sum(median_RCP26_initial_mass(sel,:));
  RCP45_global_2 = sum(global_RCP45(sel,:),1)./sum(median_RCP45_initial_mass(sel,:));
- RCP85_global_2 = sum(global_RCP85(sel,:),1)./sum(median_RCP45_initial_mass(sel,:));
+ RCP85_global_2 = sum(global_RCP85(sel,:),1)./sum(median_RCP85_initial_mass(sel,:));
  
- RCP26_global_2_err = sqrt(sum(global_RCP26_err(sel,:).^2,1))./sum(median_RCP26_intial_mass(sel,:));
- RCP45_global_2_err = sqrt(sum(global_RCP45_err(sel,:).^2,1))./sum(median_RCP45_initial_mass(sel,:));
- RCP85_global_2_err = sqrt(sum(global_RCP85_err(sel,:).^2,1))./sum(median_RCP45_initial_mass(sel,:));
+%  RCP26_global_2_err = sqrt(sum(global_RCP26_err(sel,:).^2,1))./sum(median_RCP26_initial_mass(sel,:));
+%  RCP45_global_2_err = sqrt(sum(global_RCP45_err(sel,:).^2,1))./sum(median_RCP45_initial_mass(sel,:));
+%  RCP85_global_2_err = sqrt(sum(global_RCP85_err(sel,:).^2,1))./sum(median_RCP85_initial_mass(sel,:));
+
+ RCP26_global_2_err = sqrt(sum(global_RCP26_err(sel,:).^2,1)+(sum(cov(global_RCP26_err(sel,:),1))))./sum(median_RCP26_initial_mass(sel,:));
+ RCP45_global_2_err = sqrt(sum(global_RCP45_err(sel,:).^2,1)+(sum(cov(global_RCP45_err(sel,:),1))))./sum(median_RCP45_initial_mass(sel,:));
+ RCP85_global_2_err = sqrt(sum(global_RCP85_err(sel,:).^2,1)+(sum(cov(global_RCP85_err(sel,:),1))))./sum(median_RCP85_initial_mass(sel,:));
+
+
  
 %To simplify the plotting process we add the global and global without peropheral glacier to the regional time series
- median_RCP26 = [RCP26_global_1; RCP26_global_1; median_RCP26];
+ median_RCP26 = [RCP26_global_1; RCP26_global_2; median_RCP26];
  median_RCP45 = [RCP45_global_1; RCP45_global_2; median_RCP45];
  median_RCP85 = [RCP85_global_1; RCP85_global_2; median_RCP85];
  
@@ -760,6 +801,25 @@ CI_RCP45 = [ RCP45_global_1_err;  RCP45_global_2_err ;CI_RCP45];
 CI_RCP85 = [ RCP85_global_1_err;  RCP85_global_2_err ; CI_RCP85];
  
  
+
+
+%% Ordering
+ordering = 0
+
+% Classica order ordering = 0
+
+% Glacier mass contribution to SLR =1
+[RCP85_change,rcp85_idx] = sort([global_RCP85(:,end)],'descend');
+rcp85_idx = [1;2;rcp85_idx+2];
+% % of glacier mass change change =2
+[RCP85_rel,rcp85_rel_idx] = sort([median_RCP85(:,end)],'ascend');
+rcp85_rel_idx = [rcp85_rel_idx];
+%  %Hisotorical glacier mass =3
+[Zemp_change,z_idx] = sort([glacier_mass_zemp19_rel(:,1)-1],'descend');
+%   Hisotorical glacier mass =4
+[Zemp_change,z_mas_idx] = sort([histo_mass_change_zemp19],'ascend');
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Create the figure
      figure(1)
@@ -770,10 +830,25 @@ CI_RCP85 = [ RCP85_global_1_err;  RCP85_global_2_err ; CI_RCP85];
 
  % Start the loop of the figure
   for k = 1:1:length(regions_numbers);
-        
-      j =k; % to be used if the order of the plots and time series do not agree
-     % subplot positions
-     subplot('Position',position_plots(k,:) ) 
+       
+      if ordering ==0;
+          j =k ;
+      elseif ordering ==1;
+         j = rcp85_idx(k); % to be used if the order of the plots and time series do not agree
+      elseif  ordering==2;
+          j =rcp85_rel_idx (k); % to be used if the order of the plots and time series do not agree
+      elseif  ordering==3;
+          j =z_idx (k); % to be used if the order of the plots and time series do not agree
+      elseif  ordering==4;
+          j =z_mas_idx (k); % to be used if the order of the plots and time series do not agree
+          
+      end
+      % subplot positions
+     subplot('Position',position_plots(k,:) ) % comment this line if you want a large figure for each region
+     
+     % Figure number (check print lines)
+   %  figure(k) % uncomment this line if you want a large figure for each region
+     
          
      ratio =1; % to arbitrarty increase or decrease the error (if =1 do not do anything)
      
@@ -793,22 +868,23 @@ CI_RCP85 = [ RCP85_global_1_err;  RCP85_global_2_err ; CI_RCP85];
      %Plot uncertainty of  Zemp et al., (2019) data as shaded area
      shadedplot(Zemp_time, y_zemp_1, y_zemp_2,Zemp_shading);
      hold on 
-    
-     if k ==2 % Plot Bamber et al., (2018) on plot 2 (Global without ice sheet peripheral glaciers)
-     
-         % Upper curve of uncertainties  of Bamber et al., (2018) data as shaded area
-     y_bamber_1 =(bamber_gic_rel+bamber_gic_rel_errs).*ratio;
-     % Lower  curve of uncertainties  of Bamber et al., (2018) data as shaded area
-     y_bamber_2 =(bamber_gic_rel-bamber_gic_rel_errs).*ratio;
-     %Plot uncertainty of Bamber et al., (2018) data as shaded area
-     shadedplot(time_bamber, y_bamber_1', y_bamber_2',Bamber18_shading);
-     hold on 
-     %Plot Bamber et al., (2018) data as a line
-     p_bamber = plot(time_bamber, bamber_gic_rel.*ratio,'LineStyle', '-','Color',Bamber18_line,'LineWidth',2);
-     hold on
-     
-     end
-    
+
+% %  un comment to include Bamber et al (2018 ) in the plots    
+%      if j ==2 % Plot Bamber et al., (2018) on plot 2 (Global without ice sheet peripheral glaciers)
+%      
+%          % Upper curve of uncertainties  of Bamber et al., (2018) data as shaded area
+%      y_bamber_1 =(bamber_gic_rel+bamber_gic_rel_errs).*ratio;
+%      % Lower  curve of uncertainties  of Bamber et al., (2018) data as shaded area
+%      y_bamber_2 =(bamber_gic_rel-bamber_gic_rel_errs).*ratio;
+%      %Plot uncertainty of Bamber et al., (2018) data as shaded area
+%      shadedplot(time_bamber, y_bamber_1', y_bamber_2',Bamber18_shading);
+%      hold on 
+%      %Plot Bamber et al., (2018) data as a line
+%      p_bamber = plot(time_bamber, bamber_gic_rel.*ratio,'LineStyle', '-','Color',Bamber18_line,'LineWidth',2);
+%      hold on
+%      
+%      end
+%     
      % Upper curve of uncertainty of RCP2.6 as shaded area (CI)
      y_RCP26_1 =(median_RCP26(j,:) + CI_RCP26(j,:)).*ratio;
      % Lower curve of uncertainty of RCP2.6 as shaded area (CI)
@@ -838,7 +914,7 @@ CI_RCP85 = [ RCP85_global_1_err;  RCP85_global_2_err ; CI_RCP85];
      hold on
     
      % Plot Zemp et al., (2019) data
-    p_zemp = plot(Zemp_time, (glacier_mass_zemp19_rel(j,:)).*ratio,'LineStyle', '--','Color',Zemp_line,'LineWidth',1);
+    p_zemp = plot(Zemp_time, (glacier_mass_zemp19_rel(j,:)).*ratio,'LineStyle', '-','Color',Zemp_line,'LineWidth',2);
     hold on
   
          
@@ -857,16 +933,16 @@ CI_RCP85 = [ RCP85_global_1_err;  RCP85_global_2_err ; CI_RCP85];
      
       % Include y axis label just to left plots
      if k== 1 ||  k== 5 || k== 9 || k== 13 || k== 17;
-          set(gca,'FontSize',9,'YTick',[ 0 0.5  1 1.5 2],'YTickLabel',...
+          set(gca,'FontName','Arial','FontSize',9,'YTick',[ 0 0.5  1 1.5 2],'YTickLabel',...
           {'0';'50';'100' ;'150';'200'},'YLim', [0 2])
       
      else
-          set(gca,'FontSize',9,'YTick',[ 0  0.5 1 1.5 2],'YTickLabel',...
+          set(gca,'FontName','Arial','FontSize',9,'YTick',[ 0  0.5 1 1.5 2],'YTickLabel',...
            [],'YLim', [0 2]) 
      end
     % include Ylabel in the middle
    if k ==9
-         ylabel(['Glacier mass relative to year ',num2str(t1),' [%]'],'FontSize',9,'FontWeight','Bold' );
+         ylabel(['Glacier mass relative to year ',num2str(t1),' (%)'],'FontName','Arial','FontSize',9);
    end
    
 %%Uncommented to use xaxis from 1950   
@@ -882,20 +958,26 @@ CI_RCP85 = [ RCP85_global_1_err;  RCP85_global_2_err ; CI_RCP85];
     % Include x axis label from 1900
     if k== 16  || k==17  || k==18 || k ==19;   
         set(gca,'FontSize',9,'XTick',[1900 1950 2000  2050  2100],'XTickLabel',...
-          {'1900';'1950';'2000';'2050';'2100'},'XLim', [1900 2100])
-       xlabel('Years','FontSize',8,'FontWeight','Bold') 
+          {'';'1950';'2000';'2050';'2100'},'XLim', [1900 2100])
+       xlabel('Years','FontName','Arial','FontSize',9) 
     else
-       set(gca,'FontSize',9,'XTick',[1900 1950 2000 2050  2100],'XTickLabel',[],'XLim', [1900 2100])
+       set(gca,'FontName','Arial','FontSize',9,'XTick',[1900 1950 2000 2050  2100],'XTickLabel',[],'XLim', [1900 2100])
     end
    
     
      % Title of each subplot   (regionsname and number) 
-      title([cell2mat(regionnames(j)),'(',cell2mat(regions_numbers(j)),')'],'FontSize',9,'FontWeight','Bold') 
+      title([cell2mat(regionnames(j)),' (',cell2mat(regions_numbers(j)),')'],'FontName','Arial','FontSize',9) 
      
       % Legend
       if k==19;
-          legend1 =  legend( [p_marzeion p_zemp p_bamber p_26 p_45 p_85], {'Marzeion2015','Zemp2019','Bamber2018', 'RCP 2.6 mean','RCP 4.5 mean','RCP 8.5 mean'});
-          set(legend1,'FontSize',9,'FontWeight','Bold','Position',[position_plots(20,1),position_plots(20,2)-0.01,position_plots(20,3),0.8*position_plots(20,4)]);
+         % uncomment to use Bamber et al (2018) 
+        % legend1 =  legend( [p_marzeion p_zemp p_bamber p_26 p_45 p_85], {'Marzeion et al. (2015) ','Zemp et al. (2019)','Bamber et al. (2018)', 'RCP 2.6 scenario ','RCP 4.5 scenario','RCP 8.5 scenario'});
+     
+          legend1 =  legend( [p_marzeion p_zemp p_26 p_45 p_85], {'Reconstruction^(^1^)','Observation^(^2^)',...
+              'RCP 2.6^(^3^)','RCP 4.5^(^3^)','RCP 8.5^(^3^)'});
+         
+          
+          set(legend1, 'FontName','Arial','FontSize',9,'Position',[position_plots(20,1)+0.01,position_plots(20,2)+0.03,1.01*position_plots(20,3),0.2*position_plots(20,4)]);
       end
  end
 
@@ -905,10 +987,10 @@ fig1=gcf;
 set(fig1,'PaperUnits','centimeters');
 set(fig1,'PaperSize',[18 25]);
 set(fig1,'PaperPosition',[0. 0. 18 25]);
- print(fig1,'-depsc', [ folder_path,'Chapter9_Relative_glacier_mass_figure\OUTPUT_FIGURES\',figure_filename])
- %Figure as pdf
- print(fig1,'-dpdf', [ folder_path,'Chapter9_Relative_glacier_mass_figure\OUTPUT_FIGURES\',figure_filename])
- display('Figure printed as eps & pdf')
- close(fig1)
+  print(fig1,'-depsc', ['../PNGs/',figure_filename])
+%  %Figure as pdf
+  print(fig1,'-dpdf', [ folder_path,'../PNGs/',figure_filename])
+%  display('Figure printed as eps & pdf')
+ % close(fig1)
 
 

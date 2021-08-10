@@ -16,7 +16,7 @@ from netCDF4 import Dataset,num2date
 # Read sea-ice area data into panda DataFrame
 def read_sia(hemisphere, algorithms):
     # Read input data
-    data_file = Dataset('data/SeaIceArea__'+hemisphere+'__monthly__UHH__v2019_fv0.01.nc','r',format='NETCDF4')
+    data_file = Dataset('../Plotted_Data/SeaIceArea__'+hemisphere+'__monthly__UHH__v2019_fv0.01.nc','r',format='NETCDF4')
     # Convert time information from NetCDF to Panda DataFrame index
     time_var = data_file.variables['time']
     times = num2date(time_var[:].squeeze(), time_var.units,

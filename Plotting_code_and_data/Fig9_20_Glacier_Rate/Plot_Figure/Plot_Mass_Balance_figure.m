@@ -1,10 +1,17 @@
+%% IPCC AR6 Chapter 9: Figure 9.20 (Glacier Rates)
+%
+% Code used to plot pre-processed glavier rates of change. 
+%
+% Plotting code written by Lucas Ruiz
+% Processed data provided by Lucas Ruiz
+
 clear all
 clc
 format long g
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Description
-%Figure 9.20: Global and regional glacier mass change rate between 1960 and 2019.
+%Figure 9.21: Global and regional glacier mass change rate between 1960 and 2019.
 %
 % Includes:
 %
@@ -43,12 +50,12 @@ format long g
 
   %% Figure filename
  % Define the name of  *.eps and *.pdf file 
- figure_filename= 'Glacier_mb_FGD_final_2021';
+ figure_filename= 'Glacier_mb_FGD_feb_2021';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 %% Time period
 % Define the time period used in the figure
-t_mean = [1962 2018];
+t_mean = [1962 2016];
 %decadal time period
 time_period = [1960:10:2020];
 n=1;
@@ -60,9 +67,9 @@ end
 
  %% Regions names and numbers
  % Names and numbers (used in the titles of each plot)
- regionnames = { 'Global' 'Global' 'Alaska' 'West Canada and U.S.' 'Arctic Canada (N)' 'Arctic Canada (S)' 'Greenland periphery' 'Iceland' 'Svalbard' 'Scandinavia' 'Russian Arctic' 'North Asia' 'Central Europe' 'Caucasus' 'High Mountain Asia' 'Low Latitudes' 'Southern Andes' 'New Zealand' 'Antarctic periphery.'};
+ regionnames = { 'Global' 'Global' 'Alaska' 'West Canada and U.S.' 'Arctic Canada (N)' 'Arctic Canada (S)' 'Greenland periphery' 'Iceland' 'Svalbard' 'Scandinavia' 'Russian Arctic' 'North Asia' 'Central Europe' 'Caucasus' 'High Mountain Asia' 'Low Latitudes' 'Southern Andes' 'New Zealand' 'Antarctic periphery'};
  
- regions_numbers = { 'all' 'excep 5&19' '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13-15' '16' '17' '18' '19'}; 
+ regions_numbers = { 'all' 'except 5&19' '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13-15' '16' '17' '18' '19'}; 
 
  %% Define Regions variable
  % Regions are used to select the data and arrange the time series to be
@@ -89,6 +96,9 @@ GLOBAL_2 = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18];
  % It is mandatory just to include the correct path to the folder
  % (folder_path)
  
+ whoruns=2; % This should be set to 2 for all users
+ 
+ if whoruns==1
  
  % Include the path where the figure folder is located (Must be changed)
  folder_path ='c:\Users\lcsru\OneDrive\Documents\IPCC-AR6\09-FGD\';
@@ -96,26 +106,23 @@ GLOBAL_2 = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18];
  
  % Zemp et al. (2019) time series of global mass balance changes 
   % (supplementary materials)
- folder_ZEMP_SM = [folder_path,'Chapter9_Obs_glacier_mass_balance_figure\INPUT_DATA\Zemp_etal_results_regions\'];
+ folder_ZEMP_SM = [folder_path,'Plot_Figure\INPUT_DATA\Zemp_etal_results_regions\'];
  
- %  Copy of Zemp et al. (2020) Table 1 with adhoc mass balance
- file_zemp_2020 = [folder_path,'\Chapter9_Obs_glacier_mass_balance_figure\INPUT_DATA\table1_zemp_etal_2020.xlsx'];
-
  % Copy of  SROCC Table A2
- file_SROCC= [folder_path,'Chapter9_Obs_glacier_mass_balance_figure\INPUT_DATA\SROCC_TABLE_A2.xlsx'];
+ file_SROCC= [folder_path,'Plot_Figure\INPUT_DATA\SROCC_TABLE_A2.xlsx'];
  
 % Copy of ciraci et al., (2019) Table 1 
-ciraci_file =[folder_path,'Chapter9_Obs_glacier_mass_balance_figure\INPUT_DATA\table1_ciraci_etal_2020.xlsx '];
+ciraci_file =[folder_path,'Plot_Figure\INPUT_DATA\table1_ciraci_etal_2020.xlsx '];
 
  % Table with 10yr period mass change from Hugonnet et al., (2021) prepared by the authors for the AR6
- file_hugonnet = [folder_path,'Chapter9_Obs_glacier_mass_balance_figure\INPUT_DATA\table_hugonnet_regions_10yr_ar6period.xlsx'];
+ file_hugonnet = [folder_path,'Plot_Figure\INPUT_DATA\table_hugonnet_regions_10yr_ar6period.xlsx'];
 
  % % Table with annual glacier mass balance for Iceland's glaciers from
  % Aðalgeirsdóttir et al., (2020) prepared by the authors for the AR6.
-iceland_file = [folder_path,'Chapter9_Obs_glacier_mass_balance_figure\INPUT_DATA\Iceland_bn_all_glaciers-1890_91-2018_19.xlsx'];
+iceland_file = [folder_path,'Plot_Figure\INPUT_DATA\Iceland_bn_all_glaciers-1890_91-2018_19.xlsx'];
 
 % Table with mean glacier change form some regions. Assessed in Chapter 9 as "new evidence since SROCC"
-others_file = [folder_path,'Chapter9_Obs_glacier_mass_balance_figure\INPUT_DATA\Others_regional_mb_estimates.xlsx'];
+others_file = [folder_path,'Plot_Figure\INPUT_DATA\Others_regional_mb_estimates.xlsx'];
 %% Set figure format and colors for each line
  % Define the color of each shaded area and line 
 % following IPCC Colorscheme and the size of the figure
@@ -123,6 +130,41 @@ others_file = [folder_path,'Chapter9_Obs_glacier_mass_balance_figure\INPUT_DATA\
 
 % load colorscheme file
 load([folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\colorscheme.mat.mat'])
+
+ elseif whoruns==2
+     
+      % Include the path where the figure folder is located (Must be changed)
+ folder_path ='./';
+ 
+ 
+ % Zemp et al. (2019) time series of global mass balance changes 
+  % (supplementary materials)
+ folder_ZEMP_SM = [folder_path,'INPUT_DATA/Zemp_etal_results_regions/'];
+ 
+ % Copy of  SROCC Table A2
+ file_SROCC= [folder_path,'INPUT_DATA/SROCC_TABLE_A2.xlsx'];
+ 
+% Copy of ciraci et al., (2019) Table 1 
+ciraci_file =[folder_path,'INPUT_DATA/table1_ciraci_etal_2020.xlsx'];
+
+ % Table with 10yr period mass change from Hugonnet et al., (2021) prepared by the authors for the AR6
+ file_hugonnet = [folder_path,'INPUT_DATA/table_hugonnet_regions_10yr_ar6period.xlsx'];
+
+ % % Table with annual glacier mass balance for Iceland's glaciers from
+ % Aðalgeirsdóttir et al., (2020) prepared by the authors for the AR6.
+iceland_file = [folder_path,'INPUT_DATA/Iceland_bn_all_glaciers-1890_91-2018_19.xlsx'];
+
+% Table with mean glacier change form some regions. Assessed in Chapter 9 as "new evidence since SROCC"
+others_file = [folder_path,'INPUT_DATA/Others_regional_mb_estimates.xlsx'];
+%% Set figure format and colors for each line
+ % Define the color of each shaded area and line 
+% following IPCC Colorscheme and the size of the figure
+ % and subplots
+
+% load colorscheme file
+load([folder_path,'INPUT_DATA/colorscheme.mat.mat'])
+ 
+ end
 
 % Shaded areas colors
 shade_rgb =  colorscheme_RGB. shade_0_RGB;
@@ -165,14 +207,14 @@ h_fig = 250;
 
 % Margins and separation of subplots 
 bot_line =15; % bottom space [mm]
-sep_v =10; % vertical separation between subplots [mm]
+sep_v =7; % vertical separation between subplots [mm]
 sep_h = 10; % horizontal separation between subplots [mm]
 left_line =15; % left margin [mm]
 
 % Width of the subplot [mm]
 w = 30; 
 % Height of the subplot [mm]
-h = 36; 
+h = 40; 
 
 % Create Position vector for each of the subplots  [left, bottom,width,height]./normalized
 bottom =[(4*h+4*sep_v+bot_line);(4*h+4*sep_v+bot_line);(4*h+4*sep_v+bot_line);(4*h+4*sep_v+bot_line);...
@@ -233,7 +275,7 @@ mb_others = [(raw_others(:,4)./raw_others(:,6)) (raw_others(:,5)./raw_others(:,6
  clear raw_others
 
  
-%% Read  and Process glacier mass change between 1962 to 2018 Zemp et al., (2019/20) 
+%% Read  and Process glacier mass change between 1962 to 2015 of Zemp et al., (2019) 
 % Read Zemp et al. (2019) supplementary file  for each region with the
 % annual glacier mass change time serie.
 % Uncertainty is 90% CI
@@ -287,28 +329,6 @@ for j=1:1:19;
     clear M
 end
 
-% Add 2017 and 2018 values from Zemp et al 2020
-raw_zemp_2020 = xlsread(file_zemp_2020,'A4:k22');
-
-% Add time
-zemp_time = [zemp_time;2017;2018];
-% Add values
-area_km2 = [area_km2; raw_zemp_2020(:,2)';raw_zemp_2020(:,3)'];
-int_mwe = [int_mwe;raw_zemp_2020(:,4)';raw_zemp_2020(:,6)'];
-e_tot_mwe = [e_tot_mwe;raw_zemp_2020(:,5)';raw_zemp_2020(:,7)'];
-int_gt = [ int_gt; raw_zemp_2020(:,8)';raw_zemp_2020(:,10)']; 
-% Repeate the latest values (2016) for 2017 and 2018
-e_glac_gt = [e_glac_gt;e_glac_gt(end,:);e_glac_gt(end,:)]; 
- e_geod_gt = [e_geod_gt; e_geod_gt(end,:); e_geod_gt(end,:)];
- e_int_gt = [e_int_gt;  e_int_gt(end,:);e_int_gt(end,:)];
- e_area_gt = [e_area_gt;e_area_gt(end,:);e_area_gt(end,:)];
- e_cross_gt = [e_cross_gt;e_cross_gt(end,:);e_cross_gt(end,:)];
- e_tot_gt = [e_tot_gt; e_tot_gt(end,:);e_tot_gt(end,:)];
-e_glac_mwe = [e_glac_mwe;e_glac_mwe(end,:);e_glac_mwe(end,:)];
-e_geod_mwe = [e_geod_mwe;e_geod_mwe(end,:);e_geod_mwe(end,:)];
-e_int_mwe = [e_int_mwe;e_int_mwe(end,:);e_int_mwe(end,:)];
-e_tot_mwe = [e_tot_mwe;e_tot_mwe(end,:);e_tot_mwe(end,:)];
-
 % Delete variables create to upload the data
 clear file_order list
  
@@ -316,7 +336,7 @@ clear file_order list
   sel_time = find(zemp_time>=t_mean(1) & zemp_time<=t_mean(2));
 
   % Calculate the annual glacier mass balance for each regions as SROCC
-  % between 1962 and 2018
+  % between 1962 and 2015
    for j =1:1:length(regions_new);
       m = regions_new(j);
       if m<13;
@@ -370,7 +390,7 @@ clear file_order list
  
  
 % Calculate decadal glacier mass balance for each regions as SROCC
-% between 1962 and 2018
+% between 1962 and 2015
  for j =1:1:length(regions_new);
     for k =1:1:length(time_period)-1;
       % select decade  
@@ -594,7 +614,7 @@ clear raw text all
   mb_iceland_uncert = raw_iceland(sel_time_ice,8).*1e3;
   
   % Delete variables create to upload the data
-  clear ciracisel_time_ice time_iceland
+  clear raw_iceland sel_time_ice time_iceland
 
   
      %% Create the figure
@@ -774,14 +794,14 @@ clear raw text all
      end
     % include Ylabel in the middle of the yaxis
    if k ==9
-         ylabel(['Mass change rate (kg m^-^2 yr^-^1)'],'FontName','Arial','FontSize',10 );
+         ylabel(['Mass change rate (kg m^-^2 yr^-^1)'],'FontName','Arial','FontSize',10,'FontWeight','bold');
    end
    
     % Include x axis label at the bottom
     if k== 16  || k==17  || k==18 || k ==19;   
         set(gca,'FontSize',8,'XTick', time_period,'XTickLabel',...
           tick_time,'XLim', [time_period(1) time_period(end)])
-       xlabel('Years','FontName','Arial','FontSize',10) 
+     %  xlabel('Years','FontName','Arial','FontSize',10) 
     else
        set(gca,'FontSize',8,'XTick', time_period,'XTickLabel',[],'XLim', [time_period(1) time_period(end)])
     end
@@ -804,8 +824,13 @@ fig1=gcf;
 set(fig1,'PaperUnits','centimeters');
 set(fig1,'PaperSize',[18 25]);
 set(fig1,'PaperPosition',[0. 0. 18 25]);
- print(fig1,'-depsc', [ folder_path,'Chapter9_Obs_glacier_mass_balance_figure\OUTPUT_FIGURES\',figure_filename])
+
+if whoruns==1
+ print(fig1,'-depsc', ['../PNGs/',figure_filename])
  %Figure as pdf
- print(fig1,'-dpdf', [ folder_path,'Chapter9_Obs_glacier_mass_balance_figure\OUTPUT_FIGURES\',figure_filename])
+ print(fig1,'-dpdf', ['../PNGs/',figure_filename])
  display('Figure printed as eps & pdf')
  close(fig1)
+elseif whoruns==2
+     print(fig1,'-dpng',['../PNGs/',figure_filename],'-r300', '-painters')
+end
