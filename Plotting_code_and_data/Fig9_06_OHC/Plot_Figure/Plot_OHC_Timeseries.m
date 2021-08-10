@@ -1,4 +1,4 @@
-%% IPCC AR6 Chapter 9: Figure 9.6 Timeseries (Ocean Heat Content)
+Data%% IPCC AR6 Chapter 9: Figure 9.6 Timeseries (Ocean Heat Content)
 %
 % Code used to plot pre-processed ocean heat content data. 
 %
