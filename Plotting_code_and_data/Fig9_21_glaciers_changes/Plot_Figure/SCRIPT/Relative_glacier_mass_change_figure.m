@@ -1,6 +1,6 @@
 %% IPCC AR6 Chapter 9: Figure 9.21 (Glacier mass change)
 %
-% Code used to plot pre-processed glavier mass change. 
+% Code used to plot pre-processed glacier mass change. 
 % Note that the path to data must be cutomized below (folder_path)
 %
 % Plotting code written by Lucas Ruiz
@@ -104,10 +104,7 @@ GLOBAL_2 = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18];
  
  % Zemp et al. (2019) time series of global mass balance changes  (supplementary materials)
  global_file_ZEMP_SM = [folder_path,'Plot_Figure/INPUT_DATA/Zemp_etal_results_global.csv'];
- 
- % xls file Annex table  AR6 Chapter 9
- file_Table_9_4= 'c:/Users/lcsru/OneDrive/Documents/IPCC-AR6/07-SOD/Table 9_4_TBD.xlsx';
-  
+   
 % Marzeion et al. (2020) supplementary materials file
 GlacierMIP_file =  [folder_path,'Plot_Figure/INPUT_DATA/suppl_GlacierMIP_results.nc'];
  
