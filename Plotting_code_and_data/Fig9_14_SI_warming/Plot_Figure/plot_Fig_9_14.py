@@ -47,7 +47,7 @@ names = {'historical':'Historical','ssp126':'SSP1-2.6','ssp245':'SSP2-4.5','ssp5
 # not be drawn in the figure (because of NaNs)
 modellist = []
 for scenario in scenarios:
-    data = loadmat('data/'+cmip+'_'+scenario+'_'+hemisphere+'.mat')
+    data = loadmat('../Plotted_Data/'+cmip+'_'+scenario+'_'+hemisphere+'.mat')
     m_list = list(set([i[0:i.find('_')] for i in data['Simulation_names']]))
     modellist = np.concatenate([modellist,m_list])
 modellist = list(sorted(set(modellist)))
@@ -68,7 +68,7 @@ for scenario in scenarios:
     gmst_cmip6[scenario] = np.zeros((len(modellist),len(years[scenario])))  
     
     # read in data
-    raw_data = loadmat('data/'+cmip+'_'+scenario+'_'+hemisphere+'.mat')
+    raw_data = loadmat('../Plotted_Data/'+cmip+'_'+scenario+'_'+hemisphere+'.mat')
     raw_years = raw_data['Years'][0]
     simulations = raw_data['Simulation_names']
     
@@ -102,7 +102,7 @@ for scenario in scenarios:
 # the observations are saved in npy files
 obs_names = ['osisaf','nsidc_nt','nsidc_bt']
 
-data = Dataset('data/SeaIceArea__NorthernHemisphere__monthly__UHH__v2019_fv0.01.nc')
+data = Dataset('../Plotted_Data/SeaIceArea__NorthernHemisphere__monthly__UHH__v2019_fv0.01.nc')
 t = data.variables['time']
 obs_time = [a.year for a in num2date(t[:],t.units,t.calendar)][0::12]
 obs_sia = {}
@@ -115,7 +115,7 @@ for month in [2,8]:
     
 # -------------------------------
 # GSAT observations
-gsat_file = pd.read_excel('./data/IPCC_GSAT.xlsx')
+gsat_file = pd.read_excel('../Plotted_Data/IPCC_GSAT.xlsx')
 raw_years = np.array(gsat_file['Provisional time series for use in GSAT '][8:-2])
 obs_data = np.array(gsat_file['Unnamed: 11'][8:-2])
 obs_gmst = np.zeros(len(obs_years))*np.nan
@@ -128,7 +128,7 @@ obs_gmst[np.isin(obs_years,raw_years)] = obs_data[np.isin(raw_years,obs_years)]
 # for the scenarios, CMIP6 co2 data is taken from the Input4MIP emissions data 
 # (https://tntcat.iiasa.ac.at/SspDb/dsd?Action=htmlpage&page=welcome)
 co2 = {}
-data = np.load('data/CO2_'+cmip+'.npy',allow_pickle=True)
+data = np.load('../Plotted_Data/CO2_'+cmip+'.npy',allow_pickle=True)
 for scenario in scenarios:   
     co2data = data[scenario][1,:]
     co2years = data[scenario][0,:]
@@ -261,9 +261,9 @@ ax.set_xlabel('Time')
 # for the cmips, and the observations
 cmips = ['CMIP3','CMIP5','CMIP6']
 for cmip in cmips:
-    data[cmip] = np.load('data/'+cmip+'_sensitivity_'+hemisphere+'.npy',allow_pickle=True)
+    data[cmip] = np.load('../Plotted_Data/'+cmip+'_sensitivity_'+hemisphere+'.npy',allow_pickle=True)
 # observed sensitivities
-obsdata = np.load('data/obs_sensitivity_'+hemisphere+'.npy',allow_pickle=True)
+obsdata = np.load('../Plotted_Data/obs_sensitivity_'+hemisphere+'.npy',allow_pickle=True)
 
 # plot function
 def plot_fig4(metric1,metric2,letter,xlabel=False,yrange=None):
