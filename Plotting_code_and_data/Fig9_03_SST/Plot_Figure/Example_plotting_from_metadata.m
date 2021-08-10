@@ -59,4 +59,4 @@ IPCC_Plot_Map(multimodel_change_CMIP ...
 
 [latitude, longitude] = meshgrid(lat,lon);
 
-stipplem(latitude,longitude,~logical(hatch'))
+stipplem(latitude,longitude,(~logical(hatch') & multimodel_change_CMIP'~=0))
