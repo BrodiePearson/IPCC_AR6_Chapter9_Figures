@@ -282,9 +282,9 @@ SSP_Time_Conf_Bounds = [SSP_time fliplr(SSP_time)];
 
 %% Load hybrid data (Zanna et al 2019)
 
-OHC_Hybrid = ncread('./Processed_Data/OHC_GF_1870_2018_Zanna.nc','OHC_2000m')/1e3;
-OHC_Hybrid_std = ncread('./Processed_Data/OHC_GF_1870_2018_Zanna.nc','error_OHC_2000')/1e3;
-TIME_Hybrid = ncread('./Processed_Data/OHC_GF_1870_2018_Zanna.nc','time');
+OHC_Hybrid = ncread('./Data/OHC_GF_1870_2018_Zanna.nc','OHC_2000m')/1e3;
+OHC_Hybrid_std = ncread('./Data/OHC_GF_1870_2018_Zanna.nc','error_OHC_2000')/1e3;
+TIME_Hybrid = ncread('./Data/OHC_GF_1870_2018_Zanna.nc','time');
 OHC_Hybrid_mean = OHC_Hybrid - nanmean(OHC_Hybrid(TIME_Hybrid<=anom_end & TIME_Hybrid>=anom_start));
 Hybrid_ubound=OHC_Hybrid_mean+OHC_Hybrid_std;
 Hybrid_lbound=OHC_Hybrid_mean-OHC_Hybrid_std;
@@ -302,7 +302,7 @@ outstruct.Zanna_Likely_ubound=outstruct.Zanna_Likely_ubound-offset;
 
 %% Load observation data (Ishii)
 
-OHC_OBS_table = readtable('./Processed_Data/ishii_ohc_global_1955.txt');
+OHC_OBS_table = readtable('./Data/ishii_ohc_global_1955.txt');
 OHC_OBS_mean = (1e-2)*table2array(OHC_OBS_table(:,4)); % Extract 0-2000m OHC data (Units 10^{22} J)
 OHC_OBS_std = (1e-2)*table2array(OHC_OBS_table(:,5)); % Extract 0-2000m OHC 95% confidence == 2x st dev.!!
 TIME_OBS = table2array(OHC_OBS_table(:,1));
@@ -325,7 +325,7 @@ outstruct.Ishii2k_Likely_ubound=outstruct.Ishii2k_Likely_ubound-offset;
 %% Load Hybrid 2 data (Cheng)
 
 
-OHC_Hybrid2_table = readtable('./Processed_Data/Cheng_2016_Global_OHC_13_Jan_2021.txt');
+OHC_Hybrid2_table = readtable('./Data/Cheng_2016_Global_OHC_13_Jan_2021.txt');
 OHC_Hybrid2_mean = (1e-3)*table2array(OHC_Hybrid2_table(:,2)); % Extract 0-2000m OHC data (Units 10^{22} J)
 TIME_Hybrid2 = table2array(OHC_Hybrid2_table(:,1));
 OHC_Hybrid2_mean = OHC_Hybrid2_mean - nanmean(OHC_Hybrid2_mean(TIME_Hybrid2<=anom_end & TIME_Hybrid2>=anom_start));
@@ -514,11 +514,11 @@ struct2csv(outstruct,'./Processed_Data/OHC_Timeseries.csv')
 
 % Load in Alan's Excel file of data (contains future OHC/SST and several paleo records
 
-[~,sheet_name]=xlsfinfo("./Processed_Data/9.2.2_ACM_Fig_9.9_OHC_Paleo_Data_update_2020_12_06.xlsx");
+[~,sheet_name]=xlsfinfo("./Data/9.2.2_ACM_Fig_9.9_OHC_Paleo_Data_update_2020_12_06.xlsx");
 
 for k=1:numel(sheet_name)
   data{k}=xlsread( ...
-      './Processed_Data/9.2.2_ACM_Fig_9.9_OHC_Paleo_Data_update_2020_12_06.xlsx', ...
+      './Data/9.2.2_ACM_Fig_9.9_OHC_Paleo_Data_update_2020_12_06.xlsx', ...
       sheet_name{k});
 end
 
