@@ -96,7 +96,7 @@ GLOBAL_2 = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18];
  % It is mandatory just to include the correct path to the folder
  % (folder_path)
  
- whoruns=2;
+ whoruns=2; % This should be set to 2 for all users
  
  if whoruns==1
  
@@ -134,35 +134,35 @@ load([folder_path,'Chapter9_Relative_glacier_mass_figure\INPUT_DATA\colorscheme.
  elseif whoruns==2
      
       % Include the path where the figure folder is located (Must be changed)
- folder_path ='../../';
+ folder_path ='./';
  
  
  % Zemp et al. (2019) time series of global mass balance changes 
   % (supplementary materials)
- folder_ZEMP_SM = [folder_path,'Plot_Figure/INPUT_DATA/Zemp_etal_results_regions/'];
+ folder_ZEMP_SM = [folder_path,'INPUT_DATA/Zemp_etal_results_regions/'];
  
  % Copy of  SROCC Table A2
- file_SROCC= [folder_path,'Plot_Figure/INPUT_DATA/SROCC_TABLE_A2.xlsx'];
+ file_SROCC= [folder_path,'INPUT_DATA/SROCC_TABLE_A2.xlsx'];
  
 % Copy of ciraci et al., (2019) Table 1 
-ciraci_file =[folder_path,'Plot_Figure/INPUT_DATA/table1_ciraci_etal_2020.xlsx'];
+ciraci_file =[folder_path,'INPUT_DATA/table1_ciraci_etal_2020.xlsx'];
 
  % Table with 10yr period mass change from Hugonnet et al., (2021) prepared by the authors for the AR6
- file_hugonnet = [folder_path,'Plot_Figure/INPUT_DATA/table_hugonnet_regions_10yr_ar6period.xlsx'];
+ file_hugonnet = [folder_path,'INPUT_DATA/table_hugonnet_regions_10yr_ar6period.xlsx'];
 
  % % Table with annual glacier mass balance for Iceland's glaciers from
  % Aðalgeirsdóttir et al., (2020) prepared by the authors for the AR6.
-iceland_file = [folder_path,'Plot_Figure/INPUT_DATA/Iceland_bn_all_glaciers-1890_91-2018_19.xlsx'];
+iceland_file = [folder_path,'INPUT_DATA/Iceland_bn_all_glaciers-1890_91-2018_19.xlsx'];
 
 % Table with mean glacier change form some regions. Assessed in Chapter 9 as "new evidence since SROCC"
-others_file = [folder_path,'Plot_Figure/INPUT_DATA/Others_regional_mb_estimates.xlsx'];
+others_file = [folder_path,'INPUT_DATA/Others_regional_mb_estimates.xlsx'];
 %% Set figure format and colors for each line
  % Define the color of each shaded area and line 
 % following IPCC Colorscheme and the size of the figure
  % and subplots
 
 % load colorscheme file
-load([folder_path,'Plot_Figure/INPUT_DATA/colorscheme.mat.mat'])
+load([folder_path,'INPUT_DATA/colorscheme.mat.mat'])
  
  end
 
@@ -826,11 +826,11 @@ set(fig1,'PaperSize',[18 25]);
 set(fig1,'PaperPosition',[0. 0. 18 25]);
 
 if whoruns==1
- print(fig1,'-depsc', [ folder_path,'Plot_Figure\OUTPUT_FIGURES\',figure_filename])
+ print(fig1,'-depsc', ['../PNGs/',figure_filename])
  %Figure as pdf
- print(fig1,'-dpdf', [ folder_path,'Plot_Figure\OUTPUT_FIGURES\',figure_filename])
+ print(fig1,'-dpdf', ['../PNGs/',figure_filename])
  display('Figure printed as eps & pdf')
  close(fig1)
 elseif whoruns==2
-     print(fig1,'-dpng',[ folder_path,'Plot_Figure/OUTPUT_FIGURES/',figure_filename],'-r300', '-painters')
+     print(fig1,'-dpng',['../PNGs/',figure_filename],'-r300', '-painters')
 end
