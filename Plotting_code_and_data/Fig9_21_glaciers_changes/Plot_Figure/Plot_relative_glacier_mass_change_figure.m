@@ -1,6 +1,6 @@
 %% IPCC AR6 Chapter 9: Figure 9.21 (Glacier mass change)
 %
-% Code used to plot pre-processed glavier mass change. 
+% Code used to plot pre-processed glacier mass change. 
 % Note that the path to data must be cutomized below (folder_path)
 %
 % Plotting code written by Lucas Ruiz
@@ -67,7 +67,7 @@ figure_mode =1;
   % Names and numbers (used in the titles of each plot)
   regionnames = { 'Global' 'Global' 'Alaska' 'West Canada and U.S.' 'Arctic Canada (N)' 'Arctic Canada (S)' 'Greenland periphery' 'Iceland' 'Svalbard' 'Scandinavia' 'Russian Arctic' 'North Asia' 'Central Europe' 'Caucasus' 'High Mountain Asia' 'Low Latitudes' 'Southern Andes' 'New Zealand' 'Antarctic periphery'};
   
-  regions_numbers = { 'all' 'excep 5&19' '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13-15' '16' '17' '18' '19'}; 
+  regions_numbers = { 'all' 'except 5&19' '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13-15' '16' '17' '18' '19'}; 
   
  %% Define Regions variable
  
@@ -91,38 +91,36 @@ GLOBAL_2 = [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,17,18];
  
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  % Just include the path where the figure folder is located (Must be changed)
- folder_path ='Add/Your/Path/Here';
- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% folder_path ='Add/Your/Path/Here';
+ folder_path ='./';
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
  
  % Farinotti et al. (2019) glacier volume for each region 
- Farinotti_2019_file = [folder_path,'Plot_Figure/INPUT_DATA/Farinotti2019.mat'];
+ Farinotti_2019_file = [folder_path,'INPUT_DATA/Farinotti2019.mat'];
 
  % Folder with the Zemp et al. (2019) time series of mass balance changes for each region
  % (supplementary materials)
- folder_ZEMP_SM = [folder_path,'Plot_Figure/INPUT_DATA/Zemp_etal_results_regions/'];
+ folder_ZEMP_SM = [folder_path,'INPUT_DATA/Zemp_etal_results_regions/'];
  
  % Zemp et al. (2019) time series of global mass balance changes  (supplementary materials)
- global_file_ZEMP_SM = [folder_path,'Plot_Figure/INPUT_DATA/Zemp_etal_results_global.csv'];
- 
- % xls file Annex table  AR6 Chapter 9
- file_Table_9_4= 'c:/Users/lcsru/OneDrive/Documents/IPCC-AR6/07-SOD/Table 9_4_TBD.xlsx';
-  
+ global_file_ZEMP_SM = [folder_path,'INPUT_DATA/Zemp_etal_results_global.csv'];
+   
 % Marzeion et al. (2020) supplementary materials file
-GlacierMIP_file =  [folder_path,'Plot_Figure/INPUT_DATA/suppl_GlacierMIP_results.nc'];
+GlacierMIP_file =  [folder_path,'INPUT_DATA/suppl_GlacierMIP_results.nc'];
  
 %  Marzeion et al. (2015) 20th century regional glacier mass data
- Marzeion2015_file =  [folder_path,'Plot_Figure/INPUT_DATA/data_marzeion_etal_update_2015_regional.txt'];
- Marzeion2015_file_error =  [folder_path,'Plot_Figure/INPUT_DATA/error_marzeion_etal_update_2015_regional.txt'];
+ Marzeion2015_file =  [folder_path,'INPUT_DATA/data_marzeion_etal_update_2015_regional.txt'];
+ Marzeion2015_file_error =  [folder_path,'INPUT_DATA/error_marzeion_etal_update_2015_regional.txt'];
 
 %  Marzeion et al. (2015) 20th century global glacier mass data
-Marzeion2015_global_file =   [folder_path,'Plot_Figure/INPUT_DATA/data_marzeion_etal_update_2015.txt'];
+Marzeion2015_global_file =   [folder_path,'INPUT_DATA/data_marzeion_etal_update_2015.txt'];
  
 % Leclerq et al. (2011) updated in Marzeion et al. (2015) 20th century global
- Leclerq2015_global_file =  [folder_path,'Plot_Figure/INPUT_DATA/data_leclercq_etal_update_2015.txt'];
+ Leclerq2015_global_file =  [folder_path,'INPUT_DATA/data_leclercq_etal_update_2015.txt'];
   
  % Bamber et al (2018) supplementary material.
- bamber_file = [folder_path,'Plot_Figure/INPUT_DATA/Bamber-etal_2018.TAB'];
+ bamber_file = [folder_path,'INPUT_DATA/Bamber-etal_2018.TAB'];
 
  
 %% Set figure format and colors for each line
@@ -131,7 +129,7 @@ Marzeion2015_global_file =   [folder_path,'Plot_Figure/INPUT_DATA/data_marzeion_
 % following IPCC Colorscheme
 
 % load colorscheme file
-load([folder_path,'Plot_Figure/INPUT_DATA/colorscheme.mat'])
+load([folder_path,'INPUT_DATA/colorscheme.mat'])
 
 % Shaded areas colors
 shade_rgb =  colorscheme_RGB. shade_0_RGB;
@@ -989,9 +987,9 @@ fig1=gcf;
 set(fig1,'PaperUnits','centimeters');
 set(fig1,'PaperSize',[18 25]);
 set(fig1,'PaperPosition',[0. 0. 18 25]);
-  print(fig1,'-depsc', [ folder_path,'Plot_Figure/OUTPUT_FIGURES/',figure_filename])
+  print(fig1,'-depsc', ['../PNGs/',figure_filename])
 %  %Figure as pdf
-  print(fig1,'-dpdf', [ folder_path,'Plot_Figure/OUTPUT_FIGURES/',figure_filename])
+  print(fig1,'-dpdf', [ folder_path,'../PNGs/',figure_filename])
 %  display('Figure printed as eps & pdf')
  % close(fig1)
 
