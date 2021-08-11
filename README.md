@@ -1,10 +1,10 @@
 # IPCC AR6 Chapter 9 Figures
-### Repository with the code and data for all figures from Chapter 9 of the Sixth Assesment Report from the Intergovernmental Panel on Climate Change (IPCC AR6)
+### Repository with the code and data for all figures from Chapter 9 of the Sixth Assesment Report from the Intergovernmental Panel on Climate Change (IPCC AR6).
 
 ## How to use this repository
 The code to plot each figure from Chapter 9 of IPCC AR6 is contained in the [`Plotting_code_and_data`](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/tree/main/Plotting_code_and_data) directory. 
 Each figure has its own folder, named after its number in the report and a brief descriptor of the figure.
-If code from this repository substantially aids your work, it can be cited using [this Zenodo reference]() [LINK TO BE ADDED]
+If code from this repository substantially aids your work, it can be cited using [this Zenodo reference]() [LINK TO BE ADDED]. The plotted data is also provided in this repo and in the CEDA archives, and these data sets for each figure should be cited using [these Zenodo references]() [LINK TO BE ADDED].
 
 All of the individual figure directories contain a `.png`, `.pdf` and/or `.eps` image of the final figure used in the IPCC AR6. 
 In addition, many of these directories have a 
@@ -13,8 +13,9 @@ In addition, many of these directories have a
 3. `PNGs` folder where plotting code will output image files of each subpanel (not always `.png`, could be `.pdf`, `.eps` etc.) 
 The exact structure varies between figure folders due to the various authors that contributed to different figures in this chapter.
 
-**Most of the plotting codes can plot the IPCC AR6 figures using the data already in this repository.**
-However, the original code for several ocean figures require large data which cannot be uploaded to GitHub or shared easily, such as CMIP datasets. 
+### Most of the plotting codes can plot the IPCC AR6 figures using the data already in this repository.
+
+Note: the original code for several ocean figures require large data which cannot be uploaded to GitHub or shared easily, such as CMIP datasets. 
 As a result, we have reproduced these plotting codes to read and use the IPCC/CEDA-formatted _plotted datasets_, with a caveat that maps use a different hatching technique. There are two routes if you wish to replot these data-intensive figures:
 1. **Use the codes suffixes `_from_metadata.m`, which are the codes linked in the Table below.** .These plots are identical  to the AR6 plots, except for low confidence hatching which is replaced by stippling (it was not trivial to get the hatching function used for the report to work with the masked data format of the saved data). 
 2. **Download required data & run the original code.** Download and collate the required datasets (for example from ESGF nodes), and use the original calculation and plotting codes for these particular figures. The metadata of CMIP datasets and other datasets used within the figures are provided in the Appendix for Chapter 9 of IPCC AR6, and in the supplementary material from the IPCC TSU. The directory structure of this data can be inferred from the code in the repository.
