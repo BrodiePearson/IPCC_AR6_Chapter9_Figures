@@ -56,7 +56,7 @@ hatch = ncread(ncfilename, 'Mask');
 
 IPCC_Plot_Map(plot_data ...
     ,lat,lon,lims, ...
-    change_color_bar,"SSP5-8.5 Steric SSH change 1984-2100",...
+    change_color_bar,"SSP5-8.5 Steric SSH change 1995-2100",...
     1,fontsize, true, '(m)')
 
 [latitude, longitude] = meshgrid(lat,lon);
@@ -75,13 +75,56 @@ hatch = ncread(ncfilename, 'Mask');
 
 IPCC_Plot_Map(plot_data ...
     ,lat,lon,lims, ...
-    change_color_bar,"SSP1-2.6 Dynamic SSH change 1984-2100",...
-    2,fontsize, false, '')
+    change_color_bar,"SSP1-2.6 Steric SSH change 1995-2100",...
+    2,fontsize, true, '')
 
 [latitude, longitude] = meshgrid(lat,lon);
 
+% print(gcf,'../PNGs/StericSSH_ssp126_Corrected.png','-dpng','-r1000', '-painters');
+% close(2)
+% 
+% IPCC_Plot_Map(plot_data ...
+%     ,lat,lon,lims/2, ...
+%     change_color_bar,"SSP1-2.6 Steric SSH change 1995-2100",...
+%     2,fontsize, true, '')
+% 
+% [latitude, longitude] = meshgrid(lat,lon);
+% 
+% print(gcf,'../PNGs/StericSSH_ssp126_Original.png','-dpng','-r1000', '-painters');
+% close(2)
+
 stipplem(latitude,longitude,(~logical(hatch') & ...
-    ~isnan(plot_data') & plot_data'~=0))
+   ~isnan(plot_data') & plot_data'~=0))
+ 
+% alt_hatching = hatch;
+% %alt_hatching((isnan(plot_data') | plot_data'==0))=logical(1);
+% alt_hatching((isnan(plot_data') | plot_data'==0))=2;
+% alt_hatching(alt_hatching==0)=3;
+% alt_hatching(alt_hatching==1)=1;
+% 
+% 
+% hold on
+% [c1, h1]=contourm(lat,lon,alt_hatching,[3 3],'Fill','on','LineColor','none'); %
+
+%[c1, h1]=contourm(lat,lon,hatch,[3 3],'Fill','on','LineColor','none'); %
+% 
+% for ii=1:size(c1,2)
+%         if c1(1,ii)==0 || c1(1,ii)==3
+%             c1(1,ii)=NaN(1);
+%             c1(2,ii)=NaN(1);
+%         end
+%     end
+% h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
+% hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
+
+% contourm(lat,lon,alt_hatching,[3 3],'Fill','off','LineColor','k'); %
+% alt_hatching(alt_hatching==3)=0;
+% [lat_temp,lon_temp] = meshgrid(lat',lon');
+% stipplem(lat_temp,lon_temp,~logical(alt_hatching),'color','k','markersize',2, ...
+%     'marker','x');
+
+%stipplem(latitude,longitude,(~logical(hatch') & ...
+%   ~isnan(plot_data') & plot_data'~=0))
 
 %%  Plot Thermosteric SSH change map for SSP585
 
@@ -93,7 +136,7 @@ hatch = ncread(ncfilename, 'Mask');
 
 IPCC_Plot_Map(plot_data ...
     ,lat,lon,lims, ...
-    change_color_bar,"SSP5-8.5 Thermosteric SSH change 1984-2100",...
+    change_color_bar,"SSP5-8.5 Thermosteric SSH change 1995-2100",...
     3,fontsize, true, '(m)')
 
 [latitude, longitude] = meshgrid(lat,lon);
@@ -111,7 +154,7 @@ hatch = ncread(ncfilename, 'Mask');
 
 IPCC_Plot_Map(plot_data ...
     ,lat,lon,lims, ...
-    change_color_bar,"SSP1-2.6 Steric SSH change 1984-2100",...
+    change_color_bar,"SSP1-2.6 Thermosteric SSH change 1995-2100",...
     4,fontsize, true, '(m)')
 
 [latitude, longitude] = meshgrid(lat,lon);
@@ -129,7 +172,7 @@ hatch = ncread(ncfilename, 'Mask');
 
 IPCC_Plot_Map(plot_data ...
     ,lat,lon,lims, ...
-    change_color_bar,"SSP5-8.5 Halosteric SSH change 1984-2100",...
+    change_color_bar,"SSP5-8.5 Halosteric SSH change 1995-2100",...
     5,fontsize, true, '(m)')
 
 [latitude, longitude] = meshgrid(lat,lon);
@@ -147,7 +190,7 @@ hatch = ncread(ncfilename, 'Mask');
 
 IPCC_Plot_Map(plot_data ...
     ,lat,lon,lims, ...
-    change_color_bar,"SSP1-2.6 Halosteric SSH change 1984-2100",...
+    change_color_bar,"SSP1-2.6 Halosteric SSH change 1995-2100",...
     6,fontsize, true, '(m)')
 
 [latitude, longitude] = meshgrid(lat,lon);
