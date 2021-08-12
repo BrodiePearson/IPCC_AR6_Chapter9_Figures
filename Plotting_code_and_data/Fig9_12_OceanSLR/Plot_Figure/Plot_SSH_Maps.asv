@@ -211,8 +211,7 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/StericSSH_ssp585_demeaned_title.png','-dpng','-r100', '-painters');
-% clear title
-% title('Random title', 'Color','none')
+% title('')
 % print(gcf,'../PNGs/StericSSH_ssp585_demeaned_colorbar.png','-dpng','-r1000', '-painters');
 % colorbar off
 % print(gcf,'../PNGs/StericSSH_ssp585_demeaned.png','-dpng','-r1000', '-painters');
@@ -248,7 +247,7 @@ plot_var1 = mean(dynamic_ssp126_demeaned,3,'omitnan');
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
-IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims, ...
+IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims/2, ...
     change_color_bar,"SSP1-2.6_{"+num2str(model_count{4})+" models} Dynamic SSH change 1995-2100",...
     1,fontsize, false, '')
 
@@ -273,8 +272,7 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/StericSSH_ssp126_demeaned_title_Corrected.png','-dpng','-r100', '-painters');
-clear title
-title('Random title', 'Color','none')
+title('')
 colorbar off
 print(gcf,'../PNGs/StericSSH_ssp126_demeaned_Corrected.png','-dpng','-r1000', '-painters');
 
@@ -334,8 +332,7 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/ThermostericSSH_ssp585_demeaned_title.png','-dpng','-r100', '-painters');
-% clear title
-% title('Random title', 'Color','none')
+% title('')
 % %print(gcf,'./PNGs/ThermostericSSH_ssp585_demeaned_colorbar.png','-dpng','-r1000', '-painters');
 % colorbar off
 % print(gcf,'../PNGs/ThermostericSSH_ssp585_demeaned.png','-dpng','-r1000', '-painters');
@@ -367,7 +364,7 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = mean(thermosteric_ssp126_demeaned,3,'omitnan');
+plot_var1 = mean(thermosteric_ssp126_demeaned,3);
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
@@ -396,8 +393,7 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/ThermostericSSH_ssp126_demeaned_title.png','-dpng','-r100', '-painters');
-% clear title
-% title('Random title', 'Color','none')
+% title('')
 % colorbar off
 % print(gcf,'../PNGs/ThermostericSSH_ssp126_demeaned.png','-dpng','-r1000', '-painters');
 
@@ -429,7 +425,7 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = mean(halosteric_ssp585_demeaned,3, 'omitnan');
+plot_var1 = nanmean(halosteric_ssp585_demeaned,3);
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
@@ -462,8 +458,7 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/HalostericSSH_ssp585_demeaned_title.png','-dpng','-r100', '-painters');
-% clear title
-% title('Random title', 'Color','none')
+% title('')
 % %print(gcf,'./PNGs/HalostericSSH_ssp585_demeaned_colorbar.png','-dpng','-r1000', '-painters');
 % colorbar off
 % print(gcf,'../PNGs/HalostericSSH_ssp585_demeaned.png','-dpng','-r1000', '-painters');
@@ -495,7 +490,7 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = mean(halosteric_ssp126_demeaned,3, 'omitnan');
+plot_var1 = nanmean(halosteric_ssp126_demeaned,3);
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
@@ -526,8 +521,7 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/HalostericSSH_ssp126_demeaned_title.png','-dpng','-r100', '-painters');
-% clear title
-% title('Random title', 'Color','none')
+% title('')
 % colorbar off
 % print(gcf,'../PNGs/HalostericSSH_ssp126_demeaned.png','-dpng','-r1000', '-painters');
 

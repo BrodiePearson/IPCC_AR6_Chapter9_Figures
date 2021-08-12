@@ -25,8 +25,10 @@ for i=1:size(variable,3)
     for j=1:size(variable,4)
        temp2 = variable(:,:,i,j);
        temp = temp2(:).*areas(:);
-       oceanarea = nansum(temp./temp2(:));
-       global_mean_unsmoothed(i,j)=nansum(temp)./oceanarea;
+       %oceanarea = nansum(temp./temp2(:));
+       oceanarea = sum(temp./temp2(:), 'omitnan');
+       %global_mean_unsmoothed(i,j)=nansum(temp)./oceanarea;
+       global_mean_unsmoothed(i,j)=sum(temp, 'omitnan')./oceanarea;
     end
 end
 
