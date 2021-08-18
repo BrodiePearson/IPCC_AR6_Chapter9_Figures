@@ -4,7 +4,7 @@
 ## How to use this repository
 The code to plot each figure from Chapter 9 of IPCC AR6 is contained in the [`Plotting_code_and_data`](https://github.com/BrodiePearson/IPCC_AR6_Chapter9_Figures/tree/main/Plotting_code_and_data) directory. 
 Each figure has its own folder, named after its number in the report and a brief descriptor of the figure.
-If code from this repository substantially aids your work, it can be cited using [this Zenodo reference]() [LINK TO BE ADDED]. The plotted data is also provided in this repo and in the CEDA archives, and these data sets for each figure should be cited using [these Zenodo references]() [LINK TO BE ADDED].
+If code from this repository substantially aids your work, it can be cited using [this Zenodo reference](https://zenodo.org/record/5217365#.YR0ZX9NKjqR). The plotted data is also provided in this repo and in the CEDA archives, and these data sets for each figure should be cited using [these Zenodo references]() [LINKS TO BE ADDED].
 
 All of the individual figure directories contain a `.png`, `.pdf` and/or `.eps` image of the final figure used in the IPCC AR6. 
 In addition, many of these directories have a 
