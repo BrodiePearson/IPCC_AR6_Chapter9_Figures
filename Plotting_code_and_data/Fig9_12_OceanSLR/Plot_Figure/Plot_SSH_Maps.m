@@ -181,12 +181,12 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = nanmean(dynamic_ssp585_demeaned,3);
+plot_var1 = mean(dynamic_ssp585_demeaned,3,'omitnan');
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
 IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims, ...
-    change_color_bar,"SSP5-8.5_{"+num2str(model_count{1})+" models} Steric SSH change 1984-2100",...
+    change_color_bar,"SSP5-8.5_{"+num2str(model_count{1})+" models} Steric SSH change 1995-2100",...
     1,fontsize, true, '(m)')
 
 hatch = abs(sum(sign(dynamic_ssp585_demeaned),3))/size(dynamic_ssp585_demeaned,3)';
@@ -211,7 +211,8 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/StericSSH_ssp585_demeaned_title.png','-dpng','-r100', '-painters');
-% title('')
+% clear title
+% title('Random title', 'Color','none')
 % print(gcf,'../PNGs/StericSSH_ssp585_demeaned_colorbar.png','-dpng','-r1000', '-painters');
 % colorbar off
 % print(gcf,'../PNGs/StericSSH_ssp585_demeaned.png','-dpng','-r1000', '-painters');
@@ -228,7 +229,7 @@ close(1)
 ncfilename = '../Plotted_Data/Fig9-12a_data.nc';
 var_name = 'StericSeaLevel';
 var_units = 'm';
-title = "Steric Relative Sea Level Change for SSP5-8.5 between 1984-2015"+ ...
+title = "Steric Relative Sea Level Change for SSP5-8.5 between 1995-2014"+ ...
     " and 2081-2100 from a CMIP6 ensemble";
 comments = "Data is for panel (a) of Figure 9.12 in the IPCC Working Group"+ ...
     " I contribution to the Sixth Assesment Report";
@@ -243,12 +244,12 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = nanmean(dynamic_ssp126_demeaned,3);
+plot_var1 = mean(dynamic_ssp126_demeaned,3,'omitnan');
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
-IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims/2, ...
-    change_color_bar,"SSP1-2.6_{"+num2str(model_count{4})+" models} Dynamic SSH change 1984-2100",...
+IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims, ...
+    change_color_bar,"SSP1-2.6_{"+num2str(model_count{4})+" models} Dynamic SSH change 1995-2100",...
     1,fontsize, false, '')
 
 hatch = abs(sum(sign(dynamic_ssp126_demeaned),3))/size(dynamic_ssp126_demeaned,3)';
@@ -271,10 +272,11 @@ for ii=1:size(c1,2)
 h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
-print(gcf,'../PNGs/StericSSH_ssp126_demeaned_title.png','-dpng','-r100', '-painters');
-% title('')
-% colorbar off
-% print(gcf,'../PNGs/StericSSH_ssp126_demeaned.png','-dpng','-r1000', '-painters');
+print(gcf,'../PNGs/StericSSH_ssp126_demeaned_title_Corrected.png','-dpng','-r100', '-painters');
+clear title
+title('Random title', 'Color','none')
+colorbar off
+print(gcf,'../PNGs/StericSSH_ssp126_demeaned_Corrected.png','-dpng','-r1000', '-painters');
 
 contourm(latitude',longitude',hatch',[3 3],'Fill','off','LineColor','k'); %
 hatch(hatch==3)=0;
@@ -282,13 +284,13 @@ hatch(hatch==3)=0;
 stipplem(lat_temp,lon_temp,~logical(hatch),'color','k','markersize',2, ...
     'marker','x');
 
-print(gcf,'../PNGs/Test_Maps/StericSSH_ssp126_demeaned_hatchcheck.png','-dpng','-r1000', '-painters');
+print(gcf,'../PNGs/Test_Maps/StericSSH_ssp126_demeaned_hatchcheck_Corrected.png','-dpng','-r1000', '-painters');
 close(1)
 
 ncfilename = '../Plotted_Data/Fig9-12d_data.nc';
 var_name = 'StericSeaLevel';
 var_units = 'm';
-title = "Steric Relative Sea Level Change for SSP1-2.6 between 1984-2015"+ ...
+title = "Steric Relative Sea Level Change for SSP1-2.6 between 1995-2014"+ ...
     " and 2081-2100 from a CMIP6 ensemble";
 comments = "Data is for panel (d) of Figure 9.12 in the IPCC Working Group"+ ...
     " I contribution to the Sixth Assesment Report";
@@ -303,12 +305,12 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = nanmean(thermosteric_ssp585_demeaned,3);
+plot_var1 = mean(thermosteric_ssp585_demeaned,3);
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
 IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims, ...
-    change_color_bar,"SSP5-8.5_{"+num2str(model_count{2})+" models} Thermosteric SSH change 1984-2100",...
+    change_color_bar,"SSP5-8.5_{"+num2str(model_count{2})+" models} Thermosteric SSH change 1995-2100",...
     1,fontsize, true, '(m)')
 
 hatch = abs(sum(sign(thermosteric_ssp585_demeaned),3))/size(thermosteric_ssp585_demeaned,3)';
@@ -332,7 +334,8 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/ThermostericSSH_ssp585_demeaned_title.png','-dpng','-r100', '-painters');
-% title('')
+% clear title
+% title('Random title', 'Color','none')
 % %print(gcf,'./PNGs/ThermostericSSH_ssp585_demeaned_colorbar.png','-dpng','-r1000', '-painters');
 % colorbar off
 % print(gcf,'../PNGs/ThermostericSSH_ssp585_demeaned.png','-dpng','-r1000', '-painters');
@@ -349,7 +352,7 @@ close(1)
 ncfilename = '../Plotted_Data/Fig9-12b_data.nc';
 var_name = 'ThermostericSeaLevel';
 var_units = 'm';
-title = "Thermosteric Relative Sea Level Change for SSP5-8.5 between 1984-2015"+ ...
+title = "Thermosteric Relative Sea Level Change for SSP5-8.5 between 1995-2014"+ ...
     " and 2081-2100 from a CMIP6 ensemble";
 comments = "Data is for panel (b) of Figure 9.12 in the IPCC Working Group"+ ...
     " I contribution to the Sixth Assesment Report";
@@ -364,12 +367,12 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = nanmean(thermosteric_ssp126_demeaned,3);
+plot_var1 = mean(thermosteric_ssp126_demeaned,3,'omitnan');
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
 IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims, ...
-    change_color_bar,"SSP1-2.6_{"+num2str(model_count{5})+" models} Thermosteric SSH change 1984-2100",...
+    change_color_bar,"SSP1-2.6_{"+num2str(model_count{5})+" models} Thermosteric SSH change 1995-2100",...
     1,fontsize, false, '')
 
 hatch = abs(sum(sign(thermosteric_ssp126_demeaned),3))/size(thermosteric_ssp126_demeaned,3)';
@@ -393,7 +396,8 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/ThermostericSSH_ssp126_demeaned_title.png','-dpng','-r100', '-painters');
-% title('')
+% clear title
+% title('Random title', 'Color','none')
 % colorbar off
 % print(gcf,'../PNGs/ThermostericSSH_ssp126_demeaned.png','-dpng','-r1000', '-painters');
 
@@ -409,7 +413,7 @@ close(1)
 ncfilename = '../Plotted_Data/Fig9-12e_data.nc';
 var_name = 'ThermostericSeaLevel';
 var_units = 'm';
-title = "Thermosteric Relative Sea Level Change for SSP1-2.6 between 1984-2015"+ ...
+title = "Thermosteric Relative Sea Level Change for SSP1-2.6 between 1995-2014"+ ...
     " and 2081-2100 from a CMIP6 ensemble";
 comments = "Data is for panel (e) of Figure 9.12 in the IPCC Working Group"+ ...
     " I contribution to the Sixth Assesment Report";
@@ -425,12 +429,12 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = nanmean(halosteric_ssp585_demeaned,3);
+plot_var1 = mean(halosteric_ssp585_demeaned,3, 'omitnan');
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
 IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims, ...
-    change_color_bar,"SSP5-8.5_{"+num2str(model_count{3})+" models} Halosteric SSH change 1984-2100",...
+    change_color_bar,"SSP5-8.5_{"+num2str(model_count{3})+" models} Halosteric SSH change 1995-2100",...
     1,fontsize, true, '(m)')
 
 hatch = abs(sum(sign(halosteric_ssp585_demeaned),3))/size(halosteric_ssp585_demeaned,3)';
@@ -458,7 +462,8 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/HalostericSSH_ssp585_demeaned_title.png','-dpng','-r100', '-painters');
-% title('')
+% clear title
+% title('Random title', 'Color','none')
 % %print(gcf,'./PNGs/HalostericSSH_ssp585_demeaned_colorbar.png','-dpng','-r1000', '-painters');
 % colorbar off
 % print(gcf,'../PNGs/HalostericSSH_ssp585_demeaned.png','-dpng','-r1000', '-painters');
@@ -475,7 +480,7 @@ close(1)
 ncfilename = '../Plotted_Data/Fig9-12c_data.nc';
 var_name = 'HalostericSeaLevel';
 var_units = 'm';
-title = "Halosteric Relative Sea Level Change for SSP5-8.5 between 1984-2015"+ ...
+title = "Halosteric Relative Sea Level Change for SSP5-8.5 between 1995-2014"+ ...
     " and 2081-2100 from a CMIP6 ensemble";
 comments = "Data is for panel (c) of Figure 9.12 in the IPCC Working Group"+ ...
     " I contribution to the Sixth Assesment Report";
@@ -490,12 +495,12 @@ latitude = lat';
 longitude = [lon'; lon(1)];
 % longitude = [lon'; lon(1)];
 
-plot_var1 = nanmean(halosteric_ssp126_demeaned,3);
+plot_var1 = mean(halosteric_ssp126_demeaned,3, 'omitnan');
 plot_var1 = [plot_var1; plot_var1(1,:,:)];
 
 
 IPCC_Plot_Map_Gappy(plot_var1',latitude,longitude,lims, ...
-    change_color_bar,"SSP1-2.6_{"+num2str(model_count{6})+" models} Halosteric SSH change 1984-2100",...
+    change_color_bar,"SSP1-2.6_{"+num2str(model_count{6})+" models} Halosteric SSH change 1995-2100",...
     1,fontsize, false, '')
 
 hatch = abs(sum(sign(halosteric_ssp126_demeaned),3))/size(halosteric_ssp126_demeaned,3)';
@@ -521,7 +526,8 @@ h=patchm(c1(2,:),c1(1,:),'r','FaceAlpha',0,'Linestyle','none');
 hatchfill2(h,'single','HatchAngle',45,'LineWidth',0.001);
 
 print(gcf,'../PNGs/HalostericSSH_ssp126_demeaned_title.png','-dpng','-r100', '-painters');
-% title('')
+% clear title
+% title('Random title', 'Color','none')
 % colorbar off
 % print(gcf,'../PNGs/HalostericSSH_ssp126_demeaned.png','-dpng','-r1000', '-painters');
 
@@ -537,7 +543,7 @@ close(1)
 ncfilename = '../Plotted_Data/Fig9-12f_data.nc';
 var_name = 'HalostericSeaLevel';
 var_units = 'm';
-title = "Halosteric Relative Sea Level Change for SSP1-2.6 between 1984-2015"+ ...
+title = "Halosteric Relative Sea Level Change for SSP1-2.6 between 1995-2014"+ ...
     " and 2081-2100 from a CMIP6 ensemble";
 comments = "Data is for panel (f) of Figure 9.12 in the IPCC Working Group"+ ...
     " I contribution to the Sixth Assesment Report";
