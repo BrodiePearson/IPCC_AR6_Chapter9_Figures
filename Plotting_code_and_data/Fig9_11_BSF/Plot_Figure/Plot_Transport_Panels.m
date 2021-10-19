@@ -193,19 +193,19 @@ h4=plot([x,x], ITF1000_fut(2,[2 3]),'Color',c585,'LineWidth',wid)
 plot([x], ITF1000_fut(2,1),'o','Color',c585,'MarkerFaceColor', c585,'MarkerSize',sz);
 
 x=6.8
-h1=plot([x,x], ITF1000_pre(1,[2 3]),'--','Color','k','LineWidth',wid)
+h1=plot([x,x], BC1000_pre(1,[2 3]),'--','Color','k','LineWidth',wid)
 hold on;
-plot([x], ITF1000_pre(1,1),'o','Color','k', 'MarkerFaceColor', 'k','MarkerSize',sz)
+plot([x], BC1000_pre(1,1),'o','Color','k', 'MarkerFaceColor', 'k','MarkerSize',sz)
 x=7.1
-h2=plot([x,x], ITF1000_fut(1,[2 3]),'--','Color',cr85,'LineWidth',wid)
+h2=plot([x,x], BC1000_fut(1,[2 3]),'--','Color',cr85,'LineWidth',wid)
 hold on;
-plot([x], ITF1000_fut(1,1),'o','Color',cr85,'MarkerFaceColor',cr85,'MarkerSize',sz)
+plot([x], BC1000_fut(1,1),'o','Color',cr85,'MarkerFaceColor',cr85,'MarkerSize',sz)
 x=6.9
-h3=plot([x,x], ITF1000_pre(2,[2 3]),'Color','k','LineWidth',wid)
-plot([x], ITF1000_pre(2,1),'o','Color','k','MarkerFaceColor','k','MarkerSize',sz)
+h3=plot([x,x], BC1000_pre(2,[2 3]),'Color','k','LineWidth',wid)
+plot([x], BC1000_pre(2,1),'o','Color','k','MarkerFaceColor','k','MarkerSize',sz)
 x=7.2
-h4=plot([x,x], ITF1000_fut(2,[2 3]),'Color',c585,'LineWidth',wid)
-plot([x], ITF1000_fut(2,1),'o','Color',c585,'MarkerFaceColor', c585,'MarkerSize',sz);
+h4=plot([x,x], BC1000_fut(2,[2 3]),'Color',c585,'LineWidth',wid)
+plot([x], BC1000_fut(2,1),'o','Color',c585,'MarkerFaceColor', c585,'MarkerSize',sz);
 
 % VERTICAL DIVIDER
 plot([3.5 3.5],[-60 60],':')
@@ -330,19 +330,19 @@ plot([x], ITF100_fut(2,1),'o','Color',c585,'MarkerFaceColor', c585,'MarkerSize',
 
 
 x=6.8
-h1=plot([x,x], ITF100_pre(1,[2 3]),'--','Color','k','LineWidth',wid)
+h1=plot([x,x], BC100_pre(1,[2 3]),'--','Color','k','LineWidth',wid)
 hold on;
-plot([x], ITF100_pre(1,1),'o','Color','k', 'MarkerFaceColor', 'k','MarkerSize',sz)
+plot([x], BC100_pre(1,1),'o','Color','k', 'MarkerFaceColor', 'k','MarkerSize',sz)
 x=7.1
-h2=plot([x,x], ITF100_fut(1,[2 3]),'--','Color',cr85,'LineWidth',wid)
+h2=plot([x,x], BC100_fut(1,[2 3]),'--','Color',cr85,'LineWidth',wid)
 hold on;
-plot([x], ITF100_fut(1,1),'o','Color',cr85,'MarkerFaceColor',cr85,'MarkerSize',sz)
+plot([x], BC100_fut(1,1),'o','Color',cr85,'MarkerFaceColor',cr85,'MarkerSize',sz)
 x=6.9
-h3=plot([x,x], ITF100_pre(2,[2 3]),'Color','k','LineWidth',wid)
-plot([x], ITF100_pre(2,1),'o','Color','k','MarkerFaceColor','k','MarkerSize',sz)
+h3=plot([x,x], BC100_pre(2,[2 3]),'Color','k','LineWidth',wid)
+plot([x], BC100_pre(2,1),'o','Color','k','MarkerFaceColor','k','MarkerSize',sz)
 x=7.2
-h4=plot([x,x], ITF100_fut(2,[2 3]),'Color',c585,'LineWidth',wid)
-plot([x], ITF100_fut(2,1),'o','Color',c585,'MarkerFaceColor', c585,'MarkerSize',sz);
+h4=plot([x,x], BC100_fut(2,[2 3]),'Color',c585,'LineWidth',wid)
+plot([x], BC100_fut(2,1),'o','Color',c585,'MarkerFaceColor', c585,'MarkerSize',sz);
 
 % VERTICAL DIVIDER
 plot([3.5 3.5],[-11 11],':')
