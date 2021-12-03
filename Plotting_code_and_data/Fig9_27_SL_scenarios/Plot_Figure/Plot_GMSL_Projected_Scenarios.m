@@ -149,23 +149,8 @@ for sss=1:length(scens)
     likely_lbound_m=[0; SL_quantc{sss}(1:12,2)/1000];
     central_m=[0 ; SL_quantc{sss}(1:12,3)/1000];
     T = table(year,central_m,likely_lbound_m,likely_ubound_m);
-% <<<<<<< HEAD
-% <<<<<<< Updated upstream
-%     writetable(T,savefile,'Sheet',cell2mat(scens(sss)));
-end
-
-%Plot the medium-confidence process scenarios
-pp=[];
-for sss=1:length(scens)
-    pp(sss)=plot([2005 ; timec],[0 ; SL_quantc{sss}(:,3)/1000],'Color',scencolors(sss,:),'LineStyle','-', 'LineWidth', width); hold on
-% =======
-%     writematrix([cell2mat(scens(sss)),' Medium Confidence Processes'],savefile,'Range',[cell2mat(collabs(1+sss)),'2']);
-%     writetable(T,savefile,'Range',[cell2mat(collabs(1+sss)),'3']);
-% >>>>>>> Stashed changes
-% =======
     writematrix([cell2mat(scens(sss)),' Medium Confidence Processes'],savefile,'Range',[cell2mat(collabs(1+sss)),'1']);
     writetable(T,savefile,'Range',[cell2mat(collabs(1+sss)),'2']);
-% >>>>>>> master
 end
 
 outstruct.historical_time=historical.t(:);
