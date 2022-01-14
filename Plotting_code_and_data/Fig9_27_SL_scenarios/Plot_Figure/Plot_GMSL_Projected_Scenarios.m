@@ -19,11 +19,12 @@ width = 3;
 start_year=1950;
 end_year=2150;
 
-color_SSP119 = IPCC_Get_SSPColors('ssp119');
-color_SSP126 = IPCC_Get_SSPColors('ssp126');
-color_SSP245 = IPCC_Get_SSPColors('ssp245');
-color_SSP370 = IPCC_Get_SSPColors('ssp370');
-color_SSP585 = IPCC_Get_SSPColors('ssp585');
+% Colors updated to match updated SPM colors
+color_SSP119 = [0   173  207]/255;
+color_SSP126 = [23  60   102]/255;
+color_SSP245 = [247 148  32]/255;
+color_SSP370 = [231 29   37]/255;
+color_SSP585 = [149 27   30]/255;
 
 %%
 clear hs;
@@ -149,23 +150,8 @@ for sss=1:length(scens)
     likely_lbound_m=[0; SL_quantc{sss}(1:12,2)/1000];
     central_m=[0 ; SL_quantc{sss}(1:12,3)/1000];
     T = table(year,central_m,likely_lbound_m,likely_ubound_m);
-% <<<<<<< HEAD
-% <<<<<<< Updated upstream
-%     writetable(T,savefile,'Sheet',cell2mat(scens(sss)));
-end
-
-%Plot the medium-confidence process scenarios
-pp=[];
-for sss=1:length(scens)
-    pp(sss)=plot([2005 ; timec],[0 ; SL_quantc{sss}(:,3)/1000],'Color',scencolors(sss,:),'LineStyle','-', 'LineWidth', width); hold on
-% =======
-%     writematrix([cell2mat(scens(sss)),' Medium Confidence Processes'],savefile,'Range',[cell2mat(collabs(1+sss)),'2']);
-%     writetable(T,savefile,'Range',[cell2mat(collabs(1+sss)),'3']);
-% >>>>>>> Stashed changes
-% =======
     writematrix([cell2mat(scens(sss)),' Medium Confidence Processes'],savefile,'Range',[cell2mat(collabs(1+sss)),'1']);
     writetable(T,savefile,'Range',[cell2mat(collabs(1+sss)),'2']);
-% >>>>>>> master
 end
 
 outstruct.historical_time=historical.t(:);
