@@ -19,11 +19,12 @@ width = 3;
 start_year=1950;
 end_year=2150;
 
-color_SSP119 = IPCC_Get_SSPColors('ssp119');
-color_SSP126 = IPCC_Get_SSPColors('ssp126');
-color_SSP245 = IPCC_Get_SSPColors('ssp245');
-color_SSP370 = IPCC_Get_SSPColors('ssp370');
-color_SSP585 = IPCC_Get_SSPColors('ssp585');
+% Colors updated to match updated SPM colors
+color_SSP119 = [0   173  207]/255;
+color_SSP126 = [23  60   102]/255;
+color_SSP245 = [247 148  32]/255;
+color_SSP370 = [231 29   37]/255;
+color_SSP585 = [149 27   30]/255;
 
 %%
 clear hs;
