@@ -163,7 +163,7 @@ outstruct.Ishii2k_Likely_ubound=outstruct.Ishii2k_Likely_ubound-offset;
 
 
 OHC_Hybrid2_table = readtable('./Data/Cheng_2016_Global_OHC_13_Jan_2021.txt');
-OHC_Hybrid2_mean = (1e-3)*table2array(OHC_Hybrid2_table(:,2)); % Extract 0-2000m OHC data (Units 10^{22} J)
+OHC_Hybrid2_mean = (1e-3)*table2array(OHC_Hybrid2_table(:,2)); % Extract 0-2000m OHC data (Units 10^{21} J)
 TIME_Hybrid2 = table2array(OHC_Hybrid2_table(:,1));
 OHC_Hybrid2_mean = OHC_Hybrid2_mean - nanmean(OHC_Hybrid2_mean(TIME_Hybrid2<=anom_end & TIME_Hybrid2>=anom_start));
 
@@ -288,8 +288,8 @@ tmp_data = cell2mat(data(1,2));
 
 % Extract Shackleton time in ka CE (negative)
 Time_OHC_Oldest = tmp_data(1:50,3)/1000;
-% Extract Shackleton OHC in 10^4 ZJ
-OHC_Oldest = tmp_data(1:50,9)/1e4;
+% Extract Shackleton OHC in 10^3 ZJ
+OHC_Oldest = tmp_data(1:50,9)/1e3;
 
 OHC_LIG = OHC_Oldest(Time_OHC_Oldest>=-129 & Time_OHC_Oldest<=-116);
 
@@ -306,10 +306,10 @@ tmp_data = cell2mat(data(1,3));
 
 % Extract Baggenstos time in ka CE (negative)
 Time_OHC_Old = tmp_data(3:39,19)/1000;
-% Extract Shackleton OHC in 10^4 ZJ
-OHC_Old = tmp_data(3:39,25)/1e4;
-Bag_OHC_Old_min = tmp_data(3:39,26)/1e4;
-Bag_OHC_Old_max = tmp_data(3:39,27)/1e4;
+% Extract Shackleton OHC in 10^3 ZJ
+OHC_Old = tmp_data(3:39,25)/1e3;
+Bag_OHC_Old_min = tmp_data(3:39,26)/1e3;
+Bag_OHC_Old_max = tmp_data(3:39,27)/1e3;
 
 OHC_LGM = OHC_Old(Time_OHC_Old>=-23.0 & Time_OHC_Old<=-19.0);
 OHC_LGM_Likely_upper = quantile(OHC_LGM,0.83);
@@ -339,24 +339,24 @@ plot([3.5,3.5], [OHC_MH_lower, OHC_MH_upper], '-', 'LineWidth', width,'MarkerEdg
 
 xlim([0 4])
 plot([0 5], [0 5]*0, 'k', 'LineWidth', width/10)
-ylim([-2 2])
+ylim([-20 20])
 set(gca,'Xtick',[0.5 2 3.5],'Xticklabel',[])
-set(gca,'Ytick',[-2 -1.5 -1 -0.5 0 0.5 1 1.5 2],'Yticklabel',{'-2','','-1','','0', '','1','','2'})
+set(gca,'Ytick',[-20 -15 -10 -5 0 5 10 15 20],'Yticklabel',{'-20','','-10','','0', '','10','','20'})
 set(gca,'FontSize',15,'Box', 'on')
 txt = {'Observed means and', '(very) likely ranges'};
-text(2.1,1.2,txt,'FontSize',14, ...
+text(2.1,12,txt,'FontSize',14, ...
     'Color', color_OBS, 'FontWeight', 'bold','HorizontalAlignment','center')
 % ylabel('^o C')
 % set(get(gca,'YLabel'),'Rotation',0)
 
-text(0.5,-2.2,{'LIG'},'FontSize',14, ...
+text(0.5,-22,{'LIG'},'FontSize',14, ...
     'HorizontalAlignment','center', 'Interpreter','latex')
-text(2,-2.2,{'LGM'},'FontSize',14, ...
+text(2,-22,{'LGM'},'FontSize',14, ...
     'HorizontalAlignment','center', 'Interpreter','latex')
-text(3.5,-2.2,{'MH'},'FontSize',14, ...
+text(3.5,-22,{'MH'},'FontSize',14, ...
     'HorizontalAlignment','center', 'Interpreter','latex')
 
 txt = 'Paleo OHC';
-text(0.2,1.8,txt,'FontSize',18, ...
+text(0.2,18,txt,'FontSize',18, ...
     'Color', 'k', 'FontWeight', 'bold')
 
